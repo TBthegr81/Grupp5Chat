@@ -14,11 +14,19 @@ public class Klient {
 	
 	//connect to server
 	public void connectToServer(String address, int port) throws IOException {
+
+		//skicka lite text till servern som frågar om att få connecta
+		//if sats för att ta emot svar från servern
 		connectionToServer = new Socket(address, port);
 		
 		//setup streams
 		outStream = new PrintWriter(connectionToServer.getOutputStream());
 		inStream = new BufferedReader(new InputStreamReader(connectionToServer.getInputStream()));
+	}
+	
+	//login to server
+	public void loginToServer() {
+		
 	}
 	
 	//send message to server

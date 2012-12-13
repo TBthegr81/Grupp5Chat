@@ -12,7 +12,7 @@ public class Klient {
 	
 	//connect to server
 	public void connectToServer(String address, int port) {
-		lalakölsdsafcnsxvisgfkjndlkva
+		
 	}
 	
 	//send message to server

@@ -1,6 +1,8 @@
 package Klient;
 
 import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
@@ -11,8 +13,20 @@ public class Klient {
 	private BufferedReader inStream;
 	
 	//connect to server
-	public void connectToServer(String address, int port) {
-		lalakölsdsafcnsxvisgfkjndlkva
+	public void connectToServer(String address, int port) throws IOException {
+
+		//skicka lite text till servern som frågar om att få connecta
+		//if sats för att ta emot svar från servern
+		connectionToServer = new Socket(address, port);
+		
+		//setup streams
+		outStream = new PrintWriter(connectionToServer.getOutputStream());
+		inStream = new BufferedReader(new InputStreamReader(connectionToServer.getInputStream()));
+	}
+	
+	//login to server
+	public void loginToServer() {
+		
 	}
 	
 	//send message to server
@@ -26,13 +40,20 @@ public class Klient {
 	}
 	
 	//show message in text area
-	public void sendMessage(String m) {
+	public void showMessage(final String m) {
 		
 	}
 	
 	//close streams and connections
 	public void close() {
-		
+		System.out.println("connection closed");
+		try {
+			inStream.close();
+			outStream.close();
+			connectionToServer.close();			
+		}catch(IOException e){
+			System.out.println("ERROR: " + e.getMessage());
+		}
 	}
 
 }

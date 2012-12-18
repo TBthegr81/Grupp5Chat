@@ -1,6 +1,8 @@
 package Klient;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
 import javax.swing.*;
@@ -8,18 +10,22 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
 
-public class GUI {
+public class GUI extends JFrame implements ActionListener{
+	
+	private static final long serialVersionUID = 1L;
+	
 	private static JTextField conversationBoard;
 	private static JTextField messageBoard;
 
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args) {
+	public GUI(){
 		// TODO Auto-generated method stub
 
 		//Headframe, temporary name for JFrame, change later
 		final JFrame clientWindow = new JFrame ("Group 5 chat client");
+		
 		clientWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		clientWindow.setSize(700, 750);
 		clientWindow.setLocationRelativeTo(null);
@@ -42,6 +48,7 @@ public class GUI {
 		//submit button to send text
 		JButton btnSendMessage = new JButton("Send message");
 		btnSendMessage.setBackground(Color.CYAN);
+		btnSendMessage.addActionListener(this);
 		
 		
 		//Menu for chat
@@ -127,6 +134,12 @@ public class GUI {
 
 		
 
+		
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
 		
 	}
 }

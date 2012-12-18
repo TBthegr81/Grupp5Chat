@@ -7,6 +7,8 @@ public class Main {
 
 	public static void main(String[] args) {
 		Klient klient = new Klient();
+		GUI gui = new GUI();
+		gui.setVisible(true);
 		
 		try {
 			klient.connectToServer("localhost", 54602);

@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 
 import javax.swing.*;
 import javax.swing.GroupLayout.Alignment;
@@ -13,6 +14,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 public class GUI extends JFrame implements ActionListener{
 	
 	private static final long serialVersionUID = 1L;
+	public static String newline = System.getProperty("line.separator");
 	
 	private static JTextField conversationBoard;
 	private static JTextField messageBoard;
@@ -43,12 +45,28 @@ public class GUI extends JFrame implements ActionListener{
 		messageBoard.setColumns(10);
 
 		
-		//TODO Add listener to btnSendMessage
-		
 		//submit button to send text
 		JButton btnSendMessage = new JButton("Send message");
 		btnSendMessage.setBackground(Color.CYAN);
-		btnSendMessage.addActionListener(this);
+		
+		btnSendMessage.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				//Add arguments to send stuff to client here. DUMMY CODE
+				//BUG newline doesn't add a new line currently. (adds fine in console)
+				Main.messageArray.add(messageBoard.getText());
+				conversationBoard.setText(conversationBoard.getText() + newline + messageBoard.getText());
+				
+				
+				//Debugarray. Remove when finished.
+				for (int i = 0; i < Main.messageArray.size(); i++){
+					
+					System.out.println(i + ": " + Main.messageArray.get(i) + newline);
+				}
+				//Clears input field.
+				messageBoard.setText("");
+			}
+		});
 		
 		
 		//Menu for chat

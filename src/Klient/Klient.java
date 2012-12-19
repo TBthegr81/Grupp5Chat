@@ -61,6 +61,9 @@ public class Klient {
 	
 	//receive message from server
 	public void receive() {
+		message = "hej joakim";
+		user = "Ivan";
+		Main.gui.showReceivedMessage(message, user);
 		while(!message.equals("SERVER - END")){		//annan lösning här såklart
 			try {
 				user = inStream.readLine();
@@ -68,9 +71,6 @@ public class Klient {
 			} catch (IOException e) {
 				System.out.println("ERROR: " + e.getMessage());
 			}
-			message = "hej joakim";
-			user = "RÖVEN";
-			Main.gui.showReceivedMessage(message, user);
 		}
 	}
 	

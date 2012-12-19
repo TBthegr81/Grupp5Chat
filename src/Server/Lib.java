@@ -34,7 +34,8 @@ public class Lib {
 				for(int i = 0; i < list.size(); i++)
 			    {
 					Lib.log(list.get(i));
-					settings.add(list.get(i).split("\\s+")[1]);
+					String Stuff[] = list.get(i).split("\\s+",2);
+					settings.add(Stuff[1]);
 			    }
 				for(String line : settings)
 				{

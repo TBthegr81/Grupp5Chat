@@ -16,9 +16,15 @@ public class Main {
 		try {
 			awesomeserver.start();
 		} catch (IOException e) {
-			e.printStackTrace();
+			System.out.println("Error: " + e.getMessage());
 		}
-		awesomeserver.exit();
+		
+		while(true)
+		{
+			
+		}
+		
+		//awesomeserver.exit();
 	}
 
 }

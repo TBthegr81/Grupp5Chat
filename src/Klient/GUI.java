@@ -155,6 +155,18 @@ public class GUI extends JFrame implements ActionListener{
 
 		
 	}
+	public void showReceivedMessage(String m){
+		
+		Main.messageArray.add(m);
+		conversationWindow.setText(conversationWindow.getText() + newline + m);
+
+		//Debugarray. Remove when finished.
+		for (int i = 0; i < Main.messageArray.size(); i++){
+			
+			System.out.println(i + ": " + Main.messageArray.get(i) + newline);
+		}
+		
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {

@@ -11,10 +11,15 @@ public class Main {
 	static GUI gui = new GUI();
 	
 	public static void main(String[] args) {
+<<<<<<< HEAD
 		Klient klient = new Klient();
 
 		
 		
+=======
+
+		Klient klient = new Klient();		
+>>>>>>> 2d0e109c19f22d67f5a3ac1ec1255033197a182e
 		gui.setVisible(true);
 	}
 }

@@ -69,7 +69,7 @@ public class Klient {
 				System.out.println("ERROR: " + e.getMessage());
 			}
 			message = "hej joakim";
-			user = "IVAN";
+			user = "RÖVEN";
 			Main.gui.showReceivedMessage(message, user);
 		}
 	}

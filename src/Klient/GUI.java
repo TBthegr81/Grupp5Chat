@@ -15,6 +15,7 @@ public class GUI extends JFrame implements ActionListener{
 	
 	private static final long serialVersionUID = 1L;
 	public static String newline = System.getProperty("line.separator");
+	public static String myUserName = "Debugger";
 	
 	private static JTextArea conversationWindow;
 	private static JTextField messageInputField;
@@ -56,7 +57,7 @@ public class GUI extends JFrame implements ActionListener{
 				//Add arguments to send stuff to client here. DUMMY CODE
 				//BUG newline doesn't add a new line currently. (adds fine in console)
 				Main.messageArray.add(messageInputField.getText());
-				conversationWindow.setText(conversationWindow.getText() + newline + messageInputField.getText());
+				conversationWindow.setText(conversationWindow.getText() + newline + myUserName + ": " + messageInputField.getText());
 				
 				
 				//Debugarray. Remove when finished.
@@ -155,10 +156,10 @@ public class GUI extends JFrame implements ActionListener{
 
 		
 	}
-	public void showReceivedMessage(String m){
+	public void showReceivedMessage(String message, String user){
 		
-		Main.messageArray.add(m);
-		conversationWindow.setText(conversationWindow.getText() + newline + m);
+		Main.messageArray.add(message);
+		conversationWindow.setText(conversationWindow.getText() + newline + user + ": " + message);
 
 		//Debugarray. Remove when finished.
 		for (int i = 0; i < Main.messageArray.size(); i++){

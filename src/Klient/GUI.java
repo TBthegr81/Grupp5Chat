@@ -25,6 +25,7 @@ public class GUI extends JFrame implements ActionListener{
 	public GUI(){
 		// TODO Auto-generated method stub
 
+		//Lorena testar
 		//Headframe, temporary name for JFrame, change later
 		final JFrame clientWindow = new JFrame ("Group 5 chat client");
 		

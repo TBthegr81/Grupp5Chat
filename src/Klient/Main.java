@@ -11,8 +11,13 @@ public class Main {
 	static GUI gui = new GUI();
 	
 	public static void main(String[] args) {
+<<<<<<< HEAD
+		GUI gui = new GUI();
+		Klient klient = new Klient();
+=======
 		Klient klient = new Klient();
 		
+>>>>>>> c59e65f8a49244bb56a3ceda7885fd2046c02868
 		
 		
 		gui.setVisible(true);

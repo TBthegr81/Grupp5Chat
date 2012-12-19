@@ -10,8 +10,8 @@ public class Main {
 	static ArrayList<String> messageArray = new ArrayList<String>();
 	
 	public static void main(String[] args) {
-		Klient klient = new Klient();
 		GUI gui = new GUI();
+		Klient klient = new Klient();
 		
 		
 		gui.setVisible(true);

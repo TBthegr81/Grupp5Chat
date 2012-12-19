@@ -35,7 +35,7 @@ public class Klient {
 //	}
 	
 	public void logInToServer() {
-		connect();
+		connect(String adress, int port);
 		receive();
 	}
 	
@@ -74,6 +74,7 @@ public class Klient {
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
 				/*append text to chat window*/
+//				Main.gui.conversationWindo
 			}
 		});
 	}

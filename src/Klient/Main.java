@@ -17,7 +17,7 @@ public class Main {
 		gui.setVisible(true);
 		
 		try {
-			klient.connectToServer("localhost", 54602);
+			klient.connect("localhost", 54602);
 		}catch(UnknownHostException e) {
 			System.out.println("ERROr: " + e.getMessage());
 		}catch(IOException e) {

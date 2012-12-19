@@ -11,35 +11,39 @@ import javax.swing.SwingUtilities;
 
 public class Klient {
 	
-	private Socket connectionToServer;
+	private Socket connection;
 	private PrintWriter outStream;
 	private BufferedReader inStream;
 	private String message = "";
+	private String address;
+	private String port;
 	
-	//connect to server
-	public void connectToServer(String address, int port) throws IOException {
-
-		//skicka lite text till servern som frågar om att få connecta
-		//if sats för att ta emot svar från servern
-		connectionToServer = new Socket(address, port);
-		
-		//setup streams
-		outStream = new PrintWriter(connectionToServer.getOutputStream());
-		inStream = new BufferedReader(new InputStreamReader(connectionToServer.getInputStream()));
-	}
-	
-	//login to server
-	public void loginToServer() {
-		connect();
+	//konstruktor
+	Klient() {
+		connect(address, port);
 		receive();
 	}
 	
-	public void connect() {
+//	//connect to server
+//	public void connectToServer(String address, int port) throws IOException {
+//
+//		//skicka lite text till servern som frågar om att få connecta
+//		//if sats för att ta emot svar från servern
+//		connection = new Socket(address, port);
+//		
+//		//setup streams
+//		outStream = new PrintWriter(connection.getOutputStream());
+//		inStream = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+//	}
+	
+	public void connect(String address, int port) {
+		showMessage("connecting to: " + address + "...");
 		try {
-			inStream = new BufferedReader(new InputStreamReader(connectionToServer.getInputStream()));
-			outStream = new PrintWriter(connectionToServer.getOutputStream());
+			connection = new Socket(address, port);
+			inStream = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+			outStream = new PrintWriter(connection.getOutputStream());
 		} catch (IOException e) {
-			e.printStackTrace();
+			System.out.println("ERROR: " + e.getMessage());
 		}
 	}
 	
@@ -52,9 +56,13 @@ public class Klient {
 	
 	//receive message from server
 	public void receive() {
-		while(!message.equals("SERVER - END")){
-			message = (String) inStream.toString();
-			showMessage("\n" + message);		
+		while(!message.equals("SERVER - END")){		//annan lösning här såklart
+			try {
+				message = inStream.readLine();
+			} catch (IOException e) {
+				System.out.println("ERROR: " + e.getMessage());
+			}
+			showMessage("\n" + message);
 		}
 	}
 	
@@ -73,7 +81,7 @@ public class Klient {
 		try {
 			inStream.close();
 			outStream.close();
-			connectionToServer.close();			
+			connection.close();			
 		}catch(IOException e){
 			System.out.println("ERROR: " + e.getMessage());
 		}

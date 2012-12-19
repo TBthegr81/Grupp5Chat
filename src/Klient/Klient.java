@@ -15,12 +15,13 @@ public class Klient {
 	private PrintWriter outStream;
 	private BufferedReader inStream;
 	private String message = "";
+	private String user;
 	private String address;
 	private String port;
 	
 	//konstruktor
 	Klient() {
-		
+		receive();
 	}
 	
 //	//connect to server
@@ -62,11 +63,14 @@ public class Klient {
 	public void receive() {
 		while(!message.equals("SERVER - END")){		//annan lösning här såklart
 			try {
+				user = inStream.readLine();
 				message = inStream.readLine();
 			} catch (IOException e) {
 				System.out.println("ERROR: " + e.getMessage());
 			}
-			Main.gui.showReceivedMessage(newline + message);
+			message = "hej joakim";
+			user = "IVAN";
+			Main.gui.showReceivedMessage(message, user);
 		}
 	}
 	

@@ -20,6 +20,7 @@ public class Klient {
 	
 	//konstruktor
 	Klient() {
+		
 	}
 	
 //	//connect to server
@@ -35,12 +36,12 @@ public class Klient {
 //	}
 	
 	public void logInToServer() {
-		connect(String adress, int port);
-		receive();
+//		connect(String adress, int port);
+//		receive();
 	}
 	
 	public void connect(String address, int port) {
-		showMessage("connecting to: " + address + "...");
+		System.out.println("connecting to: " + address + "...");
 		try {
 			connection = new Socket(address, port);
 			inStream = new BufferedReader(new InputStreamReader(connection.getInputStream()));
@@ -54,7 +55,7 @@ public class Klient {
 	public void send(String m) {
 		outStream.write("" + m);
 		outStream.flush();
-		showMessage("" + m);
+		System.out.println("" + m);
 	}
 	
 	//receive message from server
@@ -65,17 +66,8 @@ public class Klient {
 			} catch (IOException e) {
 				System.out.println("ERROR: " + e.getMessage());
 			}
-			showMessage("\n" + message);
+			Main.gui.showReceivedMessage(newline + message);
 		}
-	}
-	
-	//show message in text area
-	public void showMessage(final String m) {
-		SwingUtilities.invokeLater(new Runnable() {
-			public void run() {
-				/*append text to chat window*/
-			}
-		});
 	}
 	
 	//close streams and connections

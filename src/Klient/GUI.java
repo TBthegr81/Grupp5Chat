@@ -16,8 +16,8 @@ public class GUI extends JFrame implements ActionListener{
 	private static final long serialVersionUID = 1L;
 	public static String newline = System.getProperty("line.separator");
 	
-	private static JTextArea conversationWindow;
-	private static JTextField messageInputField;
+	public static JTextArea conversationWindow;
+	public static JTextField messageInputField;
 
 	/**
 	 * @param args

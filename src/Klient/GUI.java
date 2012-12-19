@@ -16,8 +16,8 @@ public class GUI extends JFrame implements ActionListener{
 	private static final long serialVersionUID = 1L;
 	public static String newline = System.getProperty("line.separator");
 	
-	private static JTextField conversationBoard;
-	private static JTextField messageBoard;
+	private static JTextArea conversationWindow;
+	private static JTextField messageInputField;
 
 	/**
 	 * @param args
@@ -37,12 +37,12 @@ public class GUI extends JFrame implements ActionListener{
 		contentClientWindow.setBackground(Color.DARK_GRAY);
 
 		//Conversation field where conversation will show
-		conversationBoard = new JTextField();
-		conversationBoard.setColumns(10);
+		conversationWindow = new JTextArea();
+		conversationWindow.setColumns(10);
 
 		//Text field for message
-		messageBoard = new JTextField();
-		messageBoard.setColumns(10);
+		messageInputField = new JTextField();
+		messageInputField.setColumns(10);
 
 		
 		//submit button to send text
@@ -54,8 +54,8 @@ public class GUI extends JFrame implements ActionListener{
 				
 				//Add arguments to send stuff to client here. DUMMY CODE
 				//BUG newline doesn't add a new line currently. (adds fine in console)
-				Main.messageArray.add(messageBoard.getText());
-				conversationBoard.setText(conversationBoard.getText() + newline + messageBoard.getText());
+				Main.messageArray.add(messageInputField.getText());
+				conversationWindow.setText(conversationWindow.getText() + newline + messageInputField.getText());
 				
 				
 				//Debugarray. Remove when finished.
@@ -64,7 +64,7 @@ public class GUI extends JFrame implements ActionListener{
 					System.out.println(i + ": " + Main.messageArray.get(i) + newline);
 				}
 				//Clears input field.
-				messageBoard.setText("");
+				messageInputField.setText("");
 			}
 		});
 		
@@ -106,14 +106,14 @@ public class GUI extends JFrame implements ActionListener{
 				.addGap(204)
 				.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 				.addComponent(btnSendMessage)
-				.addComponent(messageBoard, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 488, GroupLayout.PREFERRED_SIZE)
+				.addComponent(messageInputField, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 488, GroupLayout.PREFERRED_SIZE)
 				.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
 				.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 									
 						.addComponent(lblChatroom)
 						.addGap(398))
-						.addComponent(conversationBoard, GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE))
+						.addComponent(conversationWindow, GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE))
 						.addPreferredGap(ComponentPlacement.RELATED)
 							
 					.addComponent(ConversationScrollBar, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
@@ -136,7 +136,7 @@ public class GUI extends JFrame implements ActionListener{
 							
 							//Adding scroll bar for conversation board
 						.addComponent(ConversationScrollBar, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addComponent(conversationBoard, GroupLayout.DEFAULT_SIZE, 412, Short.MAX_VALUE))
+						.addComponent(conversationWindow, GroupLayout.DEFAULT_SIZE, 412, Short.MAX_VALUE))
 					.addGap(23)
 		 
 					
@@ -145,7 +145,7 @@ public class GUI extends JFrame implements ActionListener{
 					.addPreferredGap(ComponentPlacement.RELATED)
 					
 					//Adding message board
-					.addComponent(messageBoard, GroupLayout.PREFERRED_SIZE, 139, GroupLayout.PREFERRED_SIZE)
+					.addComponent(messageInputField, GroupLayout.PREFERRED_SIZE, 139, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap(55, Short.MAX_VALUE))
 		);
 		clientWindow.getContentPane().setLayout(groupLayout);

@@ -74,7 +74,6 @@ public class Klient {
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
 				/*append text to chat window*/
-//				Main.gui.conversationWindo
 			}
 		});
 	}

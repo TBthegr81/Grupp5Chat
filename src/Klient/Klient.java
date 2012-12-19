@@ -20,8 +20,6 @@ public class Klient {
 	
 	//konstruktor
 	Klient() {
-		connect(address, port);
-		receive();
 	}
 	
 //	//connect to server
@@ -35,6 +33,11 @@ public class Klient {
 //		outStream = new PrintWriter(connection.getOutputStream());
 //		inStream = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 //	}
+	
+	public void logInToServer() {
+		connect();
+		receive();
+	}
 	
 	public void connect(String address, int port) {
 		showMessage("connecting to: " + address + "...");

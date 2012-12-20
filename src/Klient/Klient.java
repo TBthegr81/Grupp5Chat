@@ -11,35 +11,44 @@ import javax.swing.SwingUtilities;
 
 public class Klient {
 	
-	private Socket connectionToServer;
+	private Socket connection;
 	private PrintWriter outStream;
 	private BufferedReader inStream;
 	private String message = "";
+	private String user;
+	private String address;
+	private String port;
 	
-	//connect to server
-	public void connectToServer(String address, int port) throws IOException {
-
-		//skicka lite text till servern som frågar om att få connecta
-		//if sats för att ta emot svar från servern
-		connectionToServer = new Socket(address, port);
-		
-		//setup streams
-		outStream = new PrintWriter(connectionToServer.getOutputStream());
-		inStream = new BufferedReader(new InputStreamReader(connectionToServer.getInputStream()));
-	}
-	
-	//login to server
-	public void loginToServer() {
-		connect();
+	//konstruktor
+	Klient() {
 		receive();
 	}
 	
-	public void connect() {
+//	//connect to server
+//	public void connectToServer(String address, int port) throws IOException {
+//
+//		//skicka lite text till servern som frågar om att få connecta
+//		//if sats för att ta emot svar från servern
+//		connection = new Socket(address, port);
+//		
+//		//setup streams
+//		outStream = new PrintWriter(connection.getOutputStream());
+//		inStream = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+//	}
+	
+	public void logInToServer() {
+//		connect(String adress, int port);
+//		receive();
+	}
+	
+	public void connect(String address, int port) {
+		System.out.println("connecting to: " + address + "...");
 		try {
-			inStream = new BufferedReader(new InputStreamReader(connectionToServer.getInputStream()));
-			outStream = new PrintWriter(connectionToServer.getOutputStream());
+			connection = new Socket(address, port);
+			inStream = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+			outStream = new PrintWriter(connection.getOutputStream());
 		} catch (IOException e) {
-			e.printStackTrace();
+			System.out.println("ERROR: " + e.getMessage());
 		}
 	}
 	
@@ -47,11 +56,11 @@ public class Klient {
 	public void send(String m) {
 		outStream.write("" + m);
 		outStream.flush();
-		showMessage("" + m);
 	}
 	
 	//receive message from server
 	public void receive() {
+<<<<<<< HEAD
 		while(!message.equals("SERVER - END")){
 			message = (String) inStream.toString();
 			showMessage("\n" + message);	
@@ -63,8 +72,19 @@ public class Klient {
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
 				//append text to chat window
+=======
+		message = "hej joakim";
+		user = "Ivan";
+		Main.gui.showReceivedMessage(message, user);
+		while(!message.equals("SERVER - END")){		//annan lösning här såklart
+			try {
+				user = inStream.readLine();
+				message = inStream.readLine();
+			} catch (IOException e) {
+				System.out.println("ERROR: " + e.getMessage());
+>>>>>>> branch 'master' of ssh://git@github.com/TBthegr81/Grupp5Chat.git
 			}
-		});
+		}
 	}
 	
 	//close streams and connections
@@ -73,7 +93,7 @@ public class Klient {
 		try {
 			inStream.close();
 			outStream.close();
-			connectionToServer.close();			
+			connection.close();			
 		}catch(IOException e){
 			System.out.println("ERROR: " + e.getMessage());
 		}

@@ -17,7 +17,7 @@ public class Main {
 		
 		awesomeserver.listenForClients();
 		
-		awesomeserver.exit();
+		//awesomeserver.exit();
 	}
 
 }

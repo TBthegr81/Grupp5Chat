@@ -42,6 +42,7 @@ public class Klient {
 		receive();
 	}
 	
+	//connect to server and setup streams
 	public void connect(String address, int port) {
 		System.out.println("connecting to: " + address + "...");
 		try {
@@ -62,15 +63,40 @@ public class Klient {
 	
 	//receive message from server
 	public void receive() {
-			do {
-				try {
-					user = inStream.readLine();
-					message = inStream.readLine();
-				} catch (IOException e) {
-					System.out.println("ERROR: " + e.getMessage());
+		try {
+			if(inStream.readLine() != null) {
+				System.out.println("asldhlksdkvn");
+				for(int i = 0; i < 100; i++) {
+					outStream.println("SuperUser" + i);
+					try {
+						Thread.sleep(100);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
-				Main.gui.showReceivedMessage(message, user);				
-			}while(!message.equals("SERVER - END")); //annan lösning här såklart
+				user = inStream.readLine();
+				message = inStream.readLine();
+				System.out.println(user + message);
+				Main.gui.showReceivedMessage(message, user);
+				outStream.println("SUPerUser");
+				outStream.flush();
+			}			
+		}catch(IOException e){
+			System.out.println("Error: " + e.getMessage());
+		}
+		
+		
+		//while message is not SERVER - END, keep receiving
+		do {
+			try {
+				user = inStream.readLine();
+				message = inStream.readLine();
+			} catch (IOException e) {
+				System.out.println("ERROR: " + e.getMessage());
+			}
+			Main.gui.showReceivedMessage(message, user);				
+		}while(!message.equals("SERVER - END")); //annan lösning här såklart
 	}
 	
 	//close streams and connections

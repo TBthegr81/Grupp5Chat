@@ -71,9 +71,10 @@ public class Server {
 			System.err.println(message);
 			Lib.log(message);
 		}
-		
+		outStream.println("Welcome to server.");
+		outStream.flush();
 		String inputLine, outputLine;
-				
+		/*
 		ChatProtocol cp = new ChatProtocol();
 				
 		try {
@@ -90,7 +91,7 @@ public class Server {
 			message = "Error: " + e.getMessage();
 			System.err.println(message);
 			Lib.log(message);
-		}
+		}*/
 	}
 
 	

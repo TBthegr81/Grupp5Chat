@@ -21,7 +21,7 @@ public class ChatProtocol {
 		 		// State = Waiting for Users to connect.
 		 	case 0:
 		 		// A user connected! Send them a welcome-message with the servername.
-		 	output =  "Welcome to " + Lib.settings.get(0);
+		 	output =  "Server" + "\nWelcome to " + Lib.settings.get(0);
 		 	state = SENTWELCOME;
 			break;
 			

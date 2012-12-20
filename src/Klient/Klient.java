@@ -36,7 +36,7 @@ public class Klient {
 //	}
 	
 	public void startRunning() {
-		address = "172.0.0.1";
+		address = "127.0.0.1";
 		port = 54602;
 		connect(address, port);
 		receive();

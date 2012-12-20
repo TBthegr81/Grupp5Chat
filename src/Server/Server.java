@@ -71,14 +71,13 @@ public class Server {
 			System.err.println(message);
 			Lib.log(message);
 		}
-		outStream.println("Welcome to server.");
-		outStream.flush();
-		String inputLine, outputLine;
-		/*
+		String inputLine = null;
+		String outputLine = null;
+		
 		ChatProtocol cp = new ChatProtocol();
 				
 		try {
-			while ((inputLine = inStream.readLine()) != null) {
+			do{
 				outputLine = cp.read(inputLine);
 				outStream.println(outputLine);
 				outStream.flush();
@@ -87,11 +86,13 @@ public class Server {
 			    	 break;
 			    }
 			}
+			while ((inputLine = inStream.readLine()) != null);
+			
 		} catch (IOException e) {
 			message = "Error: " + e.getMessage();
 			System.err.println(message);
 			Lib.log(message);
-		}*/
+		}
 	}
 
 	

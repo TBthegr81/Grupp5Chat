@@ -60,19 +60,6 @@ public class Klient {
 	
 	//receive message from server
 	public void receive() {
-<<<<<<< HEAD
-		while(!message.equals("SERVER - END")){
-			message = (String) inStream.toString();
-			showMessage("\n" + message);	
-		}
-	}
-	
-	//show message in text area
-	public void showMessage(final String m) {
-		SwingUtilities.invokeLater(new Runnable() {
-			public void run() {
-				//append text to chat window
-=======
 		message = "hej joakim";
 		user = "Ivan";
 		Main.gui.showReceivedMessage(message, user);
@@ -82,7 +69,6 @@ public class Klient {
 				message = inStream.readLine();
 			} catch (IOException e) {
 				System.out.println("ERROR: " + e.getMessage());
->>>>>>> branch 'master' of ssh://git@github.com/TBthegr81/Grupp5Chat.git
 			}
 		}
 	}

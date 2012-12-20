@@ -17,6 +17,7 @@ public class Klient {
 	private String message = "";
 	private String user;
 	private String address;
+	private int answer;
 	private int port;
 	
 	//konstruktor
@@ -36,7 +37,7 @@ public class Klient {
 //	}
 	
 	public void startRunning() {
-		address = "127.0.0.1";
+		address = "10.0.0.1";
 		port = 54602;
 		connect(address, port);
 		receive();
@@ -63,44 +64,54 @@ public class Klient {
 	
 	//receive message from server
 	public void receive() {
-		try {
-			if(inStream.readLine() != null) {
-				System.out.println("asldhlksdkvn");
-				outStream.println("SuperUser");
-				outStream.flush();
-				System.out.println("trolololol");
-				for(int i = 0; i < 100; i++) {
-					outStream.println("SuperUser" + i);
-					outStream.flush();
-					try {
-						Thread.sleep(100);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				}
-				user = inStream.readLine();
-				message = inStream.readLine();
-				System.out.println(user + message);
-				Main.gui.showReceivedMessage(message, user);
-				outStream.println("SUPerUser");
-				outStream.flush();
-			}			
-		}catch(IOException e){
-			System.out.println("Error: " + e.getMessage());
-		}
-		
-		
 		//while message is not SERVER - END, keep receiving
 		do {
 			try {
-				user = inStream.readLine();
-				message = inStream.readLine();
-			} catch (IOException e) {
+				String stuff[] = inStream.readLine().split("\\s+",3);
+				answer = Integer.parseInt(stuff[0]);
+				user = stuff[1];
+				message = stuff[2];
+				answerCase(answer, user, message);
+				Main.gui.showReceivedMessage(message, user);
+			}catch (IOException e) {
 				System.out.println("ERROR: " + e.getMessage());
 			}
-			Main.gui.showReceivedMessage(message, user);				
 		}while(!message.equals("SERVER - END")); //annan lösning här såklart
+	}
+	
+	public void answerCase(int answer, String user, String message) {
+		switch(answer){
+		case 1:			//connected to server, got welcome message
+			outStream.println("SuperUser");
+			outStream.flush();
+			break;
+		case 2:			//username accepted
+			outStream.println("OK");
+			outStream.flush();
+			break;
+		case 3:			//username not accepted... get new from GUI
+			outStream.println("SuperUser2");
+			outStream.flush();
+			break;
+		case 4:			//got MOT
+			outStream.println("OK");
+			outStream.flush();
+			break;
+		case 5:			//list of users
+			outStream.println("OK");
+			outStream.flush();
+			break;
+		case 6:			//list of rooms
+			outStream.println("OK");
+			outStream.flush();
+			break;
+		case 7:
+			//TODO get input from GUI
+			break;
+		case 8:
+			//lalalala
+			break;
+		}
 	}
 	
 	//close streams and connections
@@ -114,5 +125,4 @@ public class Klient {
 			System.out.println("ERROR: " + e.getMessage());
 		}
 	}
-
 }

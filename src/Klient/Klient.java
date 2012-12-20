@@ -62,15 +62,23 @@ public class Klient {
 	
 	//receive message from server
 	public void receive() {
-			do {
-				try {
-					user = inStream.readLine();
-					message = inStream.readLine();
-				} catch (IOException e) {
-					System.out.println("ERROR: " + e.getMessage());
-				}
-				Main.gui.showReceivedMessage(message, user);				
-			}while(!message.equals("SERVER - END")); //annan lösning här såklart
+		try {
+			if(inStream.readLine() != null) {
+				outStream.write("SUPerUser");
+			}			
+		}catch(IOException e){
+			System.out.println("Error: " + e.getMessage());
+		}
+		
+		do {
+			try {
+				user = inStream.readLine();
+				message = inStream.readLine();
+			} catch (IOException e) {
+				System.out.println("ERROR: " + e.getMessage());
+			}
+			Main.gui.showReceivedMessage(message, user);				
+		}while(!message.equals("SERVER - END")); //annan lösning här såklart
 	}
 	
 	//close streams and connections

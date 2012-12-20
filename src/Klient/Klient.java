@@ -54,7 +54,7 @@ public class Klient {
 	public void receive() {
 		while(!message.equals("SERVER - END")){
 			message = (String) inStream.toString();
-			showMessage("\n" + message);		
+			showMessage("\n" + message);	
 		}
 	}
 	
@@ -62,7 +62,7 @@ public class Klient {
 	public void showMessage(final String m) {
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
-				/*append text to chat window*/
+				//append text to chat window
 			}
 		});
 	}

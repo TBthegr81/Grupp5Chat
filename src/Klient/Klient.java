@@ -66,8 +66,12 @@ public class Klient {
 		try {
 			if(inStream.readLine() != null) {
 				System.out.println("asldhlksdkvn");
+				outStream.println("SuperUser");
+				outStream.flush();
+				System.out.println("trolololol");
 				for(int i = 0; i < 100; i++) {
 					outStream.println("SuperUser" + i);
+					outStream.flush();
 					try {
 						Thread.sleep(100);
 					} catch (InterruptedException e) {

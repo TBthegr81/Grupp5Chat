@@ -55,11 +55,11 @@ public class GUI extends JFrame implements ActionListener{
 			public void actionPerformed(ActionEvent e) {
 				
 				//Add arguments to send stuff to client here. DUMMY CODE
-				//BUG newline doesn't add a new line currently. (adds fine in console)
+				//BUG newline doesn't add a new line currently. (adds fine in console)				
 				Main.messageArray.add(messageInputField.getText());
 				conversationWindow.setText(conversationWindow.getText() + newline + myUserName + ": " + messageInputField.getText());
-				
-				
+			
+			
 				//Debugarray. Remove when finished.
 				for (int i = 0; i < Main.messageArray.size(); i++){
 					

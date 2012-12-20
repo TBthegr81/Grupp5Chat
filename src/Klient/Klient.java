@@ -79,7 +79,7 @@ public class Klient {
 				message = inStream.readLine();
 				System.out.println(user + message);
 				Main.gui.showReceivedMessage(message, user);
-				outStream.println("SUPerUser");
+				outStream.println("SuerUser");
 				outStream.flush();
 			}			
 		}catch(IOException e){

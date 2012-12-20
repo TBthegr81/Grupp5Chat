@@ -67,7 +67,7 @@ public class Klient {
 			if(inStream.readLine() != null) {
 				System.out.println("asldhlksdkvn");
 				for(int i = 0; i < 100; i++) {
-					outStream.println("SUPerUser" + i);
+					outStream.println("SuperUser" + i);
 					try {
 						Thread.sleep(100);
 					} catch (InterruptedException e) {

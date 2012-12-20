@@ -12,6 +12,7 @@ public class Main {
 	
 	public static void main(String[] args) {
 		Klient klient = new Klient();
+		klient.startRunning();
 
 		gui.setVisible(true);
 	}

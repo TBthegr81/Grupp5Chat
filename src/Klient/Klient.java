@@ -17,11 +17,10 @@ public class Klient {
 	private String message = "";
 	private String user;
 	private String address;
-	private String port;
+	private int port;
 	
 	//konstruktor
 	Klient() {
-		receive();
 	}
 	
 //	//connect to server
@@ -36,9 +35,11 @@ public class Klient {
 //		inStream = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 //	}
 	
-	public void logInToServer() {
-//		connect(String adress, int port);
-//		receive();
+	public void startRunning() {
+		address = "172.0.0.1";
+		port = 54602;
+		connect(address, port);
+		receive();
 	}
 	
 	public void connect(String address, int port) {
@@ -50,6 +51,7 @@ public class Klient {
 		} catch (IOException e) {
 			System.out.println("ERROR: " + e.getMessage());
 		}
+		System.out.println("Connected to: " + connection.getInetAddress().getHostName());
 	}
 	
 	//send message to server
@@ -60,17 +62,15 @@ public class Klient {
 	
 	//receive message from server
 	public void receive() {
-		message = "hej joakim";
-		user = "Ivan";
-		Main.gui.showReceivedMessage(message, user);
-		while(!message.equals("SERVER - END")){		//annan lösning här såklart
-			try {
-				user = inStream.readLine();
-				message = inStream.readLine();
-			} catch (IOException e) {
-				System.out.println("ERROR: " + e.getMessage());
-			}
-		}
+			do {
+				try {
+					user = inStream.readLine();
+					message = inStream.readLine();
+				} catch (IOException e) {
+					System.out.println("ERROR: " + e.getMessage());
+				}
+				Main.gui.showReceivedMessage(message, user);				
+			}while(!message.equals("SERVER - END")); //annan lösning här såklart
 	}
 	
 	//close streams and connections

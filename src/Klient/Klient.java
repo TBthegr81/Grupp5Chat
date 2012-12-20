@@ -42,6 +42,7 @@ public class Klient {
 		receive();
 	}
 	
+	//connect to server and setup streams
 	public void connect(String address, int port) {
 		System.out.println("connecting to: " + address + "...");
 		try {
@@ -64,12 +65,29 @@ public class Klient {
 	public void receive() {
 		try {
 			if(inStream.readLine() != null) {
-				outStream.write("SUPerUser");
+				System.out.println("asldhlksdkvn");
+				for(int i = 0; i < 100; i++) {
+					outStream.println("SUPerUser" + i);
+					try {
+						Thread.sleep(100);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				user = inStream.readLine();
+				message = inStream.readLine();
+				System.out.println(user + message);
+				Main.gui.showReceivedMessage(message, user);
+				outStream.println("SUPerUser");
+				outStream.flush();
 			}			
 		}catch(IOException e){
 			System.out.println("Error: " + e.getMessage());
 		}
 		
+		
+		//while message is not SERVER - END, keep receiving
 		do {
 			try {
 				user = inStream.readLine();

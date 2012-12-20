@@ -56,7 +56,6 @@ public class Klient {
 	public void send(String m) {
 		outStream.write("" + m);
 		outStream.flush();
-		System.out.println("" + m);
 	}
 	
 	//receive message from server

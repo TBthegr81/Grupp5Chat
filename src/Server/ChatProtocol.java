@@ -78,7 +78,17 @@ public class ChatProtocol {
 		 		break;
 		 		
 		 }
+		 String message = "State = " + state;
+		 System.out.println(message);
+		 Lib.log(message);
 		 
+		 message = "Input: " + input;
+		 System.out.println(message);
+		 Lib.log(message);
+		 
+		 message = "Sever: " + output;
+		 System.out.println(message);
+		 Lib.log(message);
 		 return output;
 	 }
 }

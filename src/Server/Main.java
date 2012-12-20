@@ -13,18 +13,11 @@ public class Main {
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
-		try {
-			awesomeserver.start();
-		} catch (IOException e) {
-			System.out.println("Error: " + e.getMessage());
-		}
+		awesomeserver.start();
 		
-		while(true)
-		{
-			
-		}
+		awesomeserver.listenForClients();
 		
-		//awesomeserver.exit();
+		awesomeserver.exit();
 	}
 
 }

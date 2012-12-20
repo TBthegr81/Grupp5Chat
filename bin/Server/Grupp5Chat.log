@@ -199,6 +199,7 @@ Settings loaded
 Starting up server...
 Server started on port 54602
 Starts listening to things...
+<<<<<<< HEAD
 Client connected
 Server shutting down!
 
@@ -377,3 +378,111 @@ State = 1
 Input: null
 Sever: Server
 Welcome to MyServer
+=======
+
+
+
+Trying to load settings...
+Servername: MyServer
+ListenPort: 54602
+MOT: Welcome to this awesome server, dont say stupid things!
+Settings loaded
+
+Starting up server...
+Could not listen on port: 54602
+
+
+
+Trying to load settings...
+Servername: MyServer
+ListenPort: 54602
+MOT: Welcome to this awesome server, dont say stupid things!
+Settings loaded
+
+Starting up server...
+Server started on port 54602
+Starts listening to things...
+Client connected
+Server shutting down!
+
+
+
+Trying to load settings...
+Servername: MyServer
+ListenPort: 54602
+MOT: Welcome to this awesome server, dont say stupid things!
+Settings loaded
+
+Starting up server...
+Server started on port 54602
+Starts listening to things...
+Client connected
+Server shutting down!
+
+
+
+Trying to load settings...
+Servername: MyServer
+ListenPort: 54602
+MOT: Welcome to this awesome server, dont say stupid things!
+Settings loaded
+
+Starting up server...
+Server started on port 54602
+Starts listening to things...
+Client connected
+
+
+
+Trying to load settings...
+Servername: MyServer
+ListenPort: 54602
+MOT: Welcome to this awesome server, dont say stupid things!
+Settings loaded
+
+Starting up server...
+Server started on port 54602
+Starts listening to things...
+Client connected
+
+
+
+Trying to load settings...
+Servername: MyServer
+ListenPort: 54602
+MOT: Welcome to this awesome server, dont say stupid things!
+Settings loaded
+
+Starting up server...
+Server started on port 54602
+Starts listening to things...
+Client connected
+
+
+
+Trying to load settings...
+Servername: MyServer
+ListenPort: 54602
+MOT: Welcome to this awesome server, dont say stupid things!
+Settings loaded
+
+Starting up server...
+Server started on port 54602
+Starts listening to things...
+Client connected
+Server shutting down!
+
+
+
+Trying to load settings...
+Servername: MyServer
+ListenPort: 54602
+MOT: Welcome to this awesome server, dont say stupid things!
+Settings loaded
+
+Starting up server...
+Server started on port 54602
+Starts listening to things...
+Client connected
+Server shutting down!
+>>>>>>> branch 'master' of ssh://git@github.com/TBthegr81/Grupp5Chat.git

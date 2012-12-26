@@ -67,10 +67,11 @@ public class Klient {
 		//while message is not SERVER - END, keep receiving
 		do {
 			try {
-				String stuff[] = inStream.readLine().split("\\s+",3);
-				answer = Integer.parseInt(stuff[0]);
-				user = stuff[1];
-				message = stuff[2];
+				String fromServer[] = inStream.readLine().split("\\s+",3);
+				//answer takes the int that decides what state is to be used in answerCase()
+				answer = Integer.parseInt(fromServer[0]);
+				user = fromServer[1];
+				message = fromServer[2];
 				answerCase(answer, user, message);
 				Main.gui.showReceivedMessage(message, user);
 			}catch (IOException e) {
@@ -78,6 +79,7 @@ public class Klient {
 			}
 		}while(!message.equals("SERVER - END")); //annan lösning här såklart
 	}
+	
 	
 	public void answerCase(int answer, String user, String message) {
 		switch(answer){

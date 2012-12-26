@@ -118,7 +118,7 @@ public class Klient {
 	
 	//close streams and connections
 	public void close() {
-		System.out.println("connection closed");
+		System.out.println("closing connections");
 		try {
 			inStream.close();
 			outStream.close();
@@ -126,5 +126,6 @@ public class Klient {
 		}catch(IOException e){
 			System.out.println("ERROR: " + e.getMessage());
 		}
+		System.out.println("connections closed");
 	}
 }

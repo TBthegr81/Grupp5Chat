@@ -89,32 +89,32 @@ public class Lib {
 	
 	public static void test()
 	{
-		int room1 = Server.createRoom();
+		int room1 = ServerThread.createRoom();
  		Main.rooms.get(room1).setRoomName("Animetalk!");
  		Main.rooms.get(room1).setTopic("No topic");
- 		int user1 = Server.createUser();
+ 		int user1 = ServerThread.createUser();
  		Main.users.get(user1).setNickname("Ted");
  		Main.rooms.get(room1).addUser(Main.users.get(user1));
  		Main.rooms.get(room1).setUserLevel(Main.users.get(user1).getNickname(), 2);
  		System.out.println("User nr: " + user1 + " with username: " + Main.users.get(user1).getNickname() + " created in room " + Main.rooms.get(room1).roomName);
  		
- 		int user2 = Server.createUser();
+ 		int user2 = ServerThread.createUser();
  		Main.users.get(user2).setNickname("Fred");
  		Main.rooms.get(room1).addUser(Main.users.get(user2));
  		Main.rooms.get(room1).setUserLevel(Main.users.get(user2).getNickname(), 2);
  		System.out.println("User nr: " + user2 + " with username: " + Main.users.get(user2).getNickname() + " created in room " + Main.rooms.get(room1).roomName);
  		
  		
- 		int room2 = Server.createRoom();
+ 		int room2 = ServerThread.createRoom();
  		Main.rooms.get(room2).setRoomName("Gametalk");
  		Main.rooms.get(room2).setTopic("Here we speak about games");
- 		int user3 = Server.createUser();
+ 		int user3 = ServerThread.createUser();
  		Main.users.get(user3).setNickname("Tom");
  		Main.rooms.get(room2).addUser(Main.users.get(user3));
  		Main.rooms.get(room2).setUserLevel(Main.users.get(user3).getNickname(), 1);
  		System.out.println("User nr: " + user3 + " with username: " + Main.users.get(user3).getNickname() + " created in room " + Main.rooms.get(room2).roomName);
  		
- 		int user4 = Server.createUser();
+ 		int user4 = ServerThread.createUser();
  		Main.users.get(user4).setNickname("James");
  		Main.rooms.get(room2).addUser(Main.users.get(user4));
  		Main.rooms.get(room2).setUserLevel(Main.users.get(user4).getNickname(), 2);
@@ -125,7 +125,7 @@ public class Lib {
  			System.out.println(Main.users.get(i).getNickname());
  		}
  		
- 		System.out.println(Server.getUsers());
- 		System.out.println(Server.getRooms());
+ 		System.out.println(ServerThread.getUsers());
+ 		System.out.println(ServerThread.getRooms());
 	}
 }

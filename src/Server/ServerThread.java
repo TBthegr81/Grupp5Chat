@@ -1,5 +1,5 @@
 package Server;
-/*
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -8,96 +8,65 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 
-public class Server {
-	private Socket connectionToClient;
-	private ServerSocket openForConnections;
+public class ServerThread extends Thread {
+    private Socket socket = null;
+    private Socket connectionToClient;
 	private PrintWriter outStream;
 	private BufferedReader inStream;
 	String message;
 	String servername;
 	ArrayList<String> settings;
 	int port;
-	
-	public void start()
-	{
-		message = "Starting up server...";
-		System.out.println(message);
-		Lib.log(message);
-		settings = Lib.settings;
-		servername = settings.get(0);
-		port = Integer.parseInt(settings.get(1));
+
+    public ServerThread(Socket socket) {
+	super("ServerThread");
+	this.socket = socket;
+    }
+
+    public void run() {
 		try {
-			openForConnections = new ServerSocket(port);
-		} catch (IOException e) {
-			message = "Could not listen on port: " + port;
-			System.err.println(message);
-			Lib.log(message);
-			System.exit(1);
-		}
-		message = "Server started on port " + port;
-		System.out.println(message);
-		Lib.log(message);
-	}
-	
-	public void listenForClients()
-	{
-		// Start listening to things
-		message = "Starts listening to things...";
-		System.out.println(message);
-		Lib.log(message);
-		try {
-			connectionToClient = openForConnections.accept();
-		} catch (IOException e) {
-			message = "Error: " + e.getMessage();
-			System.err.println(message);
-			Lib.log(message);
-		}
-		message = "Client connected";
-		System.out.println(message);
-		Lib.log(message);
-		
-		// Opens stream top out socket for sending and receiving
-		try {
-			outStream = new PrintWriter(connectionToClient.getOutputStream());
-		} catch (IOException e) {
-			message = "Error: " + e.getMessage();
-			System.err.println(message);
-			Lib.log(message);
-		}
-		try {
-			inStream = new BufferedReader(new InputStreamReader(connectionToClient.getInputStream()));
-		} catch (IOException e) {
-			message = "Error: " + e.getMessage();
-			System.err.println(message);
-			Lib.log(message);
-		}
-		String inputLine = null;
-		String outputLine = null;
-		
-		ChatProtocol cp = new ChatProtocol();
-				
-		try {
-			do{
-				if (inputLine != null && inputLine.equals("END"))
+			// Opens stream top out socket for sending and receiving
+			try {
+				outStream = new PrintWriter(socket.getOutputStream());
+			} catch (IOException e) {
+				message = "Error: " + e.getMessage();
+				System.err.println(message);
+				Lib.log(message);
+			}
+			try {
+				inStream = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+			} catch (IOException e) {
+				message = "Error: " + e.getMessage();
+				System.err.println(message);
+				Lib.log(message);
+			}
+			
+		    String inputLine = "";
+		    String outputLine = "";
+		    ChatProtocol cpc = new ChatProtocol();
+		    outputLine = cpc.read(null);
+		    outStream.println(outputLine);
+		    
+		    do{
+				if (inputLine == null || inputLine.equals("END"))
 			    {
-			    	close();
 			    	break;
 			    }
-				outputLine = cp.read(inputLine);
+				outputLine = cpc.read(inputLine);
 				outStream.println(outputLine);
 				outStream.flush();
 			    
 			}
 			while ((inputLine = inStream.readLine()) != null);
-			
+			close();
+	
 		} catch (IOException e) {
 			message = "Error: " + e.getMessage();
 			System.err.println(message);
 			Lib.log(message);
 		}
-	}
-
-	
+    }
+    
 	public void close()
 	{
 		try{
@@ -159,12 +128,12 @@ public class Server {
 		return roomid;
 	}
 	
-	public static boolean userExist(String input)
+	public static boolean userOK(String input)
 	{
 		boolean svar = false;
 		for(int i = 0; i < Main.users.size(); i++)
 		{
-			if(input.equalsIgnoreCase(Main.users.get(i).getNickname()))
+			if(input.equalsIgnoreCase(Main.users.get(i).getNickname()) || input.equals(""))
 			{
 				svar = true;
 			}
@@ -172,4 +141,4 @@ public class Server {
 		}
 		return svar;
 	}
-}*/
+}

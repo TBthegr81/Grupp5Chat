@@ -37,7 +37,7 @@ public class Klient {
 //	}
 	
 	public void startRunning() {
-		address = "10.0.0.1";
+		address = "localhost";
 		port = 54602;
 		connect(address, port);
 		receive();

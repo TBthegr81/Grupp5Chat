@@ -78,13 +78,15 @@ public class Server {
 				
 		try {
 			do{
+				if (inputLine != null && inputLine.equals("END"))
+			    {
+			    	close();
+			    	break;
+			    }
 				outputLine = cp.read(inputLine);
 				outStream.println(outputLine);
 				outStream.flush();
-			    if (outputLine.equals("Bye."))
-			    {
-			    	 break;
-			    }
+			    
 			}
 			while ((inputLine = inStream.readLine()) != null);
 			
@@ -96,12 +98,11 @@ public class Server {
 	}
 
 	
-	public void exit()
+	public void close()
 	{
 		try{
 			inStream.close();
 			outStream.close();
-			connectionToClient.close();
 			connectionToClient.close();
 		} catch(IOException e) {
 			System.err.println("Error on close.");
@@ -110,87 +111,65 @@ public class Server {
 		System.out.println(message);
 		Lib.log(message);
 	}
-}
-
-
-/*
-public class Server {
-	private Socket connectionToClient;
-	private ServerSocket openForConnections;
-	private PrintWriter outStream;
-	private BufferedReader inStream;
-	String message;
-	String servername;
-	ArrayList<String> settings;
-	int port;
 	
-	Server()
+	public static int createUser()
 	{
-		
+		User thisUser = new User();
+		Main.users.add(thisUser);
+		return Main.users.indexOf(thisUser);
 	}
 	
-	public void start() throws IOException
+	public static int createRoom()
 	{
-		message = "Starting up server...";
-		System.out.println(message);
-		Lib.log(message);
-		settings = Lib.settings;
-		servername = settings.get(0);
-		port = Integer.parseInt(settings.get(1));
-				
-		openForConnections = new ServerSocket(port);
+		Room thisRoom = new Room();
+		Main.rooms.add(thisRoom);
+		return Main.rooms.indexOf(thisRoom);
 	}
 	
-	public String listen() throws IOException
-	{
-		// Start listening to things
-		message = "Starts listening to things...";
-		System.out.println(message);
-		Lib.log(message);
-		connectionToClient = openForConnections.accept();
-		message = "Client Connected";
-		System.out.println(message);
-		Lib.log(message);
-		// Opens stream top out socket for sending and receiving
-		outStream = new PrintWriter(connectionToClient.getOutputStream());
-		inStream = new BufferedReader(new InputStreamReader(connectionToClient.getInputStream()));
-				
-		return("Client connected");
-	}
-	
-	public String receive()
+	public static String getUsers()
 	{
 		String text = "";
-		try {
-			text = inStream.readLine();
-		} catch (IOException e) {
-			e.printStackTrace();
+		for(int i = 0; i < Main.users.size(); i++)
+		{
+			text = text + "<" + Main.users.get(i).getNickname() + "> ";
 		}
 		return text;
 	}
 	
-	public void send(String text)
+	public static String getRooms()
 	{
-		message = text;
-		System.out.println(message);
-		Lib.log(message);
-		outStream.println(text);
-		outStream.flush();
+		String text = "";
+		for(int i = 0; i < Main.rooms.size(); i++)
+		{
+			text = text + Main.rooms.get(i).roomName + " ";
+		}
+		return text;
 	}
 	
-	public void exit()
+	public static int getRoomIndex(String input)
 	{
-		try{
-			inStream.close();
-			outStream.close();
-			connectionToClient.close();
-			connectionToClient.close();
-		} catch(IOException e) {
-			System.err.println("Error on close.");
+		int roomid = 0;
+		for(int i = 0; i < Main.rooms.size(); i++)
+		{
+			if(Main.rooms.get(i).getRoomName().equalsIgnoreCase(input))
+			{
+				roomid = i;
+			}
 		}
-		message = "Server shutting down!";
-		System.out.println(message);
-		Lib.log(message);
+		return roomid;
+	}
+	
+	public static boolean userExist(String input)
+	{
+		boolean svar = false;
+		for(int i = 0; i < Main.users.size(); i++)
+		{
+			if(input.equalsIgnoreCase(Main.users.get(i).getNickname()))
+			{
+				svar = true;
+			}
+					
+		}
+		return svar;
 	}
 }
-*/

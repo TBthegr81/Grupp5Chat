@@ -10,6 +10,8 @@ public class ChatProtocol {
 	 private static final int SENTUSERS = 4;
 	 private static final int SENTROOMS = 5;
 	 private static final int CHATTING = 6;
+	 public static User user;
+	 public int thisUser;
 
 	 private int state = WAITING;
 	 
@@ -27,18 +29,19 @@ public class ChatProtocol {
 			
 				// State = Client is connected and have sent the nickname they wanna use, check if its good.
 		 	case 1:
-			 	if(!input.equals("Ted")) // Check if the nickname isn't Ted. Cuse that is always taken
-			 	{
-			 		output = "2" + " " + "Server" + " " + "Nickname available";
-			 		User user = new User();
-			 		
-			 		user.setNickname(input);
-			 		state = SENTUSERNAMEANSWER;
-			 	}
-			 	else
-			 	{
-			 		output = "3" + " " + "Server" + " " + "Nickname is already taken, Choose another one";
-			 	}
+		 		//if(!input.equalsIgnoreCase(Main.users.get(i).getNickname())) // Check if the nickname isn't Ted. Cuse that is always taken
+		 		if(Server.userExist(input) == false)
+		 		{
+		 			output = "2" + " " + "Server" + " " + "Nickname available";
+		 			thisUser = Server.createUser();
+
+		 			Main.users.get(thisUser).setNickname(input);
+		 			state = SENTUSERNAMEANSWER;
+		 		}
+		 		else
+		 		{
+		 			output = "3" + " " + "Server" + " " + "Nickname is already taken, Choose another one";
+		 		}
 		 		break;
 		 	
 		 		// Sate = User have gotten their nickname accepted by the Server.
@@ -50,21 +53,24 @@ public class ChatProtocol {
 		 		
 		 		// State = MOT is sent, time for the users on the server
 		 	case 3:
-		 		// This will be loaded dynamicly later... ofc
-		 		output = "5" + " " + "Server" + " " + "@TBthegr81, $SomeDude, $AnotherOne";
+		 		output = "5" + " " + "Server" + " " + Server.getUsers();
 		 		state = SENTUSERS;
 		 		break;
 		 		
 		 		// State = Users-list is sent. Time to send list of public chatrooms.
 		 	case 4:
 		 		// This will be loaded dynamicly later... ofc
-		 		output = "6" + " " + "Server" + " " + "Main, Animetalk, Gametalking, Awesome";
+		 		output = "6" + " " + "Server" + " " + Server.getRooms();
 		 		state = SENTROOMS;
 		 		break;
 		 		
 		 		// State = Room-list is sent, User will reply with what room they wanna chat in.
 		 	case 5:
 		 		// Yeah, not sure how this case will be, yet. Just some random stuff atm.
+		 		int room1 = Server.getRoomIndex(input);
+		 		Main.rooms.get(room1).addUser(Main.users.get(thisUser));
+		 		Main.rooms.get(room1).setUserLevel(Main.users.get(thisUser).getNickname(), 1);
+		 		System.out.println("User nr: " + thisUser + " with username: " + Main.users.get(thisUser).getNickname() + " created in room " + Main.rooms.get(room1).roomName);
 		 		output = "7" + " " + "Server" + " " + "Welcome to this room. Write something!";
 		 		state = CHATTING;
 		 		break;
@@ -74,7 +80,7 @@ public class ChatProtocol {
 		 		 *  send it to the room and also sent what the room says to the user
 		 		 */
 		 	case 6:
-		 		output = "8" + " " + "Some user" + " " + "Stuff other people wrote!";
+		 		output = "8" + " " + "<Ted>" + " " + " Indeed dear sir! ";
 		 		// Send "input" to the room...
 		 		break;
 		 		

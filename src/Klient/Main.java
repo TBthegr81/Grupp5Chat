@@ -7,11 +7,11 @@ import java.util.ArrayList;
 public class Main {
 
 	//Temp solution for storing messages. Joakim
-	static ArrayList<String> messageArray = new ArrayList<String>();
-	static GUI gui = new GUI();
+	public static ArrayList<String> messageArray = new ArrayList<String>();
+	public static GUI gui = new GUI();
+	public static Klient klient = new Klient();
 	
 	public static void main(String[] args) {
-		Klient klient = new Klient();
 		klient.startRunning();
 
 		gui.setVisible(true);

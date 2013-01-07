@@ -45,6 +45,25 @@ public class GUI extends JFrame implements ActionListener{
 		//Text field for message
 		messageInputField = new JTextField();
 		messageInputField.setColumns(10);
+		messageInputField.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			
+				//Add arguments to send stuff to client here. DUMMY CODE
+				//BUG newline doesn't add a new line currently. (adds fine in console)				
+				Main.messageArray.add(messageInputField.getText());
+				conversationWindow.setText(conversationWindow.getText() + newline + myUserName + ": " + messageInputField.getText());
+			
+				Main.klient.checkMessage(messageInputField.getText());
+				
+				//Debugarray. Remove when finished.
+//				for (int i = 0; i < Main.messageArray.size(); i++){
+//					System.out.println(i + ": " + Main.messageArray.get(i) + newline);
+//				}
+				//Clears input field.
+				messageInputField.setText("");
+			}
+		});
+		messageInputField.setEditable(false);
 
 		
 		//submit button to send text
@@ -59,12 +78,12 @@ public class GUI extends JFrame implements ActionListener{
 				Main.messageArray.add(messageInputField.getText());
 				conversationWindow.setText(conversationWindow.getText() + newline + myUserName + ": " + messageInputField.getText());
 			
-			
+				Main.klient.checkMessage(messageInputField.getText());
+				
 				//Debugarray. Remove when finished.
-				for (int i = 0; i < Main.messageArray.size(); i++){
-					
-					System.out.println(i + ": " + Main.messageArray.get(i) + newline);
-				}
+//				for (int i = 0; i < Main.messageArray.size(); i++){
+//					System.out.println(i + ": " + Main.messageArray.get(i) + newline);
+//				}
 				//Clears input field.
 				messageInputField.setText("");
 			}
@@ -162,10 +181,9 @@ public class GUI extends JFrame implements ActionListener{
 		conversationWindow.setText(conversationWindow.getText() + newline + user + ": " + message);
 
 		//Debugarray. Remove when finished.
-		for (int i = 0; i < Main.messageArray.size(); i++){
-			
-			System.out.println(i + ": " + Main.messageArray.get(i) + newline);
-		}
+//		for (int i = 0; i < Main.messageArray.size(); i++){
+//			System.out.println(i + ": " + Main.messageArray.get(i) + newline);
+//		}
 		
 	}
 

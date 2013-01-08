@@ -48,6 +48,15 @@ public class GUI extends JFrame implements ActionListener{
 		//Text field for message
 		messageInputField = new JTextField();
 		messageInputField.setColumns(10);
+		messageInputField.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			
+				conversationWindow.setText(conversationWindow.getText() + newline + myUserName + ": " + messageInputField.getText());
+				Main.klient.checkMessage(messageInputField.getText());
+				messageInputField.setText("");
+			}
+		});
+		messageInputField.setEditable(false);
 
 		
 		//submit button to send text
@@ -59,7 +68,12 @@ public class GUI extends JFrame implements ActionListener{
 				
 				Main.klient.send(messageInputField.getText());
 				conversationWindow.setText(conversationWindow.getText() + newline + myUserName + ": " + messageInputField.getText());
-				
+
+			
+				Main.klient.checkMessage(messageInputField.getText());
+
+				//Clears input field.
+				messageInputField.setText("");
 			}
 		});
 		

@@ -1,23 +1,23 @@
 package Server;
 /*
- * Objektklass fÃ¶r users pÃ¥ servern
- * HÃ¥ller variabler om nicks och metoder fÃ¶r nÃ¤r de vill gÃ¶ra saker
- */
+* Objektklass för users på servern
+* Håller variabler om nicks och metoder för när de vill göra saker
+*/
 public class User {
-	private String nickname;
-	
-	User()
-	{
-		
-	}
-	
-	public void setNickname(String name)
-	{
-		nickname = name;
-	}
-	
-	public String getNickname()
-	{
-		return nickname;
-	}
+private String nickname;
+
+User()
+{
+
+}
+
+public void setNickname(String name)
+{
+nickname = name;
+}
+
+public String getNickname()
+{
+return nickname;
+}
 }

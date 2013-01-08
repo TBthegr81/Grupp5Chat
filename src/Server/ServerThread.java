@@ -1,18 +1,19 @@
 package Server;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.PrintWriter;
-import java.net.ServerSocket;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
 
 public class ServerThread extends Thread {
     private Socket socket = null;
     private Socket connectionToClient;
-	private PrintWriter outStream;
-	private BufferedReader inStream;
+	//private PrintWriter outStream;
+	private ObjectOutputStream outStream;
+	//private BufferedReader inStream;
+	private ObjectInputStream inStream;
 	String message;
 	String servername;
 	ArrayList<String> settings;
@@ -27,38 +28,47 @@ public class ServerThread extends Thread {
 		try {
 			// Opens stream top out socket for sending and receiving
 			try {
-				outStream = new PrintWriter(socket.getOutputStream());
+				//outStream = new PrintWriter(socket.getOutputStream());
+				outStream = new ObjectOutputStream(socket.getOutputStream());
 			} catch (IOException e) {
 				message = "Error: " + e.getMessage();
 				System.err.println(message);
 				Lib.log(message);
 			}
 			try {
-				inStream = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+				//inStream = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+				inStream =  new ObjectInputStream(socket.getInputStream());
 			} catch (IOException e) {
 				message = "Error: " + e.getMessage();
 				System.err.println(message);
 				Lib.log(message);
 			}
 			
-		    String inputLine = "";
-		    String outputLine = "";
+		    //String inputLine = "";
+		    //String outputLine = "";
+			Message inputMessage = null;
+		    Message outputMessage = null;
 		    ChatProtocol cpc = new ChatProtocol();
-		    outputLine = cpc.read(null);
-		    outStream.println(outputLine);
-		    
-		    do{
-				/*
-		    	if (inputLine == null || inputLine.equals("END"))
-			    {
-			    	break;
-			    }*/
-				outputLine = cpc.read(inputLine);
-				outStream.println(outputLine);
-				outStream.flush();
-			    
+		    //outputLine = cpc.read(null);
+		    outputMessage = cpc.read(null);
+		    //outStream.println(outputLine);
+		    outStream.writeObject(outputMessage);
+		    try {
+				do{
+					
+					/*if (inputMessage.getMessage().equals("END"))
+				    {
+				    	break;
+				    }*/
+					//outputLine = cpc.read(inputLine);
+					outputMessage = cpc.read(inputMessage);
+					outStream.writeObject(outputMessage);
+					outStream.flush();
+				}
+				while ((inputMessage = (Message) inStream.readObject()) != null);
+			} catch (ClassNotFoundException e) {
+				System.err.println(e);
 			}
-			while ((inputLine = inStream.readLine()) != null);
 			close();
 	
 		} catch (IOException e) {

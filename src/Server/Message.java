@@ -1,8 +1,10 @@
 package Server;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Message {
+public class Message implements Serializable {
+	private static final long serialVersionUID = 1L;
 	private int id;
 	private String username;
 	private String message;
@@ -33,7 +35,7 @@ public class Message {
 		return username;
 	}
 	
-	public String message()
+	public String getMessage()
 	{
 		return message;
 	}

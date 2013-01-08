@@ -1,4 +1,5 @@
 package Server;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class ChatProtocol {
@@ -20,47 +21,49 @@ public class ChatProtocol {
 		 state = states.indexOf("WAITING");
 	 }
 	 
-	 public String read(String input)
+	 public Message read(Message input)
 	 {
 		 message = "State = " + states.get(state);
 		 System.out.println(message);
 		 Lib.log(message);
 		 
-		 if(input == null || input.equals("\\s+") || input.equalsIgnoreCase("") || input.equalsIgnoreCase(" "))
+		 if(input == null || input.getMessage().equals("\\s+") || input.getMessage().equalsIgnoreCase("") || input.getMessage().equalsIgnoreCase(" "))
 		 {
-		 input = "0 Klient null";
+		 input = new Message(1, "Klient", "Null");
 		 }
-		 String Input[] = input.split("\\s+",3);
-		 input = Input[2];
-		 String output = "";
+		 //String Input[] = input.split("\\s+",3);
+		 //input = Input[2];
+		 //String output = "";
+		 Message output = null;
 		 switch(state)
 		 {
 		 		// State = Waiting for Users to connect.
 		 	case 0:
 		 		// A user connected! Send them a welcome-message with the servername.
-		 	output = "1" + " " + "Server" + " " + "Welcome to " + Lib.settings.get(0);
+		 	//output = "1" + " " + "Server" + " " + "Welcome to " + Lib.settings.get(0);
+		 	output = new Message(1, "Server", "Welcome to" + Lib.settings.get(0));
 		 	state = states.indexOf("SENTWELCOME");
 			break;
 			
 				// State = Client is connected and have sent the nickname they wanna use, check if its good.
 		 	case 1:
 		 		//if(!input.equalsIgnoreCase(Main.users.get(i).getNickname())) // Check if the nickname isn't Ted. Cuse that is always taken
-		 		if(ServerThread.userOK(input) == false)
+		 		if(ServerThread.userOK(input.getMessage()) == false)
 		 		{
-		 			output = "2" + " " + "Server" + " " + "Nickname available";
+		 			output = new Message(2,"Server","Nickname available");
 		 			thisUser = ServerThread.createUser();
 
-		 			Main.users.get(thisUser).setNickname(input);
+		 			Main.users.get(thisUser).setNickname(input.getMessage());
 		 			state = states.indexOf("SENTUSERNAMEANSWER");
 		 		}
 		 		else
 		 		{
-		 			output = "3" + " " + "Server" + " " + "Nickname is already taken, Choose another one";
+		 			output = new Message(3,"Server","Nickname is already taken, Choose another one");
 		 		}
 		 		break;
 		 	
 		 		// Sate = User have gotten their nickname accepted by the Server.
-		 	case 2:
+		 	/*case 2:
 		 		// Now send the MOT (Message Of the Day) that is loaded from Settings-file
 		 		output = "4" + " " + "Server" + " " + Lib.settings.get(2);
 		 		state = states.indexOf("SENTMOT");
@@ -89,22 +92,22 @@ public class ChatProtocol {
 		 		output = "7" + " " + "Server" + " " + "Welcome to this room. Write something!";
 		 		state = states.indexOf("CHATTING");
 		 		break;
-		 		
+		 		*/
 		 		/*
 		 		 *  State = The user have joined a room. Now this will listen to users input,
 		 		 *  send it to the room and also sent what the room says to the user
-		 		 */
+		 		 
 		 	case 6:
 		 		output = "8" + " " + "<Ted>" + " " + " Indeed dear sir! ";
 		 		// Send "input" to the room...
-		 		break;
+		 		break;*/
 		 		
 		 }
-		 message = "Input: " + Input[0] + Input[1] + Input[2];
+		 message = "Input: " + input.getId() + " " + input.getUsername() + " " +  input.getMessage();
 		 System.out.println(message);
 		 Lib.log(message);
 		 
-		 message = "Output: " + output;
+		 message = "Output: " + output.getId() + " " + output.getUsername() + " " + output.getMessage();
 		 System.out.println(message);
 		 Lib.log(message);
 		 

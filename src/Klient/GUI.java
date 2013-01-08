@@ -104,7 +104,7 @@ public class GUI extends JFrame implements ActionListener{
 		JMenuItem saveConversationMenuItem = new JMenuItem("Save conversation", KeyEvent.VK_S);
 		chatMenu.add(saveConversationMenuItem);
 		
-		//Actions for the menu items
+		//Actions for the menu item
 		connectMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				

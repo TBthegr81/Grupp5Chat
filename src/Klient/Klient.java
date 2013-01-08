@@ -77,51 +77,51 @@ public class Klient {
 			}catch (IOException e) {
 				System.err.println("ERROR: " + e.getMessage());
 			}
-		}while(!message.equals("SERVER - END")); //annan lÃ¶sning hÃ¤r sÃ¥klart
+		}while(!message.equals("SERVER - END")); //annan lösning här såklart
 	}
 
 
 	public void answerCase(int answer, String user, String message) {
 		switch(answer){
-		case 1:			//connected to server, got welcome message
+		case 1:	//connected to server, got welcome message
 			send("Ted");
 			break;
-		case 2:			//username accepted
+		case 2:	//username accepted
 			send("OK");
 			break;
-		case 3:			//username not accepted... get new from GUI
+		case 3:	//username not accepted... get new from GUI
 			send("FlowDan");
 			break;
-		case 4:			//got MOT
+		case 4:	//got MOT
 			send("OK");
 			break;
-		case 5:			//list of users
+		case 5:	//list of users
 			chopUpStrings(message);
 			send("OK");
 			break;
-		case 6:			//list of rooms
+		case 6:	//list of rooms
 			Main.gui.messageInputField.setEditable(true);
 			chopUpStrings(message);
 			System.out.println("choose a room");
 			break;
-		case 7:			//send messages
+		case 7:	//send messages
 			System.out.println("Ready to type.");
 			break;
-		case 8:			//get messages
+		case 8:	//get messages
 			System.out.println("");
 			break;
 		}
 	}
 
 	public void chopUpStrings(String m) {
-			String serverInfo[] = m.split("\\s+");
-			System.out.println("start of chop");
-			for(int i = 0; i < serverInfo.length; i++) {
-				System.out.println(serverInfo[i] + " ");
-			}
-			System.out.println("end of chop");
+		String serverInfo[] = m.split("\\s+");
+		System.out.println("start of chop");
+		for(int i = 0; i < serverInfo.length; i++) {
+			System.out.println(serverInfo[i] + " ");
+		}
+		System.out.println("end of chop");
 	}
-	
+
 	//close streams and connections
 	public void close() {
 		System.out.println("closing connections");

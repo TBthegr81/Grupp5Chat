@@ -49,6 +49,7 @@ Starts listening to things...
 State = WAITING
 
 
+<<<<<<< HEAD
 Date: Tue Jan 08 12:05:30 CET 2013
 Trying to load settings...
 Servername: MyServer
@@ -220,3 +221,42 @@ State = WAITING
 Input: 1 Klient Null
 Output: 1 Server Welcome toMyServer
 State = SENTWELCOME
+=======
+Date: Mon Jan 07 17:37:52 CET 2013
+Trying to load settings...
+Servername: MyServer
+ListenPort: 54602
+MOT: Welcome to this awesome server, dont say stupid things!
+Settings loaded
+
+Starting up server...
+Server started on port 54602
+Starts listening to things...
+State = 1
+Input: null
+Sever: 1 Server Welcome to MyServer
+State = 1
+Input: 
+Sever: 3 Server Nickname is already taken, Choose another one
+State = 1
+Input: Ted
+Sever: 3 Server Nickname is already taken, Choose another one
+State = 2
+Input: FlowDan
+Sever: 2 Server Nickname available
+State = 3
+Input: FlowDan
+Sever: 4 Server Welcome to this awesome server, dont say stupid things!
+State = 4
+Input: OK
+Sever: 5 Server <Ted> <Fred> <Tom> <James> <FlowDan> 
+State = 5
+Input: OK
+Sever: 6 Server Animetalk! Gametalk 
+State = 6
+Input: OK
+Sever: 7 Server Welcome to this room. Write something!
+State = 6
+Input: hej
+Sever: 8 <Ted>  Indeed dear sir! 
+>>>>>>> branch 'master' of ssh://git@github.com/TBthegr81/Grupp5Chat.git

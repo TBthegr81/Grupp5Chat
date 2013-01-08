@@ -26,6 +26,9 @@ public class GUI extends JFrame implements ActionListener{
 	public GUI(){
 		// TODO Auto-generated method stub
 
+		
+		
+		
 		//Lorena testar
 		//Headframe, temporary name for JFrame, change later
 		final JFrame clientWindow = new JFrame ("Group 5 chat client");
@@ -36,7 +39,7 @@ public class GUI extends JFrame implements ActionListener{
 		clientWindow.setVisible(true);
 
 		Container contentClientWindow = clientWindow.getContentPane();
-		contentClientWindow.setBackground(Color.DARK_GRAY);
+		contentClientWindow.setBackground(Color.LIGHT_GRAY);
 
 		//Conversation field where conversation will show
 		conversationWindow = new JTextArea();
@@ -54,19 +57,9 @@ public class GUI extends JFrame implements ActionListener{
 		btnSendMessage.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				//Add arguments to send stuff to client here. DUMMY CODE
-				//BUG newline doesn't add a new line currently. (adds fine in console)				
-				Main.messageArray.add(messageInputField.getText());
+				Main.klient.send(messageInputField.getText());
 				conversationWindow.setText(conversationWindow.getText() + newline + myUserName + ": " + messageInputField.getText());
-			
-			
-				//Debugarray. Remove when finished.
-				for (int i = 0; i < Main.messageArray.size(); i++){
-					
-					System.out.println(i + ": " + Main.messageArray.get(i) + newline);
-				}
-				//Clears input field.
-				messageInputField.setText("");
+				
 			}
 		});
 		
@@ -105,48 +98,33 @@ public class GUI extends JFrame implements ActionListener{
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-				.addGap(204)
-				.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-				.addComponent(btnSendMessage)
-				.addComponent(messageInputField, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 488, GroupLayout.PREFERRED_SIZE)
-				.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
-				.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-									
-						.addComponent(lblChatroom)
-						.addGap(398))
-						.addComponent(conversationWindow, GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE))
-						.addPreferredGap(ComponentPlacement.RELATED)
-							
-					.addComponent(ConversationScrollBar, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+					.addGap(23)
+					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+						.addComponent(btnSendMessage)
+						.addComponent(messageInputField, GroupLayout.PREFERRED_SIZE, 488, GroupLayout.PREFERRED_SIZE)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+								.addGroup(groupLayout.createSequentialGroup()
+									.addComponent(lblChatroom)
+									.addGap(404))
+								.addGroup(groupLayout.createSequentialGroup()
+									.addComponent(conversationWindow, GroupLayout.PREFERRED_SIZE, 646, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.RELATED)))
+							.addComponent(ConversationScrollBar, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
 					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
-		
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
-			.addGroup(groupLayout.createSequentialGroup()
-			.addGap(13)
-					
-					//Adding label for chat room
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(13)
 					.addComponent(lblChatroom)
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
-							
-							
-							
-							 //TODO Make scroll bar functional with conversation board
-							
-							//Adding scroll bar for conversation board
-						.addComponent(ConversationScrollBar, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addComponent(conversationWindow, GroupLayout.DEFAULT_SIZE, 412, Short.MAX_VALUE))
+					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+						.addComponent(conversationWindow, GroupLayout.DEFAULT_SIZE, 412, Short.MAX_VALUE)
+						.addComponent(ConversationScrollBar, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addGap(23)
-		 
-					
-					//Adding message button
 					.addComponent(btnSendMessage)
 					.addPreferredGap(ComponentPlacement.RELATED)
-					
-					//Adding message board
 					.addComponent(messageInputField, GroupLayout.PREFERRED_SIZE, 139, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap(55, Short.MAX_VALUE))
 		);
@@ -157,16 +135,9 @@ public class GUI extends JFrame implements ActionListener{
 		
 	}
 	public void showReceivedMessage(String message, String user){
-		
-		Main.messageArray.add(message);
+				
 		conversationWindow.setText(conversationWindow.getText() + newline + user + ": " + message);
 
-		//Debugarray. Remove when finished.
-		for (int i = 0; i < Main.messageArray.size(); i++){
-			
-			System.out.println(i + ": " + Main.messageArray.get(i) + newline);
-		}
-		
 	}
 
 	@Override

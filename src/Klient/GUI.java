@@ -19,6 +19,7 @@ public class GUI extends JFrame implements ActionListener{
 	
 	public static JTextArea conversationWindow;
 	public static JTextField messageInputField;
+	GUIConnectMenu connectMenu = new GUIConnectMenu();
 
 	/**
 	 * @param args
@@ -27,11 +28,11 @@ public class GUI extends JFrame implements ActionListener{
 		// TODO Auto-generated method stub
 
 		
-		
-		
-		//Lorena testar
-		//Headframe, temporary name for JFrame, change later
 		final JFrame clientWindow = new JFrame ("Group 5 chat client");
+		clientWindow.getContentPane().setSize(new Dimension(400, 350));
+		clientWindow.setMinimumSize(new Dimension(400, 350));
+		clientWindow.setSize(new Dimension(400, 350));
+		clientWindow.getContentPane().setMinimumSize(new Dimension(400, 350));
 		
 		clientWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		clientWindow.setSize(700, 750);
@@ -40,14 +41,16 @@ public class GUI extends JFrame implements ActionListener{
 
 		Container contentClientWindow = clientWindow.getContentPane();
 		contentClientWindow.setBackground(Color.LIGHT_GRAY);
-
-		//Conversation field where conversation will show
-		conversationWindow = new JTextArea();
-		conversationWindow.setColumns(10);
+		
+	
 
 		//Text field for message
 		messageInputField = new JTextField();
+		messageInputField.setMinimumSize(new Dimension(300, 25));
+		messageInputField.setPreferredSize(new Dimension(300, 25));
+		messageInputField.setSize(new Dimension(300, 25));
 		messageInputField.setColumns(10);
+		
 		messageInputField.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			
@@ -61,6 +64,7 @@ public class GUI extends JFrame implements ActionListener{
 		
 		//submit button to send text
 		JButton btnSendMessage = new JButton("Send message");
+		btnSendMessage.setSize(new Dimension(80, 20));
 		btnSendMessage.setBackground(Color.CYAN);
 		
 		btnSendMessage.addActionListener(new ActionListener() {
@@ -100,52 +104,65 @@ public class GUI extends JFrame implements ActionListener{
 		JMenuItem saveConversationMenuItem = new JMenuItem("Save conversation", KeyEvent.VK_S);
 		chatMenu.add(saveConversationMenuItem);
 		
+		//Actions for the menu items
+		connectMenuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				connectMenu.setVisible(true);
+				
+			}
+		});
+		
 		//New label. 
 		//TODO Make it able to change?!?
 		
 		JLabel lblChatroom = new JLabel("Chatroom # 1");
 		
-		JScrollBar ConversationScrollBar = new JScrollBar();
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setSize(new Dimension(300, 200));
+		scrollPane.setMinimumSize(new Dimension(300, 200));
+		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		
 		// Layout for clientWindow with all the components added
 		GroupLayout groupLayout = new GroupLayout(clientWindow.getContentPane());
 		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
+			groupLayout.createParallelGroup(Alignment.TRAILING)
+				.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
 					.addGap(23)
-					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-						.addComponent(btnSendMessage)
-						.addComponent(messageInputField, GroupLayout.PREFERRED_SIZE, 488, GroupLayout.PREFERRED_SIZE)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-								.addGroup(groupLayout.createSequentialGroup()
-									.addComponent(lblChatroom)
-									.addGap(404))
-								.addGroup(groupLayout.createSequentialGroup()
-									.addComponent(conversationWindow, GroupLayout.PREFERRED_SIZE, 646, GroupLayout.PREFERRED_SIZE)
-									.addPreferredGap(ComponentPlacement.RELATED)))
-							.addComponent(ConversationScrollBar, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+					.addComponent(lblChatroom)
+					.addGap(27)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
+						.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
+							.addComponent(messageInputField, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+							.addGap(18)
+							.addComponent(btnSendMessage))
+						.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 552, GroupLayout.PREFERRED_SIZE))
+					.addGap(15))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(13)
-					.addComponent(lblChatroom)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-						.addComponent(conversationWindow, GroupLayout.DEFAULT_SIZE, 412, Short.MAX_VALUE)
-						.addComponent(ConversationScrollBar, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addGap(23)
-					.addComponent(btnSendMessage)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(messageInputField, GroupLayout.PREFERRED_SIZE, 139, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(55, Short.MAX_VALUE))
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblChatroom)
+						.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 609, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(messageInputField, 0, 0, Short.MAX_VALUE)
+						.addComponent(btnSendMessage, GroupLayout.PREFERRED_SIZE, 47, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap())
 		);
+		
+				//Conversation field where conversation will show
+				conversationWindow = new JTextArea();
+				conversationWindow.setMaximumSize(new Dimension(300, 2147483647));
+				scrollPane.setViewportView(conversationWindow);
+				conversationWindow.setMinimumSize(new Dimension(300, 0));
+				conversationWindow.setColumns(10);
 		clientWindow.getContentPane().setLayout(groupLayout);
 
 		
-
+		clientWindow.revalidate();
 		
 	}
 	public void showReceivedMessage(String message, String user){

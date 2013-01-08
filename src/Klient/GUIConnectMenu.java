@@ -52,18 +52,18 @@ public class GUIConnectMenu extends JFrame {
 		setTitle("Connect");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 249, 150);
+		setBounds(100, 100, 225, 150);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		GridBagLayout gbl_contentPane = new GridBagLayout();
-		gbl_contentPane.columnWidths = new int[] {0, 0, 0, 0, 0, 0, 5};
+		gbl_contentPane.columnWidths = new int[] {19, 0, 0, 27, 30, 45, 26, 0, 5};
 		gbl_contentPane.rowHeights = new int[] {40, 40, 35, 7};
-		gbl_contentPane.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
+		gbl_contentPane.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
 		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 0.0, Double.MIN_VALUE};
 		contentPane.setLayout(gbl_contentPane);
 		
-		JLabel lblEnterServerIp = new JLabel("Enter server IP:");
+		JLabel lblEnterServerIp = new JLabel("Server IP:");
 		GridBagConstraints gbc_lblEnterServerIp = new GridBagConstraints();
 		gbc_lblEnterServerIp.insets = new Insets(0, 0, 5, 5);
 		gbc_lblEnterServerIp.gridx = 1;
@@ -73,7 +73,7 @@ public class GUIConnectMenu extends JFrame {
 		connectEnterIP = new JTextField();
 		GridBagConstraints gbc_connectEnterIP = new GridBagConstraints();
 		gbc_connectEnterIP.gridwidth = 4;
-		gbc_connectEnterIP.insets = new Insets(0, 0, 5, 0);
+		gbc_connectEnterIP.insets = new Insets(0, 0, 5, 5);
 		gbc_connectEnterIP.fill = GridBagConstraints.HORIZONTAL;
 		gbc_connectEnterIP.gridx = 2;
 		gbc_connectEnterIP.gridy = 0;
@@ -89,6 +89,7 @@ public class GUIConnectMenu extends JFrame {
 		contentPane.add(lblPort, gbc_lblPort);
 		
 		connectEnterPort = new JTextField();
+		connectEnterPort.setText("54602");
 		GridBagConstraints gbc_connectEnterPort = new GridBagConstraints();
 		gbc_connectEnterPort.insets = new Insets(0, 0, 5, 5);
 		gbc_connectEnterPort.gridwidth = 3;
@@ -100,8 +101,7 @@ public class GUIConnectMenu extends JFrame {
 		
 		JButton connectMenuConnectBtn = new JButton("Connect");
 		GridBagConstraints gbc_connectMenuConnectBtn = new GridBagConstraints();
-		gbc_connectMenuConnectBtn.gridwidth = 6;
-		gbc_connectMenuConnectBtn.insets = new Insets(0, 0, 0, 5);
+		gbc_connectMenuConnectBtn.gridwidth = 8;
 		gbc_connectMenuConnectBtn.gridx = 0;
 		gbc_connectMenuConnectBtn.gridy = 2;
 		contentPane.add(connectMenuConnectBtn, gbc_connectMenuConnectBtn);

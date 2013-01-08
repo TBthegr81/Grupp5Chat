@@ -48,10 +48,11 @@ public class ServerThread extends Thread {
 		    outStream.println(outputLine);
 		    
 		    do{
-				if (inputLine == null || inputLine.equals("END"))
+				/*
+		    	if (inputLine == null || inputLine.equals("END"))
 			    {
 			    	break;
-			    }
+			    }*/
 				outputLine = cpc.read(inputLine);
 				outStream.println(outputLine);
 				outStream.flush();
@@ -133,7 +134,7 @@ public class ServerThread extends Thread {
 		boolean svar = false;
 		for(int i = 0; i < Main.users.size(); i++)
 		{
-			if(input.equalsIgnoreCase(Main.users.get(i).getNickname()) || input.equals(""))
+			if(input.equalsIgnoreCase(Main.users.get(i).getNickname()) || input.equals("") || input.equalsIgnoreCase("server") || input.equalsIgnoreCase("null"))
 			{
 				svar = true;
 			}

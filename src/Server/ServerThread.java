@@ -1,7 +1,6 @@
 package Server;
 
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
@@ -46,8 +45,8 @@ public class ServerThread extends Thread {
 			
 		    //String inputLine = "";
 		    //String outputLine = "";
-			Message inputMessage = null;
-		    Message outputMessage = null;
+			Delat.Message inputMessage = null;
+		    Delat.Message outputMessage = null;
 		    ChatProtocol cpc = new ChatProtocol();
 		    //outputLine = cpc.read(null);
 		    outputMessage = cpc.read(null);
@@ -56,25 +55,28 @@ public class ServerThread extends Thread {
 		    try {
 				do{
 					
-					/*if (inputMessage.getMessage().equals("END"))
+					if (inputMessage != null && inputMessage.getMessage().equals("/dc"))
 				    {
 				    	break;
-				    }*/
+				    }
 					//outputLine = cpc.read(inputLine);
 					outputMessage = cpc.read(inputMessage);
 					outStream.writeObject(outputMessage);
 					outStream.flush();
 				}
-				while ((inputMessage = (Message) inStream.readObject()) != null);
+				while ((inputMessage = (Delat.Message) inStream.readObject()) != null);
 			} catch (ClassNotFoundException e) {
 				System.err.println(e);
 			}
-			close();
+		    outStream.close();
+		    close();
+		    
 	
 		} catch (IOException e) {
-			message = "Error: " + e.getMessage();
+			message = "Error Bajs: " + e.getMessage();
 			System.err.println(message);
 			Lib.log(message);
+			close();
 		}
     }
     

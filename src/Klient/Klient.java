@@ -32,10 +32,8 @@ public class Klient {
 	{
 	}
 
-	public void startRunning()
+	public void startRunning(String address, int port)
 	{
-		address = "10.0.0.1";
-		port = 54602;
 		connect(address, port);
 		try {
 			receive();
@@ -63,12 +61,21 @@ public class Klient {
 	//checks the output from the gui input field then sends if appropriate
 	public void checkMessage(String m)
 	{
-		switch(m) {
+		String arr[] = m.split(" ", 2);
+		String firstWord = arr[0];
+		String rest = arr[1];
+		
+		switch(firstWord) {
 		case "/dc":
 			send(answer, userName, m);
 			close();
+			break;
+		case "/nick":
+			send(answer, userName, rest);
+			break;
 		default:
 			send(answer, userName, m);
+			break;
 		}
 	}
 
@@ -78,9 +85,10 @@ public class Klient {
 		userName = Main.gui.messageInputField.getText();
 	}
 
-	//	public void writeFile(String fileName, String textToWrite) throws IOException {
+	//	public void writeFile(String fileName, String textToWrite) throws IOException
+	//	{
 	//		//open output stream
-	//		output = new FileWriter(fileName);
+	//		output = new FileWriter("msglog.txt");
 	//		
 	//		try{
 	//			output.write(textToWrite);
@@ -92,7 +100,7 @@ public class Klient {
 	//		try{
 	//			output.close();
 	//		}catch(IOException e) {
-	//			System.err.println("ERROR: " + fileName + e.getMessage());
+	//			System.err.println("ERROR: " + e.getMessage());
 	//		}
 	//	}
 
@@ -160,6 +168,7 @@ public class Klient {
 		}
 	}
 
+	//chops a string att every blankspace
 	public String[] chopStrings(String m)
 	{
 		String serverInfo[] = m.split("\\s+");
@@ -172,6 +181,7 @@ public class Klient {
 	public void fillUsers(String m)
 	{
 		/*Main.gui.usersWindow*/chopStrings(m);
+		//use method in gui?
 	}
 
 	//close streams and connections

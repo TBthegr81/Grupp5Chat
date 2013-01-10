@@ -7,4 +7,5 @@
 # Log #
 *.log
 
-/bin/
+*/bin/*
+

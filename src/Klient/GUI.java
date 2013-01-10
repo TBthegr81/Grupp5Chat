@@ -70,7 +70,7 @@ public class GUI extends JFrame implements ActionListener{
 		btnSendMessage.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				Main.klient.send(messageInputField.getText());
+//				Main.klient.send(messageInputField.getText());
 				conversationWindow.setText(conversationWindow.getText() + newline + myUserName + ": " + messageInputField.getText());
 
 			

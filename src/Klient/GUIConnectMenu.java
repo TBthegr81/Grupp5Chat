@@ -9,11 +9,11 @@ import javax.swing.border.EmptyBorder;
 import java.awt.GridBagLayout;
 import javax.swing.JTextField;
 import java.awt.GridBagConstraints;
-import com.jgoodies.forms.layout.FormLayout;
-import com.jgoodies.forms.layout.ColumnSpec;
-import com.jgoodies.forms.layout.RowSpec;
-import com.jgoodies.forms.factories.FormFactory;
-import net.miginfocom.swing.MigLayout;
+//import com.jgoodies.forms.layout.FormLayout;
+//import com.jgoodies.forms.layout.ColumnSpec;
+//import com.jgoodies.forms.layout.RowSpec;
+//import com.jgoodies.forms.factories.FormFactory;
+//import net.miginfocom.swing.MigLayout;
 import java.awt.FlowLayout;
 import javax.swing.JLabel;
 import javax.swing.BoxLayout;
@@ -110,7 +110,7 @@ public class GUIConnectMenu extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				int tempPort = Integer.parseInt(connectEnterPort.getText());
-				Main.klient.connect(connectEnterIP.getText(), tempPort);
+				Main.klient.startRunning(connectEnterIP.getText(), tempPort);
 			}
 		});
 	}

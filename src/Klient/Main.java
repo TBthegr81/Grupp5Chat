@@ -14,7 +14,7 @@ public class Main {
 		Klient klient = new Klient();
 		GUI gui = new GUI();
 
-		klient.startRunning();
+		klient.startRunning("10.0.0.1", 54602);
 		gui.setVisible(true);
-	}	
+	}
 }

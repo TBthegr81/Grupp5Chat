@@ -56,6 +56,7 @@ public class Klient {
 			System.err.println("ERROR: " + e.getMessage());
 		}
 		System.out.println("Connected to: " + connection.getInetAddress().getHostName());
+		send(1000, "bossivan", "hej");
 	}
 
 	//checks the output from the gui input field then sends if appropriate
@@ -119,10 +120,9 @@ public class Klient {
 	//receive message from server
 	public void receive() throws ClassNotFoundException, IOException
 	{
-		//while message is not SERVER - END, keep receiving
-		Message inputMessage = null;
+		Delat.Message inputMessage = null;
 		do {
-			inputMessage = (Message) inStream.readObject();
+			inputMessage = (Delat.Message) inStream.readObject();
 			//answer takes the int that decides what state is to be used in answerCase()
 			answer = inputMessage.getId();
 			user = inputMessage.getUsername();
@@ -130,7 +130,7 @@ public class Klient {
 			System.out.println(answer + " " + user + " " + message);
 			answerCase(answer, message);
 			Main.gui.showReceivedMessage(message, user);
-		}while((inputMessage = (Message) inStream.readObject()) != null);
+		}while((inputMessage = (Delat.Message) inStream.readObject()) != null);
 		close();
 	}
 

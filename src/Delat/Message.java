@@ -1,4 +1,4 @@
-package Klient;
+package Delat;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -9,7 +9,7 @@ public class Message implements Serializable {
 	private String username;
 	private String message;
 	
-	Message(int newId, String newUsername, String newMessage)
+	public Message(int newId, String newUsername, String newMessage)
 	{
 		id = newId;
 		username = newUsername;

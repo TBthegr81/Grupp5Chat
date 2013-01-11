@@ -12,9 +12,9 @@ public class Main {
 	public static void main(String[] args) {
 
 		Klient klient = new Klient();
-		GUI gui = new GUI();
+//		GUI gui = new GUI();
 
 		klient.startRunning("10.0.0.1", 54602);
-		gui.setVisible(true);
+//		gui.setVisible(true);
 	}
 }

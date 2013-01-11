@@ -1,15 +1,11 @@
 package Klient;
 
-import java.io.BufferedReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.PrintWriter;
 import java.net.Socket;
 
-import javax.swing.SwingUtilities;
+import Delat.Message;
 
 public class Klient {
 
@@ -21,11 +17,9 @@ public class Klient {
 	//	private FileWriter output;
 	private String message = "";
 	private String user;
-	private String address;
 	private String userName = "klient";
 	private int answer;
-	private int port;
-	private int id;
+
 
 	//konstruktor
 	Klient()
@@ -56,7 +50,6 @@ public class Klient {
 			System.err.println("ERROR: " + e.getMessage());
 		}
 		System.out.println("Connected to: " + connection.getInetAddress().getHostName());
-		send(1000, "bossivan", "hej");
 	}
 
 	//checks the output from the gui input field then sends if appropriate
@@ -65,7 +58,7 @@ public class Klient {
 		String arr[] = m.split(" ", 2);
 		String firstWord = arr[0];
 		String rest = arr[1];
-		
+
 		switch(firstWord) {
 		case "/dc":
 			send(answer, userName, m);
@@ -83,7 +76,7 @@ public class Klient {
 	//chose username for current session
 	public void choseUsername()
 	{
-		userName = Main.gui.messageInputField.getText();
+		//		userName = Main.gui.messageInputField.getText();
 	}
 
 	//	public void writeFile(String fileName, String textToWrite) throws IOException
@@ -112,6 +105,7 @@ public class Klient {
 		try {
 			outStream.writeObject(outMessage);
 			outStream.flush();
+			System.out.println(Integer.toString(id) + userName + message);
 		} catch (IOException e) {
 			System.err.println("ERROR: " + e.getMessage());
 		}
@@ -120,17 +114,17 @@ public class Klient {
 	//receive message from server
 	public void receive() throws ClassNotFoundException, IOException
 	{
-		Delat.Message inputMessage = null;
+		Message inputMessage = null;
 		do {
-			inputMessage = (Delat.Message) inStream.readObject();
+			inputMessage = (Message) inStream.readObject();
 			//answer takes the int that decides what state is to be used in answerCase()
 			answer = inputMessage.getId();
 			user = inputMessage.getUsername();
 			message = inputMessage.getMessage();
 			System.out.println(answer + " " + user + " " + message);
 			answerCase(answer, message);
-			Main.gui.showReceivedMessage(message, user);
-		}while((inputMessage = (Delat.Message) inStream.readObject()) != null);
+			//			Main.gui.showReceivedMessage(message, user);
+		}while((inputMessage = (Message) inStream.readObject()) != null);
 		close();
 	}
 
@@ -138,13 +132,13 @@ public class Klient {
 	{
 		switch(answer){
 		case 1:			//connected to server, got welcome message
-			send(answer, "Ted", "hej");
+			send(answer, userName, "Ted");
 			break;
 		case 2:			//username accepted
 			send(answer, userName, "OK");
 			break;
 		case 3:			//username not accepted... get new from GUI
-			send(answer, "FlowDaN", "lala");
+			send(answer, userName, "SmörSoppa");
 			break;
 		case 4:			//got MOT
 			send(answer, userName, "OK");
@@ -155,7 +149,7 @@ public class Klient {
 			send(answer, userName, "OK");
 			break;
 		case 6:			//list of rooms
-			Main.gui.messageInputField.setEditable(true);
+			//			Main.gui.messageInputField.setEditable(true);
 			chopStrings(message);
 			System.out.println("choose a room");
 			break;

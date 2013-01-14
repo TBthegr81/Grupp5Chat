@@ -196,7 +196,6 @@ public class GUIConnectMenu extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 
 				BookmarkSetter();
-				//Main.klient.startRunning(tempIP, tempPort);
 				KlientThread tre = new KlientThread();
 				Thread t = new Thread(tre);
 				t.start();
@@ -205,8 +204,6 @@ public class GUIConnectMenu extends JFrame {
 
 					bookmarkMenu.setVisible(true);
 				}
-
-				//Main.klient.connect(tempIP, tempPort, Main.mainData.userName);
 				windowCloser();
 
 			}

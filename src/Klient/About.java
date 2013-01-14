@@ -66,6 +66,7 @@ public class About extends JFrame {
 		JTextPane textArea = new JTextPane();
 		textArea.setBackground(UIManager.getColor("Button.background"));
 		textArea.setFont(new Font("Monospaced", Font.PLAIN, 11));
+		textArea.setEditable(false);
 		textArea.setText("iKlient and iServer\r\n\r\nTorbj\u00F6rn Hagenstam\r\nJoakim Lavenius\r\nIvan H\u00F6\u00F6k\r\n\r\nNo rights reserved.");
 		GridBagConstraints gbc_textArea = new GridBagConstraints();
 		gbc_textArea.gridwidth = 3;

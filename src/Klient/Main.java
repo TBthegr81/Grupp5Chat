@@ -13,26 +13,26 @@ public class Main {
 	public static GUI gui = new GUI();
 	public static Klient klient = new Klient();
 	public static Bookmark mainData;
-	
+
 
 	public static void main(String[] args) {
-		
-try {
-	
-	mainData = loadData();
-	System.out.println("Succeeding in loading bookmarks!");
-	mainData.listAllBookmarks();
-		} catch (FileNotFoundException e) {
-		System.out.println("File bookmark.data not found. Creating a new mainBookmark.");
-		mainData = new Bookmark();
-		} catch (IOException e) {
-		e.printStackTrace();
-	} 
 
-		//klient.startRunning();
+		try {
+
+			mainData = loadData();
+			System.out.println("Succeeding in loading bookmarks!");
+			mainData.listAllBookmarks();
+		} catch (FileNotFoundException e) {
+			System.out.println("File bookmark.data not found. Creating a new mainBookmark.");
+			mainData = new Bookmark();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} 
+
+		//		klient.startRunning();
 	}
-	
-	
+
+
 	public static void saveData(Bookmark saveBookmark){
 		ObjectOutputStream output = null;
 
@@ -44,17 +44,17 @@ try {
 		} catch (IOException e) {			
 			e.printStackTrace();
 		}
-		
+
 		if(output != null){
-			
+
 			//Write to file
 			try {
 				output.writeObject(saveBookmark);
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			}
-			
-			
+
+
 			//Close output
 			try {
 				output.close();
@@ -63,17 +63,17 @@ try {
 			}
 		}
 	}
-	
+
 	public static Bookmark loadData() throws FileNotFoundException, IOException{
 		Bookmark loadedBookmark = null;
 		ObjectInputStream input = null;
-		
+
 		//Open input stream
 		input = new ObjectInputStream(new FileInputStream("bookmarks.data"));
-		
-		
+
+
 		if(input != null){
-			
+
 			//Read bookmark from file
 			Object obj = null;
 			try {
@@ -86,7 +86,7 @@ try {
 			if( (obj != null) && (obj instanceof Bookmark) ){
 				loadedBookmark = (Bookmark)obj;
 			}
-			
+
 			//Close input stream
 			try {
 				input.close();

@@ -364,3 +364,66 @@
 7ServerWelcome to this room. Write something!
 7hejhahah
 7ServerMessage Sent
+1ServerWelcome toMyServer
+1TedTed
+3ServerNickname is already taken, Choose another one
+3bajsbajs
+2ServerNickname available
+2bajsOK
+4ServerWelcome to this awesome server, dont say stupid things!
+4bajsOK
+5Server<Ted> <Fred> <Tom> <James> <bajs> 
+5bajsOK
+6ServerAnimetalk! Gametalk 
+6bajsklala
+7ServerWelcome to this room. Write something!
+7bajspuss
+7ServerMessage Sent
+1ServerWelcome toMyServer
+1TedTed
+3ServerNickname is already taken, Choose another one
+3sadsafsadsaf
+2ServerNickname available
+2sadsafOK
+4ServerWelcome to this awesome server, dont say stupid things!
+4sadsafOK
+5Server<Ted> <Fred> <Tom> <James> <sadsaf> 
+5sadsafOK
+6ServerAnimetalk! Gametalk 
+6sadsafassafsa
+7ServerWelcome to this room. Write something!
+7sadsafsada
+7ServerMessage Sent
+1ServerWelcome toMyServer
+1TedTed
+3ServerNickname is already taken, Choose another one
+1ServerWelcome toMyServer
+1TedTed
+3ServerNickname is already taken, Choose another one
+1ServerWelcome toMyServer
+1TedTed
+3ServerNickname is already taken, Choose another one
+1ServerWelcome toMyServer
+1TedTed
+3ServerNickname is already taken, Choose another one
+1ServerWelcome toMyServer
+1TedTed
+3ServerNickname is already taken, Choose another one
+1ServerWelcome toMyServer
+1TedTed
+3ServerNickname is already taken, Choose another one
+1ServerWelcome toMyServer
+1TedTed
+3ServerNickname is already taken, Choose another one
+3Tedivan
+2ServerNickname available
+2TedOK
+4ServerWelcome to this awesome server, dont say stupid things!
+4TedOK
+5Server<Ted> <Fred> <Tom> <James> <sadsaf> <ivan> 
+5TedOK
+6ServerAnimetalk! Gametalk assafsa 
+6Tedtoaletten
+7ServerWelcome to this room. Write something!
+7Tedhej nu ska jag bajs
+7ServerMessage Sent

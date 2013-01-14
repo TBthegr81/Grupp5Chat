@@ -57,16 +57,16 @@ public class Klient {
 	{
 		String arr[] = m.split(" ", 2);
 		String firstWord = arr[0];
-		String rest = arr[1];
+//		String rest = arr[1];
 
 		switch(firstWord) {
 		case "/dc":
 			send(id, userName, m);
 			close();
 			break;
-		case "/nick":
-			send(id, userName, rest);
-			break;
+//		case "/nick":
+//			send(id, userName, rest);
+//			break;
 		default:
 			send(id, userName, m);
 			break;
@@ -96,6 +96,7 @@ public class Klient {
 			id = inputMessage.getId();
 			user = inputMessage.getUsername();
 			message = inputMessage.getMessage();
+			Main.gui.showReceivedMessage(message, user);
 			System.out.println(id + " " + user + " " + message);
 			String chunk = Integer.toString(id) + user + message;
 			log(chunk);
@@ -116,8 +117,11 @@ public class Klient {
 			send(id, userName, "OK");
 			break;
 		case 3:			//username not accepted... get new from GUI
-			userName = write();
-			send(id, userName, userName);
+			System.out.println("röv");
+			Main.gui.messageInputField.setEditable(true);
+//			userName = write();
+//			send(id, userName, userName);
+//			Main.gui.messageInputField.setEditable(false);
 			break;
 		case 4:			//got MOT
 			send(id, userName, "OK");
@@ -128,16 +132,16 @@ public class Klient {
 			send(id, userName, "OK");
 			break;
 		case 6:			//list of rooms
-			//			Main.gui.messageInputField.setEditable(true);
+			Main.gui.messageInputField.setEditable(true);
 			chopStrings(message);
 			System.out.println("choose a room");
-			String room = write();
-			send(id, userName, room);
+//			String room = write();
+//			send(id, userName, room);
 			break;
 		case 7:			//send messages
 			System.out.println("Ready to type.");
-			String message = write();
-			send(id, userName, message);
+//			String message = write();
+//			send(id, userName, message);
 			break;
 		}
 	}

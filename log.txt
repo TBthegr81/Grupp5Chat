@@ -427,3 +427,35 @@
 7ServerWelcome to this room. Write something!
 7Tedhej nu ska jag bajs
 7ServerMessage Sent
+1ServerWelcome toMyServer
+1TedTed
+3ServerNickname is already taken, Choose another one
+3Tedivan
+3ServerNickname is already taken, Choose another one
+3TedFlowDan
+2ServerNickname available
+2TedOK
+4ServerWelcome to this awesome server, dont say stupid things!
+4TedOK
+5Server<Ted> <Fred> <Tom> <James> <sadsaf> <ivan> <FlowDan> 
+5TedOK
+6ServerAnimetalk! Gametalk assafsa toaletten 
+6Tedtoaletten
+7ServerWelcome to this room. Write something!
+7Tedhej alla
+7ServerMessage Sent
+1ServerWelcome toMyServer
+1TedTed
+3ServerNickname is already taken, Choose another one
+3Tedsven
+2ServerNickname available
+2TedOK
+4ServerWelcome to this awesome server, dont say stupid things!
+4TedOK
+5Server<Ted> <Fred> <Tom> <James> <sadsaf> <ivan> <FlowDan> <sven> 
+5TedOK
+6ServerAnimetalk! Gametalk assafsa toaletten 
+6Tedstalins garderob
+7ServerWelcome to this room. Write something!
+7Tedstalin u here?
+7ServerMessage Sent

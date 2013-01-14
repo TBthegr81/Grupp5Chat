@@ -4,8 +4,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-import java.util.ArrayList;
-
 import javax.swing.*;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
@@ -30,7 +28,7 @@ public class GUI extends JFrame implements ActionListener{
 
 		
 		final JFrame clientWindow = new JFrame ("Group 5 chat client");
-		clientWindow.setTitle("iClient™");
+		clientWindow.setTitle("iClientâ„¢");
 		clientWindow.getContentPane().setSize(new Dimension(700, 350));
 		clientWindow.setMinimumSize(new Dimension(400, 350));
 		clientWindow.setSize(new Dimension(700, 550));
@@ -63,14 +61,27 @@ public class GUI extends JFrame implements ActionListener{
 		JMenuItem exitMenuItem = new JMenuItem("Exit", KeyEvent.VK_S);
 		chatMenu.add(exitMenuItem);
 		
+		//Meny två
 		JMenu menuTools = new JMenu("Tools");
 		chatMenuBar.add(menuTools);
 		
+		
 		JMenuItem optionsMenuItem = new JMenuItem("Options");
 		menuTools.add(optionsMenuItem);
+		optionsMenuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		
 		JMenuItem aboutMenuItem = new JMenuItem("About");
 		menuTools.add(aboutMenuItem);
+		aboutMenuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				About aboutWindow = new About();
+				aboutWindow.setVisible(true);
+			}
+		});
 		
 		//Actions for the menu items
 		connectMenuItem.addActionListener(new ActionListener() {
@@ -111,7 +122,7 @@ public class GUI extends JFrame implements ActionListener{
 			}
 		});
 		
-		//Här visas rummets namn.
+		//HÃ¤r visas rummets namn.
 		JFormattedTextField roomNameTextArea = new JFormattedTextField();
 		roomNameTextArea.setBackground(Color.LIGHT_GRAY);
 		roomNameTextArea.setHorizontalAlignment(SwingConstants.CENTER);

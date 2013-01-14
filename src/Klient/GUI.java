@@ -70,7 +70,8 @@ public class GUI extends JFrame implements ActionListener{
 		menuTools.add(optionsMenuItem);
 		optionsMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				Options optionsWindow = new Options();
+				optionsWindow.setVisible(true);
 			}
 		});
 		

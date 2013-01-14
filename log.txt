@@ -459,3 +459,12 @@
 7ServerWelcome to this room. Write something!
 7Tedstalin u here?
 7ServerMessage Sent
+1ServerWelcome toMyServer
+1TedTed
+2ServerNickname available
+2TedOK
+4ServerWelcome to this awesome server, dont say stupid things!
+4TedOK
+5Server<Ted> 
+5TedOK
+6Servernull 

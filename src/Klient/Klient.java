@@ -55,21 +55,26 @@ public class Klient {
 	//checks the output from the gui input field then sends if appropriate
 	public void checkMessage(String m)
 	{
+		String firstWord = null;
+		String rest = null;
+		
 		String arr[] = m.split(" ", 2);
-		String firstWord = arr[0];
-//		String rest = arr[1];
-
-		switch(firstWord) {
-		case "/dc":
-			send(id, userName, m);
-			close();
-			break;
-//		case "/nick":
-//			send(id, userName, rest);
-//			break;
-		default:
-			send(id, userName, m);
-			break;
+		firstWord = arr[0];
+		rest = arr[1];
+		
+		if(firstWord != null || rest != null) {
+			switch(firstWord) {
+			case "/dc":
+				send(id, userName, m);
+				close();
+				break;
+			case "/nick":
+				send(id, userName, rest);
+				break;
+			default:
+				send(id, userName, m);
+				break;
+			}
 		}
 	}
 

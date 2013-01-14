@@ -211,6 +211,9 @@ public class GUI extends JFrame implements ActionListener{
 		conversationWindow.setText(conversationWindow.getText() + newline + user + ": " + message);
 
 	}
+	public void serverMessage(String message){
+		conversationWindow.setText(conversationWindow.getText() + newline + message);
+	}
 	
 	
 

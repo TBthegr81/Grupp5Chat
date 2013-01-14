@@ -1,24 +1,24 @@
 package Klient;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.util.Scanner;
 
 import Delat.Message;
 
 public class Klient {
 
 	private Socket connection;
-	//	private PrintWriter outStream;
 	private ObjectOutputStream outStream;
 	private ObjectInputStream inStream;
-	//	private BufferedReader inStream;
-	//	private FileWriter output;
+	private Message inputMessage;
 	private String message = "";
 	private String user;
 	private String userName = "klient";
-	private int answer;
+	private int id;
 
 
 	//konstruktor
@@ -61,42 +61,17 @@ public class Klient {
 
 		switch(firstWord) {
 		case "/dc":
-			send(answer, userName, m);
+			send(id, userName, m);
 			close();
 			break;
 		case "/nick":
-			send(answer, userName, rest);
+			send(id, userName, rest);
 			break;
 		default:
-			send(answer, userName, m);
+			send(id, userName, m);
 			break;
 		}
 	}
-
-	//chose username for current session
-	public void choseUsername()
-	{
-		//		userName = Main.gui.messageInputField.getText();
-	}
-
-	//	public void writeFile(String fileName, String textToWrite) throws IOException
-	//	{
-	//		//open output stream
-	//		output = new FileWriter("msglog.txt");
-	//		
-	//		try{
-	//			output.write(textToWrite);
-	//		}catch(IOException e) {
-	//			System.err.println("ERROR: " + e.getMessage());
-	//		}
-	//		
-	//		//close output stream
-	//		try{
-	//			output.close();
-	//		}catch(IOException e) {
-	//			System.err.println("ERROR: " + e.getMessage());
-	//		}
-	//	}
 
 	//send message to server
 	public void send(int id, String userName, String message)
@@ -105,6 +80,8 @@ public class Klient {
 		try {
 			outStream.writeObject(outMessage);
 			outStream.flush();
+			String chunk = Integer.toString(id) + userName + message;
+			log(chunk);
 			System.out.println(Integer.toString(id) + userName + message);
 		} catch (IOException e) {
 			System.err.println("ERROR: " + e.getMessage());
@@ -114,52 +91,62 @@ public class Klient {
 	//receive message from server
 	public void receive() throws ClassNotFoundException, IOException
 	{
-		Message inputMessage = null;
-		do {
-			inputMessage = (Message) inStream.readObject();
+		while((inputMessage = (Message) inStream.readObject()) != null) {
 			//answer takes the int that decides what state is to be used in answerCase()
-			answer = inputMessage.getId();
+			id = inputMessage.getId();
 			user = inputMessage.getUsername();
 			message = inputMessage.getMessage();
-			System.out.println(answer + " " + user + " " + message);
-			answerCase(answer, message);
-			//			Main.gui.showReceivedMessage(message, user);
-		}while((inputMessage = (Message) inStream.readObject()) != null);
+			System.out.println(id + " " + user + " " + message);
+			String chunk = Integer.toString(id) + user + message;
+			log(chunk);
+			answerCase(id, message);
+			//			Main.gui.showReceivedMessage(message, user);			
+		}
 		close();
 	}
 
-	public void answerCase(int answer, String user)
+	public void answerCase(int id, String user)
 	{
-		switch(answer){
+		switch(id){
 		case 1:			//connected to server, got welcome message
-			send(answer, userName, "Ted");
+			userName = "Ted";
+			send(id, userName, userName);
 			break;
 		case 2:			//username accepted
-			send(answer, userName, "OK");
+			send(id, userName, "OK");
 			break;
 		case 3:			//username not accepted... get new from GUI
-			send(answer, userName, "SmörSoppa");
+			userName = write();
+			send(id, userName, userName);
 			break;
 		case 4:			//got MOT
-			send(answer, userName, "OK");
+			send(id, userName, "OK");
 			break;
 		case 5:			//list of users
 			chopStrings(message);
 			//			fillUsers(message);
-			send(answer, userName, "OK");
+			send(id, userName, "OK");
 			break;
 		case 6:			//list of rooms
 			//			Main.gui.messageInputField.setEditable(true);
 			chopStrings(message);
 			System.out.println("choose a room");
+			String room = write();
+			send(id, userName, room);
 			break;
 		case 7:			//send messages
 			System.out.println("Ready to type.");
-			break;
-		case 8:			//get messages
-			System.out.println("");
+			String message = write();
+			send(id, userName, message);
 			break;
 		}
+	}
+	
+	public String write()
+	{
+		Scanner input = new Scanner(System.in);
+		String message = input.nextLine();
+		return message;
 	}
 
 	//chops a string att every blankspace
@@ -176,6 +163,31 @@ public class Klient {
 	{
 		/*Main.gui.usersWindow*/chopStrings(m);
 		//use method in gui?
+	}
+
+	public void log(String m)
+	{
+		//open output stream and create writer
+		FileWriter output = null;
+		try {
+			output = new FileWriter("log.txt", true);
+		} catch (IOException e) {
+			System.err.println("ERROR: " + e.getMessage());
+		}
+
+		//write to file
+		try {
+			output.write(m + System.lineSeparator());
+		}catch(IOException e) {
+			System.err.println("ERROR: " + e.getMessage());
+		}
+
+		//close stream
+		try {
+			output.close();
+		}catch(IOException e) {
+			System.err.println("ERROR: " + e.getMessage());
+		}
 	}
 
 	//close streams and connections

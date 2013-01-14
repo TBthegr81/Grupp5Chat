@@ -1,0 +1,366 @@
+1klientTed
+1ServerWelcome toMyServer
+1klientTed
+1ServerWelcome toMyServer
+1klientTed
+1ServerWelcome toMyServer
+1klientTed
+1ServerWelcome toMyServer
+1klientidiot
+1ServerWelcome toMyServer
+1klientTed
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+2ServerNickname available
+2klientOK
+4ServerWelcome to this awesome server, dont say stupid things!
+4klientOK
+5Server<Ted> <Fred> <Tom> <James> <idiot> <SmörSoppa> 
+5klientOK
+6ServerAnimetalk! Gametalk 
+1ServerWelcome toMyServer
+1klientTed
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+2ServerNickname available
+2klientOK
+4ServerWelcome to this awesome server, dont say stupid things!
+4klientOK
+5Server<Ted> <Fred> <Tom> <James> <SmörSoppa> 
+5klientOK
+6ServerAnimetalk! Gametalk 
+1ServerWelcome toMyServer
+1klientTed
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+1ServerWelcome toMyServer
+1klientTed
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+2ServerNickname available
+2klientOK
+4ServerWelcome to this awesome server, dont say stupid things!
+4klientOK
+5Server<Ted> <Fred> <Tom> <James> <SmörSoppa> 
+5klientOK
+6ServerAnimetalk! Gametalk 
+1ServerWelcome toMyServer
+1klientTed
+3ServerNickname is already taken, Choose another one
+3klientSmörSoppa
+2ServerNickname available
+2nullOK
+4ServerWelcome to this awesome server, dont say stupid things!
+4nullOK
+5Server<Ted> <Fred> <Tom> <James> <SmörSoppa> 
+5nullOK
+6ServerAnimetalk! Gametalk 
+6nullAnimetalk!
+7ServerWelcome to this room. Write something!
+1ServerWelcome toMyServer
+1TedTed
+3ServerNickname is already taken, Choose another one
+3SmörSoppaSmörSoppa
+3ServerNickname is already taken, Choose another one
+3SmörSoppaSmörSoppa
+3ServerNickname is already taken, Choose another one
+3SmörSoppaSmörSoppa
+3ServerNickname is already taken, Choose another one
+3SmörSoppaSmörSoppa
+3ServerNickname is already taken, Choose another one
+3SmörSoppaSmörSoppa
+3ServerNickname is already taken, Choose another one
+3SmörSoppaSmörSoppa
+3ServerNickname is already taken, Choose another one
+3SmörSoppaSmörSoppa
+3ServerNickname is already taken, Choose another one
+3SmörSoppaSmörSoppa
+3ServerNickname is already taken, Choose another one
+3SmörSoppaSmörSoppa
+3ServerNickname is already taken, Choose another one
+3SmörSoppaSmörSoppa
+3ServerNickname is already taken, Choose another one
+3SmörSoppaSmörSoppa
+3ServerNickname is already taken, Choose another one
+3SmörSoppaSmörSoppa
+3ServerNickname is already taken, Choose another one
+3SmörSoppaSmörSoppa
+3ServerNickname is already taken, Choose another one
+3SmörSoppaSmörSoppa
+3ServerNickname is already taken, Choose another one
+3SmörSoppaSmörSoppa
+3ServerNickname is already taken, Choose another one
+3SmörSoppaSmörSoppa
+3ServerNickname is already taken, Choose another one
+3SmörSoppaSmörSoppa
+3ServerNickname is already taken, Choose another one
+3SmörSoppaSmörSoppa
+3ServerNickname is already taken, Choose another one
+3SmörSoppaSmörSoppa
+3ServerNickname is already taken, Choose another one
+3SmörSoppaSmörSoppa
+3ServerNickname is already taken, Choose another one
+3SmörSoppaSmörSoppa
+3ServerNickname is already taken, Choose another one
+3SmörSoppaSmörSoppa
+3ServerNickname is already taken, Choose another one
+3SmörSoppaSmörSoppa
+3ServerNickname is already taken, Choose another one
+3SmörSoppaSmörSoppa
+3ServerNickname is already taken, Choose another one
+3SmörSoppaSmörSoppa
+3ServerNickname is already taken, Choose another one
+3SmörSoppaSmörSoppa
+3ServerNickname is already taken, Choose another one
+3SmörSoppaSmörSoppa
+3ServerNickname is already taken, Choose another one
+3SmörSoppaSmörSoppa
+3ServerNickname is already taken, Choose another one
+3SmörSoppaSmörSoppa
+1ServerWelcome toMyServer
+1TedTed
+3ServerNickname is already taken, Choose another one
+3SmörSoppaSmörSoppa
+2ServerNickname available
+2SmörSoppaOK
+4ServerWelcome to this awesome server, dont say stupid things!
+4SmörSoppaOK
+5Server<Ted> <Fred> <Tom> <James> <SmörSoppa> 
+5SmörSoppaOK
+6ServerAnimetalk! Gametalk 
+6SmörSoppaAnimetalk!
+7ServerWelcome to this room. Write something!
+1ServerWelcome toMyServer
+1TedTed
+3ServerNickname is already taken, Choose another one
+3SmörSoppaSmörSoppa
+2ServerNickname available
+2SmörSoppaOK
+4ServerWelcome to this awesome server, dont say stupid things!
+4SmörSoppaOK
+5Server<Ted> <Fred> <Tom> <James> <SmörSoppa> 
+5SmörSoppaOK
+6ServerAnimetalk! Gametalk 
+6SmörSoppaThe room of sodomy
+7ServerWelcome to this room. Write something!
+1ServerWelcome toMyServer
+1TedTed
+3ServerNickname is already taken, Choose another one
+3bruchanbruchan
+2ServerNickname available
+2bruchanOK
+4ServerWelcome to this awesome server, dont say stupid things!
+4bruchanOK
+5Server<Ted> <Fred> <Tom> <James> <bruchan> 
+5bruchanOK
+6ServerAnimetalk! Gametalk 
+6bruchanThe room of sodomy
+7ServerWelcome to this room. Write something!
+1ServerWelcome toMyServer
+1TedTed
+3ServerNickname is already taken, Choose another one
+3bajsbajs
+2ServerNickname available
+2bajsOK
+4ServerWelcome to this awesome server, dont say stupid things!
+4bajsOK
+5Server<Ted> <Fred> <Tom> <James> <bajs> 
+5bajsOK
+6ServerAnimetalk! Gametalk 
+1ServerWelcome toMyServer
+1TedTed
+3ServerNickname is already taken, Choose another one
+3lkajsdalkajsda
+2ServerNickname available
+2lkajsdaOK
+4ServerWelcome to this awesome server, dont say stupid things!
+4lkajsdaOK
+5Server<Ted> <Fred> <Tom> <James> <bajs> <lkajsda> 
+5lkajsdaOK
+6ServerAnimetalk! Gametalk 
+6lkajsdaivans hemliga toalett
+7ServerWelcome to this room. Write something!
+1ServerWelcome toMyServer
+1TedTed
+3ServerNickname is already taken, Choose another one
+3ivanivan
+2ServerNickname available
+2ivanOK
+4ServerWelcome to this awesome server, dont say stupid things!
+4ivanOK
+5Server<Ted> <Fred> <Tom> <James> <ivan> 
+5ivanOK
+6ServerAnimetalk! Gametalk 
+6ivantoaletten
+7ServerWelcome to this room. Write something!
+7ivanhej
+7ServerMessage Sent
+7ivanoshdrs
+7ServerMessage Sent
+1ServerWelcome toMyServer
+1TedTed
+3ServerNickname is already taken, Choose another one
+3ivanivan
+2ServerNickname available
+2ivanOK
+4ServerWelcome to this awesome server, dont say stupid things!
+4ivanOK
+5Server<Ted> <Fred> <Tom> <James> <ivan> 
+5ivanOK
+6ServerAnimetalk! Gametalk 
+6ivantoalett
+7ServerWelcome to this room. Write something!
+7ivanhej
+7ServerMessage Sent
+1ServerWelcome toMyServer
+1TedTed
+3ServerNickname is already taken, Choose another one
+3harald treutikerharald treutiker
+2ServerNickname available
+2harald treutikerOK
+4ServerWelcome to this awesome server, dont say stupid things!
+4harald treutikerOK
+5Server<Ted> <Fred> <Tom> <James> <harald treutiker> 
+5harald treutikerOK
+6ServerAnimetalk! Gametalk 
+6harald treutikerberns
+7ServerWelcome to this room. Write something!
+7harald treutikerschteker med skumpa
+7ServerMessage Sent
+7harald treutikerhahahaha
+7ServerMessage Sent
+7harald treutikerjag är så jävla rik
+7ServerMessage Sent
+7harald treutikerta på min plånbok snälla den är så fet och len
+7ServerMessage Sent
+1ServerWelcome toMyServer
+1TedTed
+3ServerNickname is already taken, Choose another one
+3hejhej
+2ServerNickname available
+2hejOK
+4ServerWelcome to this awesome server, dont say stupid things!
+4hejOK
+5Server<Ted> <Fred> <Tom> <James> <hej> 
+5hejOK
+6ServerAnimetalk! Gametalk 
+6hejbajsrummet
+7ServerWelcome to this room. Write something!
+7hejhahah
+7ServerMessage Sent

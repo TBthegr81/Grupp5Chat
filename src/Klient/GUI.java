@@ -20,6 +20,7 @@ public class GUI extends JFrame implements ActionListener{
 	public static JTextArea conversationWindow;
 	public static JTextField messageInputField;
 	GUIConnectMenu connectMenu = new GUIConnectMenu();
+	
 
 	/**
 	 * @param args
@@ -29,23 +30,73 @@ public class GUI extends JFrame implements ActionListener{
 
 		
 		final JFrame clientWindow = new JFrame ("Group 5 chat client");
-		clientWindow.getContentPane().setSize(new Dimension(400, 350));
+		clientWindow.setTitle("iClient™");
+		clientWindow.getContentPane().setSize(new Dimension(700, 350));
 		clientWindow.setMinimumSize(new Dimension(400, 350));
-		clientWindow.setSize(new Dimension(400, 350));
+		clientWindow.setSize(new Dimension(700, 550));
 		clientWindow.getContentPane().setMinimumSize(new Dimension(400, 350));
 		
 		clientWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		clientWindow.setSize(700, 750);
+		clientWindow.setSize(700, 550);
 		clientWindow.setLocationRelativeTo(null);
 		clientWindow.setVisible(true);
 
 		Container contentClientWindow = clientWindow.getContentPane();
 		contentClientWindow.setBackground(Color.LIGHT_GRAY);
 		
+		
+		//Menu for chat
+		JMenu chatMenu = new JMenu("iClient");
+		chatMenu.setMnemonic(KeyEvent.VK_M);
+		
+		//Menu bar 
+		JMenuBar chatMenuBar = new JMenuBar();
+		chatMenuBar.add(chatMenu);
+
+		//Set chatMenuBar to the frame
+		clientWindow.setJMenuBar(chatMenuBar);
+		clientWindow.revalidate();
+ 
+		//Menu
+		JMenuItem connectMenuItem = new JMenuItem("Connect", KeyEvent.VK_C);
+		chatMenu.add(connectMenuItem);
+		JMenuItem exitMenuItem = new JMenuItem("Exit", KeyEvent.VK_S);
+		chatMenu.add(exitMenuItem);
+		
+		JMenu menuTools = new JMenu("Tools");
+		chatMenuBar.add(menuTools);
+		
+		JMenuItem optionsMenuItem = new JMenuItem("Options");
+		menuTools.add(optionsMenuItem);
+		
+		JMenuItem aboutMenuItem = new JMenuItem("About");
+		menuTools.add(aboutMenuItem);
+		
+		//Actions for the menu items
+		connectMenuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				connectMenu.setVisible(true);
+			}
+		});
+		exitMenuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
+		
+		
+		GridBagLayout gridBagLayout = new GridBagLayout();
+		gridBagLayout.columnWidths = new int[]{155, 398, 101, 0};
+		gridBagLayout.rowHeights = new int[]{40, 399, 83, 0};
+		gridBagLayout.columnWeights = new double[]{1.0, 1.0, 1.0, Double.MIN_VALUE};
+		gridBagLayout.rowWeights = new double[]{1.0, 1.0, 1.0, Double.MIN_VALUE};
+		clientWindow.getContentPane().setLayout(gridBagLayout);
+		
 	
 
 		//Text field for message
 		messageInputField = new JTextField();
+		messageInputField.setFont(new Font("Monospaced", Font.PLAIN, 11));
 		messageInputField.setMinimumSize(new Dimension(300, 25));
 		messageInputField.setPreferredSize(new Dimension(300, 25));
 		messageInputField.setSize(new Dimension(300, 25));
@@ -59,107 +110,85 @@ public class GUI extends JFrame implements ActionListener{
 				messageInputField.setText("");
 			}
 		});
-		messageInputField.setEditable(false);
-
 		
-		//submit button to send text
-		JButton btnSendMessage = new JButton("Send message");
-		btnSendMessage.setSize(new Dimension(80, 20));
-		btnSendMessage.setBackground(Color.CYAN);
-		
-		btnSendMessage.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-//				Main.klient.send(messageInputField.getText());
-				conversationWindow.setText(conversationWindow.getText() + newline + myUserName + ": " + messageInputField.getText());
-
-			
-				Main.klient.checkMessage(messageInputField.getText());
-
-				//Clears input field.
-				messageInputField.setText("");
-			}
-		});
-		
-		
-		//Menu for chat
-		JMenu chatMenu = new JMenu("Menu");
-		chatMenu.setMnemonic(KeyEvent.VK_M);
-		
-		//Menu bar 
-		JMenuBar chatMenuBar = new JMenuBar();
-		chatMenuBar.add(chatMenu);
-
-		//Set chatMenuBar to the frame
-		clientWindow.setJMenuBar(chatMenuBar);
-		clientWindow.revalidate();
- 
-		//TODO Add functions to all items on menu bar
-		
-		// 3 items on the menu. New necessary items can be added or these three can be deleted.
-		JMenuItem connectMenuItem = new JMenuItem("Connect", KeyEvent.VK_C);
-		chatMenu.add(connectMenuItem);
-		JMenuItem bookmarkMenuItem = new JMenuItem("Bookmark", KeyEvent.VK_B);
-		chatMenu.add(bookmarkMenuItem);
-		JMenuItem saveConversationMenuItem = new JMenuItem("Save conversation", KeyEvent.VK_S);
-		chatMenu.add(saveConversationMenuItem);
-		
-		//Actions for the menu item
-		connectMenuItem.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				connectMenu.setVisible(true);
-				
-			}
-		});
-		
-		//New label. 
-		//TODO Make it able to change?!?
-		
-		JLabel lblChatroom = new JLabel("Chatroom # 1");
+		//Här visas rummets namn.
+		JFormattedTextField roomNameTextArea = new JFormattedTextField();
+		roomNameTextArea.setBackground(Color.LIGHT_GRAY);
+		roomNameTextArea.setHorizontalAlignment(SwingConstants.CENTER);
+		roomNameTextArea.setFont(new Font("Monospaced", Font.PLAIN, 11));
+		roomNameTextArea.setEditable(false);
+		roomNameTextArea.setText("<no connection>");
+		GridBagConstraints gbc_roomNameTextArea = new GridBagConstraints();
+		gbc_roomNameTextArea.insets = new Insets(0, 0, 5, 5);
+		gbc_roomNameTextArea.fill = GridBagConstraints.BOTH;
+		gbc_roomNameTextArea.gridx = 0;
+		gbc_roomNameTextArea.gridy = 0;
+		clientWindow.getContentPane().add(roomNameTextArea, gbc_roomNameTextArea);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setSize(new Dimension(300, 200));
 		scrollPane.setMinimumSize(new Dimension(300, 200));
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		
-		// Layout for clientWindow with all the components added
-		GroupLayout groupLayout = new GroupLayout(clientWindow.getContentPane());
-		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.TRAILING)
-				.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
-					.addGap(23)
-					.addComponent(lblChatroom)
-					.addGap(27)
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
-						.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
-							.addComponent(messageInputField, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-							.addGap(18)
-							.addComponent(btnSendMessage))
-						.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 552, GroupLayout.PREFERRED_SIZE))
-					.addGap(15))
-		);
-		groupLayout.setVerticalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(13)
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(lblChatroom)
-						.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 609, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(messageInputField, 0, 0, Short.MAX_VALUE)
-						.addComponent(btnSendMessage, GroupLayout.PREFERRED_SIZE, 47, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap())
-		);
-		
 				//Conversation field where conversation will show
 				conversationWindow = new JTextArea();
+				conversationWindow.setEditable(false);
 				conversationWindow.setMaximumSize(new Dimension(300, 2147483647));
 				scrollPane.setViewportView(conversationWindow);
 				conversationWindow.setMinimumSize(new Dimension(300, 0));
 				conversationWindow.setColumns(10);
-		clientWindow.getContentPane().setLayout(groupLayout);
+				GridBagConstraints gbc_scrollPane = new GridBagConstraints();
+				gbc_scrollPane.gridheight = 2;
+				gbc_scrollPane.gridwidth = 2;
+				gbc_scrollPane.anchor = GridBagConstraints.EAST;
+				gbc_scrollPane.fill = GridBagConstraints.BOTH;
+				gbc_scrollPane.insets = new Insets(0, 0, 5, 0);
+				gbc_scrollPane.gridx = 1;
+				gbc_scrollPane.gridy = 0;
+				clientWindow.getContentPane().add(scrollPane, gbc_scrollPane);
+		
+		JTextArea memberListTextArea = new JTextArea();
+		memberListTextArea.setBackground(Color.LIGHT_GRAY);
+		memberListTextArea.setEditable(false);
+		GridBagConstraints gbc_memberListTextArea = new GridBagConstraints();
+		gbc_memberListTextArea.insets = new Insets(0, 0, 5, 5);
+		gbc_memberListTextArea.fill = GridBagConstraints.BOTH;
+		gbc_memberListTextArea.gridx = 0;
+		gbc_memberListTextArea.gridy = 1;
+		clientWindow.getContentPane().add(memberListTextArea, gbc_memberListTextArea);
+		messageInputField.setEditable(false);
+		GridBagConstraints gbc_messageInputField = new GridBagConstraints();
+		gbc_messageInputField.fill = GridBagConstraints.BOTH;
+		gbc_messageInputField.insets = new Insets(0, 0, 0, 5);
+		gbc_messageInputField.gridx = 1;
+		gbc_messageInputField.gridy = 2;
+		clientWindow.getContentPane().add(messageInputField, gbc_messageInputField);
+		
+				
+				//submit button to send text
+				JButton btnSendMessage = new JButton("Send message");
+				btnSendMessage.setSize(new Dimension(80, 20));
+				btnSendMessage.setBackground(Color.CYAN);
+				
+				btnSendMessage.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						
+//						Main.klient.send(messageInputField.getText());
+						conversationWindow.setText(conversationWindow.getText() + newline + myUserName + ": " + messageInputField.getText());
+
+					
+						Main.klient.checkMessage(messageInputField.getText());
+
+						//Clears input field.
+						messageInputField.setText("");
+					}
+				});
+				GridBagConstraints gbc_btnSendMessage = new GridBagConstraints();
+				gbc_btnSendMessage.anchor = GridBagConstraints.NORTHWEST;
+				gbc_btnSendMessage.gridx = 2;
+				gbc_btnSendMessage.gridy = 2;
+				gbc_btnSendMessage.fill = GridBagConstraints.BOTH;
+				clientWindow.getContentPane().add(btnSendMessage, gbc_btnSendMessage);
 
 		
 		clientWindow.revalidate();
@@ -170,6 +199,8 @@ public class GUI extends JFrame implements ActionListener{
 		conversationWindow.setText(conversationWindow.getText() + newline + user + ": " + message);
 
 	}
+	
+	
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {

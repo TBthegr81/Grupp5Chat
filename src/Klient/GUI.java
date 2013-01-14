@@ -28,7 +28,7 @@ public class GUI extends JFrame implements ActionListener{
 
 		
 		final JFrame clientWindow = new JFrame ("Group 5 chat client");
-		clientWindow.setTitle("iClientâ„¢");
+		clientWindow.setTitle("iClient");
 		clientWindow.getContentPane().setSize(new Dimension(700, 350));
 		clientWindow.setMinimumSize(new Dimension(400, 350));
 		clientWindow.setSize(new Dimension(700, 550));

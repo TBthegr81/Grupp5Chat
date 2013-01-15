@@ -57,14 +57,14 @@ public class Klient {
 
 	//checks the output from the gui input field then sends if appropriate
 	public void checkMessage(String m)
-	{	
+	{
 		String firstWord = null;
 		String rest = null;
 		String arr[] = m.split(" ", 2);
 		
 		try {
 			firstWord = arr[0];
-			rest = arr[1];			
+			rest = arr[1];
 		} catch (ArrayIndexOutOfBoundsException e) {
 			System.out.println("Error: " + e.getMessage());
 		}
@@ -134,7 +134,7 @@ public class Klient {
 			break;
 		case 5:			//list of users
 			listUsers = chopStrings(message);
-//			fillUsers(message);
+//			fillUsers(listUsers);
 			send(id, userName, null, "OK");
 			break;
 		case 6:			//list of rooms
@@ -168,8 +168,7 @@ public class Klient {
 
 	public void fillUsers(String m)
 	{
-		/*Main.gui.usersWindow*/chopStrings(m);
-		//use method in gui?
+//		Main.gui.usersWindow
 	}
 
 	public void log(String m)

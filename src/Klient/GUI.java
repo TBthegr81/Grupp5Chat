@@ -116,8 +116,6 @@ public class GUI extends JFrame implements ActionListener{
 		
 		messageInputField.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
-				conversationWindow.setText(conversationWindow.getText() + newline + myUserName + ": " + messageInputField.getText());
 				Main.klient.checkMessage(messageInputField.getText());
 				messageInputField.setText("");
 			}

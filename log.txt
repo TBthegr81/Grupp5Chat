@@ -743,3 +743,147 @@
 7ServerMessage Sent
 7ivan höökbruuuushan
 7ServerMessage Sent
+1ServerWelcome toMyServer
+1nullivan
+2Serverivan
+2ivanOK
+4ServerWelcome to this awesome server, dont say stupid things!
+4ivanOK
+5Server<ivan> 
+5ivanOK
+6ServerMain 
+6ivanok
+7ServerWelcome to Main
+7ivanhej
+7ivanhej
+7ivanhe
+7ivanhej
+7ivanhej
+7ivanehj
+7ivanehee
+7ivan
+7ivanehe
+7ivanhe
+7ivanej
+7ivanehe
+7ivaneheh
+7ivaneehhejhe
+7ivanhejeeh
+7ivanehe
+7ivanehjehe
+7ivanjhe
+7ivanhjeh
+7ivanejeh
+7ivanjeh
+7ivaneeh
+7ivanjehe
+7ivanjeh
+7ivanjehe
+7ivanjeh
+7ivanejehjehe
+7ivanjeh
+7ivaneeh
+7ivanhjehejehjehe
+7ivanjeh
+7ivaneh
+7ivaneh
+7ivanehe
+7ivanhe
+7ivanheh
+7ivanejeh
+7ivaneh
+7ivanehj
+7ivanhejeh
+7ivaneje
+7ivanhehjehj
+7ivanehe
+7ivanjehe
+7ivanjehe
+7ivanjeh
+7ivanejeh
+7ivanjehe
+7ivanjehej
+7ivanejhejehej
+7ivanehh
+7ivanehehe
+7ivanhehe
+7ivaneh
+7ivanehejeh
+7ivaneje
+7ivanhejjeh
+7ivaneehhe
+7ivanhj
+7ivanhejh
+7ivanejh
+7ivanehjejh
+7ivanehe
+7ivanjhje
+7ivanhje
+7ivanhje
+7ivanhje
+7ivanhj
+7ivanehj
+7ivanehje
+7ivanhje
+7ivanhje
+7ivanhje
+7ivanhje
+7ivanhjejhe
+7ivanhje
+7ivanhj
+7ivane
+7ivanjhejh
+7ivanejhe
+7ivanjh
+7ivanejh
+7ivanejhe
+7ivanhj
+7ivanejh
+7ivanehjehj
+7ivanehj
+7ivanehj
+7ivanehje
+7ivanhj
+7ivanehje
+7ivanhejhe
+7ivanjh
+7ivanehje
+7ivanhje
+7ivanhej
+7ivanhehje
+1ServerWelcome toMyServer
+1nullivan
+2Serverivan
+2ivanOK
+4ServerWelcome to this awesome server, dont say stupid things!
+4ivanOK
+5Server<ivan> 
+5ivanOK
+6ServerMain 
+6ivanok
+7ServerWelcome to Main
+7ivanok
+7Serverivan attacked ivan who was left with -10 HP
+7ivanattack
+7Serverivan attacked ivan who was left with -10 HP
+7ivanpower up
+7Serverivan attacked ivan who was left with -10 HP
+7ivanfight the power
+7Serverivan attacked ivan who was left with -10 HP
+7ivanTB is my little slave-boy
+7Serverivan attacked ivan who was left with -10 HP
+7ivan/spank TB
+7Serverivan attacked ivan who was left with -10 HP
+1ServernullWelcome toMyServer
+1nullTB
+2ServernullTB
+2TBOK
+4ServernullWelcome to this awesome server, dont say stupid things!
+4TBOK
+5Servernull<TB> <null> <null> 
+5TBOK
+6ServernullMain 
+6TBok
+7ServerMainWelcome to Main
+7TBi love to eat from the pooper
+7ServerMainTB attacked TB who was left with -10 HP

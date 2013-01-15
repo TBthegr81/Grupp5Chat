@@ -18,6 +18,7 @@ public class Klient {
 	private ObjectInputStream inStream;
 	private Message inputMessage;
 	private String message = "";
+	private String room;
 	private String user;
 	private String userName = null;
 	private int id;
@@ -46,8 +47,6 @@ public class Klient {
 		System.out.println("connecting to: " + address + "...");
 		try {
 			connection = new Socket(address, port);
-			//			inStream = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-			//			outStream = new PrintWriter(connection.getOutputStream());
 			inStream = new ObjectInputStream((connection.getInputStream()));
 			outStream = new ObjectOutputStream(connection.getOutputStream());
 		} catch (IOException e) {
@@ -106,10 +105,11 @@ public class Klient {
 			//answer takes the int that decides what state is to be used in answerCase()
 			id = inputMessage.getId();
 			user = inputMessage.getUsername();
+			room = inputMessage.getRoom();
 			message = inputMessage.getMessage();
 			Main.gui.showReceivedMessage(message, user);
-			System.out.println(id + " " + user + " " + message);
-			String chunk = Integer.toString(id) + user + message;
+			System.out.println(id + " " + user + " " + room + " " + message);
+			String chunk = Integer.toString(id) + user + room + message;
 			log(chunk);
 			answerCase(id, message);			
 		}
@@ -148,6 +148,7 @@ public class Klient {
 		}
 	}
 	
+	//method used to send strings from the console used sometimes while debugging
 	public String write()
 	{
 		Scanner input = new Scanner(System.in);

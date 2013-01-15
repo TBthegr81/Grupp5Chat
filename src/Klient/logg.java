@@ -12,6 +12,8 @@
 //    
 //        public void logSave(){
 //          
+
+//        String conversationWindow = null;
 //        String conversationWindow;
 //		File log = new File("log.txt");
 //

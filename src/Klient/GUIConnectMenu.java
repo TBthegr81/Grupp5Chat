@@ -33,6 +33,8 @@ public class GUIConnectMenu extends JFrame {
 	private String tempIP;
 	private int tempPort;
 	BookmarkInput bookmarkMenu = new BookmarkInput();
+	private JLabel lblSessionUsername;
+	private JTextField userNameTextField;
 
 
 	/**
@@ -81,7 +83,7 @@ public class GUIConnectMenu extends JFrame {
 		GridBagLayout gbl_contentPane = new GridBagLayout();
 		gbl_contentPane.columnWidths = new int[] {5, 15, 50, 50, 20};
 		gbl_contentPane.rowHeights = new int[] {20, 20, 20, 20, 20, 20 ,20};
-		gbl_contentPane.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0};
+		gbl_contentPane.columnWeights = new double[]{0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0};
 		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		contentPane.setLayout(gbl_contentPane);
 
@@ -137,53 +139,72 @@ public class GUIConnectMenu extends JFrame {
 		gbc_comboBoxBookmarkSelect.gridx = 3;
 		gbc_comboBoxBookmarkSelect.gridy = 1;
 		contentPane.add(comboBoxBookmarkSelect, gbc_comboBoxBookmarkSelect);
-
-
+				
+				
+						
+				
+						JLabel lblEnterServerIp = new JLabel("Server IP:");
+						GridBagConstraints gbc_lblEnterServerIp = new GridBagConstraints();
+						gbc_lblEnterServerIp.insets = new Insets(0, 0, 5, 5);
+						gbc_lblEnterServerIp.gridx = 2;
+						gbc_lblEnterServerIp.gridy = 2;
+						contentPane.add(lblEnterServerIp, gbc_lblEnterServerIp);
 		
-
-		JLabel lblEnterServerIp = new JLabel("Server IP:");
-		GridBagConstraints gbc_lblEnterServerIp = new GridBagConstraints();
-		gbc_lblEnterServerIp.insets = new Insets(0, 0, 5, 5);
-		gbc_lblEnterServerIp.gridx = 2;
-		gbc_lblEnterServerIp.gridy = 3;
-		contentPane.add(lblEnterServerIp, gbc_lblEnterServerIp);
-
-		connectEnterIP = new JTextField();
-		GridBagConstraints gbc_connectEnterIP = new GridBagConstraints();
-		gbc_connectEnterIP.gridwidth = 2;
-		gbc_connectEnterIP.insets = new Insets(0, 0, 5, 5);
-		gbc_connectEnterIP.fill = GridBagConstraints.HORIZONTAL;
-		gbc_connectEnterIP.gridx = 3;
-		gbc_connectEnterIP.gridy = 3;
-		contentPane.add(connectEnterIP, gbc_connectEnterIP);
-		connectEnterIP.setColumns(10);
-
-		JLabel lblPort = new JLabel("Port:");
-		GridBagConstraints gbc_lblPort = new GridBagConstraints();
-		gbc_lblPort.insets = new Insets(0, 0, 5, 5);
-		gbc_lblPort.anchor = GridBagConstraints.EAST;
-		gbc_lblPort.gridx = 2;
-		gbc_lblPort.gridy = 4;
-		contentPane.add(lblPort, gbc_lblPort);
-
-		connectEnterPort = new JTextField();
-		connectEnterPort.setText("54602");
-		GridBagConstraints gbc_connectEnterPort = new GridBagConstraints();
-		gbc_connectEnterPort.insets = new Insets(0, 0, 5, 5);
-		gbc_connectEnterPort.fill = GridBagConstraints.HORIZONTAL;
-		gbc_connectEnterPort.gridx = 3;
-		gbc_connectEnterPort.gridy = 4;
-		contentPane.add(connectEnterPort, gbc_connectEnterPort);
-		connectEnterPort.setColumns(10);
-
-		bookmarkCheckbox = new JCheckBox("Save this server");
-		bookmarkCheckbox.setSelected(true);
-		GridBagConstraints gbc_bookmarkCheckbox = new GridBagConstraints();
-		gbc_bookmarkCheckbox.gridwidth = 2;
-		gbc_bookmarkCheckbox.insets = new Insets(0, 0, 5, 5);
-		gbc_bookmarkCheckbox.gridx = 3;
-		gbc_bookmarkCheckbox.gridy = 5;
-		contentPane.add(bookmarkCheckbox, gbc_bookmarkCheckbox);
+				connectEnterIP = new JTextField();
+				GridBagConstraints gbc_connectEnterIP = new GridBagConstraints();
+				gbc_connectEnterIP.gridwidth = 2;
+				gbc_connectEnterIP.insets = new Insets(0, 0, 5, 5);
+				gbc_connectEnterIP.fill = GridBagConstraints.HORIZONTAL;
+				gbc_connectEnterIP.gridx = 3;
+				gbc_connectEnterIP.gridy = 2;
+				contentPane.add(connectEnterIP, gbc_connectEnterIP);
+				connectEnterIP.setColumns(10);
+		
+				JLabel lblPort = new JLabel("Port:");
+				GridBagConstraints gbc_lblPort = new GridBagConstraints();
+				gbc_lblPort.insets = new Insets(0, 0, 5, 5);
+				gbc_lblPort.anchor = GridBagConstraints.EAST;
+				gbc_lblPort.gridx = 2;
+				gbc_lblPort.gridy = 3;
+				contentPane.add(lblPort, gbc_lblPort);
+		
+				connectEnterPort = new JTextField();
+				connectEnterPort.setText("54602");
+				GridBagConstraints gbc_connectEnterPort = new GridBagConstraints();
+				gbc_connectEnterPort.insets = new Insets(0, 0, 5, 5);
+				gbc_connectEnterPort.fill = GridBagConstraints.HORIZONTAL;
+				gbc_connectEnterPort.gridx = 3;
+				gbc_connectEnterPort.gridy = 3;
+				contentPane.add(connectEnterPort, gbc_connectEnterPort);
+				connectEnterPort.setColumns(10);
+		
+				bookmarkCheckbox = new JCheckBox("Save this server");
+				bookmarkCheckbox.setSelected(true);
+				GridBagConstraints gbc_bookmarkCheckbox = new GridBagConstraints();
+				gbc_bookmarkCheckbox.gridwidth = 2;
+				gbc_bookmarkCheckbox.insets = new Insets(0, 0, 5, 5);
+				gbc_bookmarkCheckbox.gridx = 3;
+				gbc_bookmarkCheckbox.gridy = 4;
+				contentPane.add(bookmarkCheckbox, gbc_bookmarkCheckbox);
+		
+		lblSessionUsername = new JLabel("Nickname:");
+		GridBagConstraints gbc_lblSessionUsername = new GridBagConstraints();
+		gbc_lblSessionUsername.anchor = GridBagConstraints.EAST;
+		gbc_lblSessionUsername.insets = new Insets(0, 0, 5, 5);
+		gbc_lblSessionUsername.gridx = 2;
+		gbc_lblSessionUsername.gridy = 5;
+		contentPane.add(lblSessionUsername, gbc_lblSessionUsername);
+		
+		userNameTextField = new JTextField();
+		userNameTextField.setText("DefaultCat");
+		GridBagConstraints gbc_userNameTextField = new GridBagConstraints();
+		gbc_userNameTextField.gridwidth = 3;
+		gbc_userNameTextField.insets = new Insets(0, 0, 5, 5);
+		gbc_userNameTextField.fill = GridBagConstraints.HORIZONTAL;
+		gbc_userNameTextField.gridx = 3;
+		gbc_userNameTextField.gridy = 5;
+		contentPane.add(userNameTextField, gbc_userNameTextField);
+		userNameTextField.setColumns(10);
 
 		JButton connectMenuConnectBtn = new JButton("Connect");
 		GridBagConstraints gbc_connectMenuConnectBtn = new GridBagConstraints();
@@ -196,6 +217,7 @@ public class GUIConnectMenu extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 
 				BookmarkSetter();
+				GUI.myUserName = userNameTextField.getText();
 				KlientThread tre = new KlientThread();
 				Thread t = new Thread(tre);
 				t.start();

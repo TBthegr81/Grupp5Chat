@@ -716,3 +716,30 @@
 7nullhej
 8dudehej
 7ServerMessage Sent
+1ServerWelcome toMyServer
+1ServerWelcome toMyServer
+1nullivan höök
+2Serverivan höök
+2ivan höökOK
+4ServerWelcome to this awesome server, dont say stupid things!
+4ivan höökOK
+5Server<ivan höök> <null> 
+5ivan höökOK
+6ServerMain 
+6ivan höökokok ok
+7ServerWelcome to Main
+1ServerWelcome toMyServer
+1nulldoktor alban
+2Serverdoktor alban
+2doktor albanOK
+4ServerWelcome to this awesome server, dont say stupid things!
+4doktor albanOK
+5Server<doktor alban> <null> <null> 
+5doktor albanOK
+6ServerMain 
+6doktor albanok ok
+7ServerWelcome to Main
+7doktor albandet e stabilt
+7ServerMessage Sent
+7ivan höökbruuuushan
+7ServerMessage Sent

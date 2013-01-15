@@ -59,9 +59,16 @@ public class Klient {
 	//checks the output from the gui input field then sends if appropriate
 	public void checkMessage(String m)
 	{	
+		String firstWord = null;
+		String rest = null;
 		String arr[] = m.split(" ", 2);
-		String firstWord = arr[0];
-		String rest = arr[1];
+		
+		try {
+			firstWord = arr[0];
+			rest = arr[1];			
+		} catch (ArrayIndexOutOfBoundsException e) {
+			System.out.println("Error: " + e.getMessage());
+		}
 		
 			switch(firstWord) {
 			case "/dc":
@@ -117,6 +124,7 @@ public class Klient {
 			break;
 		case 2:			//username accepted
 			userName = message;
+			Main.gui.serverMessage("Username: " + message + " accepted!");
 			send(id, userName, null, "OK");
 			break;
 		case 3:			//username not accepted... get new from GUI

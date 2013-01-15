@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 
 
 public class Main {
@@ -18,7 +19,6 @@ public class Main {
 	public static void main(String[] args) {
 
 		try {
-
 			mainData = loadData();
 			System.out.println("Succeeding in loading bookmarks!");
 			mainData.listAllBookmarks();
@@ -28,8 +28,8 @@ public class Main {
 		} catch (IOException e) {
 			e.printStackTrace();
 		} 
-
-		//		klient.startRunning();
+		
+		GUI.setMemberList();
 	}
 
 

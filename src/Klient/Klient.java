@@ -145,8 +145,8 @@ public class Klient {
 			send(id, userName, null, "OK");
 			break;
 		case 7:			//list of users
-			listUsers = chopStrings(message);
-			fillUsers(listUsers);
+			GUI.userList = chopStrings(message);
+			GUI.setMemberList();
 			send(id, userName, null, "OK");
 			break;
 		case 8:			//send messages
@@ -171,12 +171,6 @@ public class Klient {
 			System.out.println(serverInfo.get(i) + " ");
 		}
 		return serverInfo;
-	}
-	
-	//sends ArrayList of users to gui
-	public void fillUsers(ArrayList<String> m)
-	{
-		Main.gui.setMemberList(m);
 	}
 	
 	//id getter used by gui

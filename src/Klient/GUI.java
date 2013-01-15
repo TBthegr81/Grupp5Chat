@@ -19,7 +19,8 @@ public class GUI extends JFrame implements ActionListener{
 	
 	public static JTextArea conversationWindow;
 	public static JTextField messageInputField;
-	static JTextArea memberListTextArea;
+	public static JTextArea memberField;
+	static ArrayList<String> userList;
 	GUIConnectMenu connectMenu = new GUIConnectMenu();
 	
 
@@ -27,7 +28,8 @@ public class GUI extends JFrame implements ActionListener{
 	 * @param args
 	 */
 	public GUI(){
-		// TODO Auto-generated method stub
+		
+		
 
 		
 		final JFrame clientWindow = new JFrame ("Group 5 chat client");
@@ -161,6 +163,7 @@ public class GUI extends JFrame implements ActionListener{
 				clientWindow.getContentPane().add(scrollPane, gbc_scrollPane);
 		
 		JTextArea memberListTextArea = new JTextArea();
+		memberListTextArea.setText("Users online:\r\n");
 		memberListTextArea.setBackground(Color.LIGHT_GRAY);
 		memberListTextArea.setEditable(false);
 		GridBagConstraints gbc_memberListTextArea = new GridBagConstraints();
@@ -208,11 +211,26 @@ public class GUI extends JFrame implements ActionListener{
 	public void serverMessage(String message){
 		conversationWindow.append(newline + message);
 	}
-	public void setMemberList(ArrayList<String> message){
-		for (int i = 0;i<message.size();i++){
-//			memberListTextArea.append(message.get(i) + newline);
-		}		
-	}
+	public static void setMemberList(){
+		
+		userList = new ArrayList<String>();
+		userList.add("Scheisse");
+		
+			if (userList.isEmpty() == false){
+			System.out.println("There are " + userList.size() + " users online.");
+			
+			for (int i = 0; i<userList.size();i++){
+				System.out.println(userList.get(i));
+		//		memberListTextArea.setText(userList.get(i) + newline);
+			}
+			
+			
+			}
+			else {
+				System.out.println("There are no users online. Including you. This shouldn't happen, check server connections.");
+			}
+		}	
+	
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub

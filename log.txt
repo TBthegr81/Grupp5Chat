@@ -1096,3 +1096,26 @@
 5 Debugger null ok
 6ServerAnimetalk!Welcome to Animetalk!
 6 Debugger null tack
+1ServernullWelcome toMyServer
+1 null null Debugger
+2ServernullDebugger
+2 Debugger null OK
+4ServernullWelcome to this awesome server, dont say stupid things!
+4 Debugger null OK
+5ServernullAnimetalk! Gametalk Main 
+5 Debugger null poopman2
+6ServerAnimetalk!Welcome to Animetalk!
+6 Debugger null OK
+6 Debugger null poop man 3
+6 Debugger null gött ?
+1ServernullWelcome toMyServer
+1 null null Debugger
+2ServernullDebugger
+2 Debugger null OK
+4ServernullWelcome to this awesome server, dont say stupid things!
+4 Debugger null OK
+5ServernullAnimetalk! Gametalk Main 
+5 Debugger null ok
+6ServerAnimetalk!Welcome to Animetalk!
+6 Debugger null OK
+7Servernull <Debugger>  <Fred>  <Tom>  <James>  <Debugger> 

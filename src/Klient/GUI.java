@@ -210,7 +210,7 @@ public class GUI extends JFrame implements ActionListener{
 	}
 	public void setMemberList(ArrayList<String> message){
 		for (int i = 0;i<message.size();i++){
-			memberListTextArea.append(message.get(i) + newline);
+//			memberListTextArea.append(message.get(i) + newline);
 		}		
 	}
 	@Override

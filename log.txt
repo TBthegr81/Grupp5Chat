@@ -1172,3 +1172,267 @@
 6ServerAnimetalk!Welcome to Animetalk!
 6 DefaultCat null OK
 6 DefaultCat null pop?
+1ServernullWelcome toMyServer
+1 null null PoopingCat
+2ServernullPoopingCat
+2 PoopingCat null OK
+4ServernullWelcome to this awesome server, dont say stupid things!
+4 PoopingCat null OK
+5ServernullAnimetalk! Gametalk Main 
+5 PoopingCat null ok
+6ServerAnimetalk!Welcome to Animetalk!
+6 PoopingCat null OK
+7Servernull0<Ted> 1<Fred> 2<Tom> 3<James> 4<PoopingCat> 
+7 PoopingCat null OK
+7 PoopingCat null loads
+1ServernullWelcome toMyServer
+1 null null DefaultCat
+2ServernullDefaultCat
+2 DefaultCat null OK
+4ServernullWelcome to this awesome server, dont say stupid things!
+4 DefaultCat null OK
+5ServernullAnimetalk! Gametalk Main 
+5 DefaultCat null ok
+6ServerAnimetalk!Welcome to Animetalk!
+6 DefaultCat null OK
+7Servernull0<Ted> 1<Fred> 2<Tom> 3<James> 4<DefaultCat> 
+7 DefaultCat null OK
+1ServernullWelcome toMyServer
+1 null null CarlosTheDwarf
+2ServernullCarlosTheDwarf
+2 CarlosTheDwarf null OK
+4ServernullWelcome to this awesome server, dont say stupid things!
+4 CarlosTheDwarf null OK
+5ServernullMain 
+5 CarlosTheDwarf null ok
+6ServerMainWelcome to Main
+6 CarlosTheDwarf null OK
+7Servernull0<CarlosTheDwarf> 
+7 CarlosTheDwarf null OK
+8CarlosTheDwarfMainOK
+8ServerMainMessage Sent
+1ServernullWelcome toMyServer
+1 null null GorgothTheDestroyer
+2ServernullGorgothTheDestroyer
+2 GorgothTheDestroyer null OK
+4ServernullWelcome to this awesome server, dont say stupid things!
+4 GorgothTheDestroyer null OK
+5ServernullMain 
+5 GorgothTheDestroyer null ok
+6ServerMainWelcome to Main
+6 GorgothTheDestroyer null OK
+7Servernull0<CarlosTheDwarf> 1<GorgothTheDestroyer> 
+7 GorgothTheDestroyer null OK
+8CarlosTheDwarfMainOK
+8GorgothTheDestroyerMainOK
+8ServerMainMessage Sent
+8 GorgothTheDestroyer null ok
+8GorgothTheDestroyerMainok
+8CarlosTheDwarfMainok
+8ServerMainMessage Sent
+8 CarlosTheDwarf null hej gorgoth
+8CarlosTheDwarfMainhej gorgoth
+8GorgothTheDestroyerMainhej gorgoth
+8ServerMainMessage Sent
+8 GorgothTheDestroyer null hej carlos
+8CarlosTheDwarfMainhej carlos
+8GorgothTheDestroyerMainhej carlos
+8ServerMainMessage Sent
+1ServernullWelcome toMyServer
+1 CarlosTheDwarf null CarlosTheDwarf
+2ServernullCarlosTheDwarf
+2 CarlosTheDwarf null OK
+4ServernullWelcome to this awesome server, dont say stupid things!
+4 CarlosTheDwarf null OK
+5ServernullMain 
+1ServernullWelcome toMyServer
+1 GorgothTheDestroyer null GorgothTheDestroyer
+2ServernullGorgothTheDestroyer
+2 GorgothTheDestroyer null OK
+4ServernullWelcome to this awesome server, dont say stupid things!
+4 GorgothTheDestroyer null OK
+5ServernullMain 
+5 GorgothTheDestroyer null oko
+6ServerMainWelcome to Main
+6 GorgothTheDestroyer null OK
+7Servernull0<GorgothTheDestroyer> 
+7 GorgothTheDestroyer null OK
+8GorgothTheDestroyerMainOK
+0ServerMainMessage Sent
+5 CarlosTheDwarf null ok
+6ServerMainWelcome to Main
+6 CarlosTheDwarf null OK
+7Servernull0<GorgothTheDestroyer> 1<CarlosTheDwarf> 
+7 CarlosTheDwarf null OK
+8CarlosTheDwarfMainOK
+8CarlosTheDwarfMainOK
+0ServerMainMessage Sent
+8 GorgothTheDestroyer null hwj
+8GorgothTheDestroyerMainhwj
+8GorgothTheDestroyerMainhwj
+0ServerMainMessage Sent
+8 CarlosTheDwarf null haha
+8CarlosTheDwarfMainhaha
+8CarlosTheDwarfMainhaha
+0ServerMainMessage Sent
+1ServernullWelcome toMyServer
+1 null null Urban
+2ServernullUrban
+2 Urban null OK
+4ServernullWelcome to this awesome server, dont say stupid things!
+4 Urban null OK
+5ServernullMain 
+1ServernullWelcome toMyServer
+1 null null smörkaka
+2Servernullsmörkaka
+2 smörkaka null OK
+4ServernullWelcome to this awesome server, dont say stupid things!
+4 smörkaka null OK
+5ServernullMain 
+5 Urban null ok
+6ServerMainWelcome to Main
+6 Urban null OK
+7Servernull0<GorgothTheDestroyer> 1<CarlosTheDwarf> 2<Urban> 
+7 Urban null OK
+8UrbanMainOK
+0ServerMainMessage Sent
+5 smörkaka null ok
+6ServerMainWelcome to Main
+6 smörkaka null OK
+7Servernull0<GorgothTheDestroyer> 1<CarlosTheDwarf> 2<Urban> 3<smörkaka> 
+7 smörkaka null OK
+8smörkakaMainOK
+8smörkakaMainOK
+0ServerMainMessage Sent
+0 smörkaka null hej
+8smörkakaMainhej
+8smörkakaMainhej
+0ServerMainMessage Sent
+8 Urban null hej
+8UrbanMainhej
+8UrbanMainhej
+0ServerMainMessage Sent
+0 Urban null lala
+8UrbanMainlala
+8UrbanMainlala
+0ServerMainMessage Sent
+8 smörkaka null poop
+8smörkakaMainpoop
+8smörkakaMainpoop
+0ServerMainMessage Sent
+1ServernullWelcome toMyServer
+1 null null UltraIvan2k
+2ServernullUltraIvan2k
+2 UltraIvan2k null OK
+4ServernullWelcome to this awesome server, dont say stupid things!
+4 UltraIvan2k null OK
+5ServernullMain 
+5 UltraIvan2k null ok
+6ServerMainWelcome to Main
+6 UltraIvan2k null OK
+7Servernull0<UltraIvan2k> 
+7 UltraIvan2k null OK
+8UltraIvan2kMainOK
+0ServerMainMessage Sent
+0 UltraIvan2k null hej
+8UltraIvan2kMainhej
+0ServerMainMessage Sent
+0 UltraIvan2k null joakim?
+8UltraIvan2kMainjoakim?
+0ServerMainMessage Sent
+8okMainFuuuu
+8 UltraIvan2k null HALLO
+8UltraIvan2kMainHALLO
+0ServerMainMessage Sent
+8okMainfsobfdsoi
+8 UltraIvan2k null tönt
+8UltraIvan2kMaintönt
+0ServerMainMessage Sent
+0 UltraIvan2k null lalalal
+0 UltraIvan2k null a
+8UltraIvan2kMainlalalal
+0ServerMainMessage Sent
+8UltraIvan2kMaina
+0ServerMainMessage Sent
+0 UltraIvan2k null hoho
+8UltraIvan2kMainhoho
+0ServerMainMessage Sent
+0 UltraIvan2k null lalalala
+8UltraIvan2kMainlalalala
+0ServerMainMessage Sent
+0 UltraIvan2k null bajs
+8UltraIvan2kMainbajs
+0ServerMainMessage Sent
+0 UltraIvan2k null bajs
+8UltraIvan2kMainbajs
+0ServerMainMessage Sent
+0 UltraIvan2k null bajs
+8UltraIvan2kMainbajs
+0ServerMainMessage Sent
+0 UltraIvan2k null bajs
+8UltraIvan2kMainbajs
+0ServerMainMessage Sent
+0 UltraIvan2k null bajs
+8UltraIvan2kMainbajs
+0ServerMainMessage Sent
+0 UltraIvan2k null bajs
+8UltraIvan2kMainbajs
+0ServerMainMessage Sent
+0 UltraIvan2k null ba
+8UltraIvan2kMainba
+0ServerMainMessage Sent
+0 UltraIvan2k null bajs
+8UltraIvan2kMainbajs
+0ServerMainMessage Sent
+0 UltraIvan2k null bajs
+8UltraIvan2kMainbajs
+0ServerMainMessage Sent
+0 UltraIvan2k null bajs
+8UltraIvan2kMainbajs
+0ServerMainMessage Sent
+0 UltraIvan2k null bajs
+8UltraIvan2kMainbajs
+0ServerMainMessage Sent
+0 UltraIvan2k null bajs
+8UltraIvan2kMainbajs
+0ServerMainMessage Sent
+0 UltraIvan2k null bajs
+8UltraIvan2kMainbajs
+0ServerMainMessage Sent
+0 UltraIvan2k null bajs
+8UltraIvan2kMainbajs
+0ServerMainMessage Sent
+0 UltraIvan2k null bajs
+8UltraIvan2kMainbajs
+0ServerMainMessage Sent
+0 UltraIvan2k null bajs
+8UltraIvan2kMainbajs
+0ServerMainMessage Sent
+0 UltraIvan2k null bajsb
+8UltraIvan2kMainbajsb
+0ServerMainMessage Sent
+0 UltraIvan2k null a
+8UltraIvan2kMaina
+0ServerMainMessage Sent
+0 UltraIvan2k null jb
+8UltraIvan2kMainjb
+0ServerMainMessage Sent
+0 UltraIvan2k null b
+8UltraIvan2kMainb
+0ServerMainMessage Sent
+0 UltraIvan2k null ab
+8UltraIvan2kMainab
+0ServerMainMessage Sent
+0 UltraIvan2k null 
+8UltraIvan2kMainNull
+0ServerMainMessage Sent
+0 UltraIvan2k null bajs
+8UltraIvan2kMainbajs
+0ServerMainMessage Sent
+0 UltraIvan2k null bj
+8UltraIvan2kMainbj
+0ServerMainMessage Sent
+0 UltraIvan2k null a
+8UltraIvan2kMaina
+0ServerMainMessage Sent
+0 UltraIvan2k null /dc

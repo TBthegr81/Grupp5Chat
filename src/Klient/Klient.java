@@ -67,7 +67,7 @@ public class Klient {
 			firstWord = arr[0];
 			rest = arr[1];
 		} catch (ArrayIndexOutOfBoundsException e) {
-			System.out.println("Only sent one word in message, resulting in ArrayIndexOutOfBoundsException when trying to acces arr[1]");
+			System.out.println("ERROR: Only sent one word in message, resulting in ArrayIndexOutOfBoundsException when trying to acces arr[1]");
 		}
 		
 			switch(firstWord) {				//checks if the first word in the message is a command
@@ -107,7 +107,9 @@ public class Klient {
 			user = inputMessage.getUsername();
 			room = inputMessage.getRoom();
 			message = inputMessage.getMessage();
-			Main.gui.showReceivedMessage(message, user);					//sends the message and user data to gui
+			if(id != 0) {
+				Main.gui.showReceivedMessage(message, user);				//sends the message and user data to gui				
+			}
 			String chunk = Integer.toString(id) + user + room + message;	//saves the entire message in a string
 			System.out.println(chunk);										//prints the entire message in console
 			log(chunk);														//logs entire message in log file

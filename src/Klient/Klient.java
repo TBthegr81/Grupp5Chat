@@ -128,6 +128,8 @@ public class Klient {
 			send(id, userName, null, "OK");
 			break;
 		case 3:			//username not accepted... get new from GUI
+			UserNameFailWindow fail = new UserNameFailWindow();
+			fail.setVisible(true);
 			break;
 		case 4:			//got MOT
 			send(id, userName, null, "OK");
@@ -169,6 +171,9 @@ public class Klient {
 	public void fillUsers(ArrayList<String> m)
 	{
 		Main.gui.setMemberList(m);
+	}
+	public int idGetter(){
+		return id;
 	}
 
 	public void log(String m)

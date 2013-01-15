@@ -134,7 +134,7 @@ public class Klient {
 			break;
 		case 5:			//list of users
 			listUsers = chopStrings(message);
-//			fillUsers(message);
+			fillUsers(listUsers);
 			send(id, userName, null, "OK");
 			break;
 		case 6:			//list of rooms
@@ -165,10 +165,9 @@ public class Klient {
 		return serverInfo;
 	}
 
-	public void fillUsers(String m)
+	public void fillUsers(ArrayList<String> m)
 	{
-		/*Main.gui.usersWindow*/chopStrings(m);
-		//use method in gui?
+		Main.gui.setMemberList(m);
 	}
 
 	public void log(String m)

@@ -459,3 +459,287 @@
 7ServerWelcome to this room. Write something!
 7Tedstalin u here?
 7ServerMessage Sent
+1ServerWelcome toMyServer
+1TedTed
+2ServerNickname available
+2TedOK
+4ServerWelcome to this awesome server, dont say stupid things!
+4TedOK
+5Server<Ted> 
+5TedOK
+6Servernull 
+1ServerWelcome toMyServer
+1TedTed
+2ServerNickname available
+2TedOK
+4ServerWelcome to this awesome server, dont say stupid things!
+4TedOK
+5Server<Ted> 
+5TedOK
+6Servernull 
+1ServerWelcome toMyServer
+1TedTed
+3ServerNickname is already taken, Choose another one
+1ServerWelcome toMyServer
+1TedTed
+2ServerNickname available
+2TedOK
+4ServerWelcome to this awesome server, dont say stupid things!
+4TedOK
+5Server<Ted> 
+5TedOK
+6Servernull 
+1ServerWelcome toMyServer
+1TedTed
+2ServerNickname available
+2TedOK
+4ServerWelcome to this awesome server, dont say stupid things!
+4TedOK
+5Server<Ted> 
+5TedOK
+6ServerMain 
+6Tedok
+7ServerWelcome to this room. Write something!
+7Tedhej
+8Tedhej
+7ServerMessage Sent
+7Tedröv
+8Tedröv
+7ServerMessage Sent
+1ServerWelcome toMyServer
+1TedTed
+3ServerNickname is already taken, Choose another one
+3Tedivan
+2ServerNickname available
+2TedOK
+4ServerWelcome to this awesome server, dont say stupid things!
+4TedOK
+5Server<ivan> <null> 
+5TedOK
+6ServerMain 
+6Tedok
+7ServerWelcome to this room. Write something!
+7Tedlala
+8ivanlala
+7ServerMessage Sent
+7Tedsnorre
+7ServerMessage Sent
+8ivansnorre
+7Tedhej ivan
+8ivanhej ivan
+7ServerMessage Sent
+8Tedhej
+8ivanhej
+7ServerMessage Sent
+7Tedlkjahsda
+8ivanlkjahsda
+7ServerMessage Sent
+7Tedasda
+8ivanasda
+7ServerMessage Sent
+7Tedsaaa
+8ivansaaa
+7ServerMessage Sent
+7Teda
+8ivana
+7ServerMessage Sent
+7Teda
+8ivana
+7ServerMessage Sent
+7Teda
+8ivana
+7ServerMessage Sent
+7Teda
+8ivana
+7ServerMessage Sent
+7Teda
+8ivana
+7ServerMessage Sent
+7Ted
+8ivanNull
+7ServerMessage Sent
+7Teda
+8ivana
+7ServerMessage Sent
+7Teda
+8ivana
+7ServerMessage Sent
+7Teda
+8ivana
+7ServerMessage Sent
+7Ted
+8ivanNull
+7ServerMessage Sent
+7Teda
+8ivana
+7ServerMessage Sent
+7Teda
+8ivana
+7ServerMessage Sent
+7Tedjag hör inte....
+8ivanjag hör inte....
+7ServerMessage Sent
+1ServerWelcome toMyServer
+1TedTed
+2ServerNickname available
+2TedOK
+4ServerWelcome to this awesome server, dont say stupid things!
+4TedOK
+5Server<Ted> 
+5TedOK
+6ServerMain 
+6Tedok
+7ServerWelcome to Main
+7Tedhej
+8Tedhej
+7ServerMessage Sent
+1ServerWelcome toMyServer
+1TedTed
+3ServerNickname is already taken, Choose another one
+3TedTB
+2ServerNickname available
+2TedOK
+4ServerWelcome to this awesome server, dont say stupid things!
+4TedOK
+5Server<TB> <null> 
+5TedOK
+6ServerMain 
+6Tedok
+7ServerWelcome to Main
+7Tedjag gillar charlotte perelli <3<3<3<3<3
+7ServerMessage Sent
+8TBjag gillar charlotte perelli <3<3<3<3<3
+8Tedhmmm
+8TBhmmm
+7ServerMessage Sent
+7Tedakward
+8TBakward
+7ServerMessage Sent
+1ServerWelcome toMyServer
+1TedTed
+2ServerNickname available
+2TedOK
+4ServerWelcome to this awesome server, dont say stupid things!
+4TedOK
+5Server<Ted> 
+5TedOK
+6ServerMain 
+1ServerWelcome toMyServer
+1TedTed
+3ServerNickname is already taken, Choose another one
+3Tedmamma mia
+2ServerNickname available
+2TedOK
+4ServerWelcome to this awesome server, dont say stupid things!
+4TedOK
+5Server<mamma mia> <null> 
+5TedOK
+6ServerMain 
+6Tedo9k
+7ServerWelcome to Main
+6Tedf
+7ServerWelcome to Main
+7Tedhej
+8mamma miahej
+7ServerMessage Sent
+8mamma miahej
+8Tedjel
+8mamma miajel
+8mamma miajel
+7ServerMessage Sent
+7Tedsda
+8mamma miasda
+8mamma miasda
+7ServerMessage Sent
+7Tedgjg
+7ServerMessage Sent
+8mamma miagjg
+8mamma miagjg
+1ServerWelcome toMyServer
+1TedTed
+2ServerNickname available
+2TedOK
+4ServerWelcome to this awesome server, dont say stupid things!
+4TedOK
+5Server<Ted> 
+5TedOK
+6ServerMain 
+6Tedok
+7ServerWelcome to Main
+1ServerWelcome toMyServer
+1TedTed
+3ServerNickname is already taken, Choose another one
+3TedJoakim
+2ServerNickname available
+2TedOK
+4ServerWelcome to this awesome server, dont say stupid things!
+4TedOK
+5Server<Joakim> <null> 
+5TedOK
+6ServerMain 
+6Tedjak er snel hest
+7ServerWelcome to Main
+7Tedva?
+8Joakimva?
+7ServerMessage Sent
+1ServerWelcome toMyServer
+1klientklient
+2ServerNickname available
+2klientOK
+4ServerWelcome to this awesome server, dont say stupid things!
+4klientOK
+5Server<klient> 
+5klientOK
+6ServerMain 
+1ServerWelcome toMyServer
+1nulliavn
+2ServerNickname available
+2nullOK
+4ServerWelcome to this awesome server, dont say stupid things!
+4nullOK
+5Server<iavn> 
+5nullOK
+6ServerMain 
+6nullok
+7ServerWelcome to Main
+1ServerWelcome toMyServer
+1nulldude
+2ServerNickname available
+2nullOK
+4ServerWelcome to this awesome server, dont say stupid things!
+4nullOK
+5Server<dude> <null> 
+5nullOK
+6ServerMain 
+6nullok
+7ServerWelcome to Main
+7nullhej
+8dudehej
+7ServerMessage Sent
+1ServerWelcome toMyServer
+1ServerWelcome toMyServer
+1nullivan höök
+2Serverivan höök
+2ivan höökOK
+4ServerWelcome to this awesome server, dont say stupid things!
+4ivan höökOK
+5Server<ivan höök> <null> 
+5ivan höökOK
+6ServerMain 
+6ivan höökokok ok
+7ServerWelcome to Main
+1ServerWelcome toMyServer
+1nulldoktor alban
+2Serverdoktor alban
+2doktor albanOK
+4ServerWelcome to this awesome server, dont say stupid things!
+4doktor albanOK
+5Server<doktor alban> <null> <null> 
+5doktor albanOK
+6ServerMain 
+6doktor albanok ok
+7ServerWelcome to Main
+7doktor albandet e stabilt
+7ServerMessage Sent
+7ivan höökbruuuushan
+7ServerMessage Sent

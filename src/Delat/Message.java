@@ -1,14 +1,17 @@
 package Delat;
+
 import java.io.Serializable;
 import java.util.ArrayList;
+
 public class Message implements Serializable {
+	
 	private static final long serialVersionUID = 1L;
 	private int id;
 	private String username;
 	private String room;
 	private String message;
 
-
+	//the object we send 
 	public Message(int id, String username, String room, String message)
 	{
 		this.id = id;

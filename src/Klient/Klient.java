@@ -30,7 +30,8 @@ public class Klient {
 	Klient()
 	{
 	}
-
+	
+	//initiates the klient
 	public void startRunning(String address, int port)
 	{
 		connect(address, port);
@@ -60,16 +61,16 @@ public class Klient {
 	{
 		String firstWord = null;
 		String rest = null;
-		String arr[] = m.split(" ", 2);
+		String arr[] = m.split(" ", 2);		//separates the string at the first whitespace
 		
 		try {
 			firstWord = arr[0];
 			rest = arr[1];
 		} catch (ArrayIndexOutOfBoundsException e) {
-			System.out.println("Error: " + e.getMessage());
+			System.out.println("Only sent one word in message, resulting in ArrayIndexOutOfBoundsException when trying to acces arr[1]");
 		}
 		
-			switch(firstWord) {
+			switch(firstWord) {				//checks if the first word in the message is a command
 			case "/dc":
 				send(id, userName, null, m);
 				close();
@@ -83,7 +84,7 @@ public class Klient {
 			}
 	}
 
-	//send message to server
+	//send message to server and logs message in log file
 	public void send(int id, String userName, String room, String message)
 	{
 		Message outMessage = new Message(id, userName, room, message);
@@ -100,17 +101,16 @@ public class Klient {
 
 	//receive message from server
 	public void receive() throws ClassNotFoundException, IOException
-	{
-		while((inputMessage = (Message) inStream.readObject()) != null) {
-			//answer takes the int that decides what state is to be used in answerCase()
-			id = inputMessage.getId();
+	{	//loop runs while inStream is open
+		while((inputMessage = (Message) inStream.readObject()) != null) {																			
+			id = inputMessage.getId();										//id takes the int that decides what state to called used in answerCase()
 			user = inputMessage.getUsername();
 			room = inputMessage.getRoom();
 			message = inputMessage.getMessage();
-			Main.gui.showReceivedMessage(message, user);
-			System.out.println(id + " " + user + " " + room + " " + message);
-			String chunk = Integer.toString(id) + user + room + message;
-			log(chunk);
+			Main.gui.showReceivedMessage(message, user);					//sends the message and user data to gui
+			String chunk = Integer.toString(id) + user + room + message;	//saves the entire message in a string
+			System.out.println(chunk);										//prints the entire message in console
+			log(chunk);														//logs entire message in log file
 			answerCase(id, message);			
 		}
 		close();
@@ -170,15 +170,19 @@ public class Klient {
 		}
 		return serverInfo;
 	}
-
+	
+	//sends ArrayList of users to gui
 	public void fillUsers(ArrayList<String> m)
 	{
 		Main.gui.setMemberList(m);
 	}
+	
+	//id getter used by gui
 	public int idGetter(){
 		return id;
 	}
-
+	
+	//writes to log file
 	public void log(String m)
 	{
 		//open output stream and create writer

@@ -1119,3 +1119,56 @@
 6ServerAnimetalk!Welcome to Animetalk!
 6 Debugger null OK
 7Servernull <Debugger>  <Fred>  <Tom>  <James>  <Debugger> 
+1ServernullWelcome toMyServer
+1 null null BossManForward
+2ServernullBossManForward
+2 BossManForward null OK
+4ServernullWelcome to this awesome server, dont say stupid things!
+4 BossManForward null OK
+5ServernullAnimetalk! Gametalk Main 
+5 BossManForward null ok
+6ServerAnimetalk!Welcome to Animetalk!
+6 BossManForward null OK
+7Servernull <BossManForward>  <Fred>  <Tom>  <James>  <BossManForward> 
+7 BossManForward null OK
+7 BossManForward null /dc
+1ServernullWelcome toMyServer
+1 BossManForward null BossManForward
+3ServernullBossManForward
+3 BossManForward null /dc
+1ServernullWelcome toMyServer
+1 null null UltraCat
+2ServernullUltraCat
+2 UltraCat null OK
+4ServernullWelcome to this awesome server, dont say stupid things!
+4 UltraCat null OK
+5ServernullAnimetalk! Gametalk Main 
+5 UltraCat null ok
+6ServerAnimetalk!Welcome to Animetalk!
+6 UltraCat null OK
+7Servernull0<UltraCat> 1<Fred> 2<Tom> 3<James> 0<UltraCat> 
+7 UltraCat null OK
+1ServernullWelcome toMyServer
+1 null null DefaultCat
+2ServernullDefaultCat
+2 DefaultCat null OK
+4ServernullWelcome to this awesome server, dont say stupid things!
+4 DefaultCat null OK
+5ServernullAnimetalk! Gametalk Main 
+5 DefaultCat null ok
+6ServerAnimetalk!Welcome to Animetalk!
+6 DefaultCat null OK
+7Servernull0<DefaultCat> 1<Fred> 2<Tom> 3<James> 0<DefaultCat> 
+7 DefaultCat null OK
+7 DefaultCat null hej
+1ServernullWelcome toMyServer
+1 null null DefaultCat
+2ServernullDefaultCat
+2 DefaultCat null OK
+4ServernullWelcome to this awesome server, dont say stupid things!
+4 DefaultCat null OK
+5ServernullAnimetalk! Gametalk Main 
+5 DefaultCat null pooooop
+6ServerAnimetalk!Welcome to Animetalk!
+6 DefaultCat null OK
+6 DefaultCat null pop?

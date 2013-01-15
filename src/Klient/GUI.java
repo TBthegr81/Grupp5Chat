@@ -185,10 +185,6 @@ public class GUI extends JFrame implements ActionListener{
 				btnSendMessage.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						
-//						Main.klient.send(messageInputField.getText());
-						conversationWindow.setText(conversationWindow.getText() + newline + myUserName + ": " + messageInputField.getText());
-
-					
 						Main.klient.checkMessage(messageInputField.getText());
 
 						//Clears input field.
@@ -208,11 +204,11 @@ public class GUI extends JFrame implements ActionListener{
 	}
 	public void showReceivedMessage(String message, String user){
 				
-		conversationWindow.setText(conversationWindow.getText() + newline + user + ": " + message);
+		conversationWindow.append(newline + user + ": " + message);
 
 	}
 	public void serverMessage(String message){
-		conversationWindow.setText(conversationWindow.getText() + newline + message);
+		conversationWindow.append(newline + message);
 	}
 	
 	

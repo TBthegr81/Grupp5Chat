@@ -90,9 +90,9 @@ public class Klient {
 		try {
 			outStream.writeObject(outMessage);
 			outStream.flush();
-			String chunk = Integer.toString(id) + userName + message;
+			String chunk = Integer.toString(id) + " " + userName + " " + room + " " + message;
 			log(chunk);
-			System.out.println(Integer.toString(id) + userName + message);
+			System.out.println(chunk);
 		} catch (IOException e) {
 			System.err.println("ERROR: " + e.getMessage());
 		}
@@ -120,7 +120,7 @@ public class Klient {
 	{
 		switch(id){
 		case 1:			//connected to server, got welcome message
-			Main.gui.messageInputField.setEditable(true);
+			send(id, userName, null, GUI.myUserName);
 			break;
 		case 2:			//username accepted
 			userName = message;
@@ -128,22 +128,25 @@ public class Klient {
 			send(id, userName, null, "OK");
 			break;
 		case 3:			//username not accepted... get new from GUI
+			Main.gui.messageInputField.setEditable(true);
 			break;
 		case 4:			//got MOT
 			send(id, userName, null, "OK");
 			break;
-		case 5:			//list of users
-			listUsers = chopStrings(message);
-//			fillUsers(listUsers);
+		case 5:			//list of rooms
+			listRooms = chopStrings(message);
+			Main.gui.messageInputField.setEditable(true);
+			break;
+		case 6:			//welcome to room
 			send(id, userName, null, "OK");
 			break;
-		case 6:			//list of rooms
-			listRooms = chopStrings(message);
-//			send(id, userName, room);
+		case 7:			//list of users
+			listUsers = chopStrings(message);
+			fillUsers(listUsers);
+			send(id, userName, null, "OK");
 			break;
-		case 7:			//send messages
-			System.out.println("Ready to type.");
-//			send(id, userName, message);
+		case 8:			//send messages
+			System.out.println("ready to type!");
 			break;
 		}
 	}
@@ -160,15 +163,15 @@ public class Klient {
 	public ArrayList<String> chopStrings(String m)
 	{
 		ArrayList<String> serverInfo = new ArrayList<String>(Arrays.asList(m.split("\\s+")));
-//		for(int i = 0; i < serverInfo.length; i++) {
-//			System.out.println(serverInfo[i] + " ");
-//		}
+		for(int i = 0; i < serverInfo.size(); i++) {
+			System.out.println(serverInfo.get(i) + " ");
+		}
 		return serverInfo;
 	}
 
-	public void fillUsers(String m)
+	public void fillUsers(ArrayList<String> m)
 	{
-//		Main.gui.usersWindow
+		Main.gui.setMemberList(m);
 	}
 
 	public void log(String m)

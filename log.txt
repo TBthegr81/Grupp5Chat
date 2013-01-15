@@ -1070,3 +1070,29 @@
 7ServerAnimetalk!Welcome to Animetalk!
 7TBflyinghej
 7TBflyinghej
+1ServernullWelcome toMyServer
+1 null null TBonBike
+2ServernullTBonBike
+2 TBonBike null OK
+4ServernullWelcome to this awesome server, dont say stupid things!
+4 TBonBike null OK
+6ServernullAnimetalk! Gametalk Main 
+6 TBonBike null gametalk
+5Servernull <Server.User@14e4c9a>  <Server.User@1871f70>  <Server.User@21251c>  <Server.User@b701b>  <Server.User@ed0f19> 
+1ServernullWelcome toMyServer
+1 null null Debugger
+2ServernullDebugger
+2 Debugger null OK
+4ServernullWelcome to this awesome server, dont say stupid things!
+4 Debugger null OK
+5ServernullAnimetalk! Gametalk Main 
+1ServernullWelcome toMyServer
+1 null null Debugger
+2ServernullDebugger
+2 Debugger null OK
+4ServernullWelcome to this awesome server, dont say stupid things!
+4 Debugger null OK
+5ServernullAnimetalk! Gametalk Main 
+5 Debugger null ok
+6ServerAnimetalk!Welcome to Animetalk!
+6 Debugger null tack

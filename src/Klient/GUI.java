@@ -4,6 +4,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+
 import javax.swing.*;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
@@ -17,6 +19,7 @@ public class GUI extends JFrame implements ActionListener{
 	
 	public static JTextArea conversationWindow;
 	public static JTextField messageInputField;
+	static JTextArea memberListTextArea;
 	GUIConnectMenu connectMenu = new GUIConnectMenu();
 	
 
@@ -184,7 +187,6 @@ public class GUI extends JFrame implements ActionListener{
 					public void actionPerformed(ActionEvent e) {
 						
 						Main.klient.checkMessage(messageInputField.getText());
-
 						//Clears input field.
 						messageInputField.setText("");
 					}
@@ -201,16 +203,16 @@ public class GUI extends JFrame implements ActionListener{
 		
 	}
 	public void showReceivedMessage(String message, String user){
-				
 		conversationWindow.append(newline + user + ": " + message);
-
 	}
 	public void serverMessage(String message){
 		conversationWindow.append(newline + message);
 	}
-	
-	
-
+	public void setMemberList(ArrayList<String> message){
+		for (int i = 0;i<message.size();i++){
+			memberListTextArea.append(message.get(i) + newline);
+		}		
+	}
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub

@@ -3,9 +3,15 @@ import java.net.InetAddress;
 import java.util.ArrayList;
 
 import Delat.Message;
-import Delat.Spell;
 
 public class ChatProtocol {
+	/*
+	 * Chatprotocol är den andra delen av de två som gör upp köttet i Server-programmet.
+	 * Här tas det klienten skirver in och behandlas.
+	 * Den följer en lista på saker som ska utföras innan klientern får chatta.
+	 * När en uppgift har gjorts klart sätts state till nästa sak,
+	 * så när usern skickar något nästa gång går den vidare och gör nästa sak.
+	 */
 	private static ArrayList<String> states = new ArrayList<String>(); 
 	private User user;
 	private static String message;
@@ -13,13 +19,14 @@ public class ChatProtocol {
 	 private int state;
 	 public ChatProtocol(User user)
 	 {
-		 states.add("WAITING");
-		 states.add("SENTWELCOME");
-		 states.add("SENTUSERNAMEANSWER");
-		 states.add("SENTMOT");
-		 states.add("SENTROOMS");
-		 states.add("JOINEDROOM");
-		 states.add("SENTUSERS");
+		 states.add("WAITING"); // Här börjar den, väntandes på någon som ska connecta
+		 states.add("SENTWELCOME"); // Här har den skickat välkomstmeddelandet
+		 states.add("SENTUSERNAMEANSWER"); // Här svarar den på om det angivna username är ok
+		 states.add("SENTMOT"); // Här har den skickat MOT (Message Of the Day) typ regler och stuff om servern
+		 states.add("SENTROOMS"); // Här har den skickat listan över de chatrum som finns på servern
+		 states.add("JOINEDROOM"); // Här har usern valt vilket rum den vill joina
+		 states.add("SENTUSERS"); // Här får usern listan på dem som finns i rummet.
+		 // Efter detta så är det chat som gäller.
 		 
 		 state = states.indexOf("WAITING");
 		 this.user = user;
@@ -27,31 +34,28 @@ public class ChatProtocol {
 	 
 	 public Message read(Message input, InetAddress ip)
 	 {
+		 // Börja logga inputen från user
 		 message = "State = " + states.get(state);
-		 System.out.println(message);
+		 Lib.print(message);
 		 Lib.log(message);
-
+		 
+		 // Errorchecka inputen för konstiga saker, typ som att det är tomt.
 		 if(input == null || input.getMessage().equals("\\s+") || input.getMessage().equalsIgnoreCase("") || input.getMessage().equalsIgnoreCase(" "))
 		 {
 			 input = new Message(1, "Klient", "null", "Null");
 		 }
-		 //String Input[] = input.split("\\s+",3);
-		 //input = Input[2];
-		 //String output = "";
 		 Message output = null;
 		 switch(state)
 		 {
 		 // State = Waiting for Users to connect.
 		 case 0:
 			 // A user connected! Send them a welcome-message with the servername.
-			 //output = "1" + " " + "Server" + " " + "Welcome to " + Lib.settings.get(0);
 			 output = new Message(1, "Server", "null","Welcome to" + Lib.settings.get(0));
 			 state = states.indexOf("SENTWELCOME");
 			 break;
 
 			 // State = Client is connected and have sent the nickname they wanna use, check if its good.
 		 case 1:
-			 //if(!input.equalsIgnoreCase(Main.users.get(i).getNickname())) // Check if the nickname isn't Ted. Cuse that is always taken
 			 if(ServerThread.userOK(input.getMessage()) == false)
 			 {
 				 user.setNickname(input.getMessage());
@@ -59,9 +63,6 @@ public class ChatProtocol {
 				 Lib.print(text);
 				 Lib.log(text);
 				 output = new Message(2,"Server","null",text);
-				 //thisUser = ServerThread.createUser();
-				
-				 //ServerThread.username = Main.users.get(thisUser).getNickname();
 				 state = states.indexOf("SENTUSERNAMEANSWER");
 			 }
 			 else
@@ -79,23 +80,15 @@ public class ChatProtocol {
 
 			 // State = MOT is sent, time for the users on the server
 		 case 3:
-			// This will be loaded dynamicly later... ofc
-			 output = new Message(5,"Server","null", ServerThread.getRooms());
+			 // Sending the list of rooms
+			 output = new Message(5,"Server","null", Lib.getRooms());
 			 state = states.indexOf("SENTROOMS");
 			 break;
 			 // State = Room-list is sent, User will reply with what room they wanna chat in
 			 
 		 case 4:
-			 // Yeah, not sure how this case will be, yet. Just some random stuff atm.
-			 /*int room1 = 0;
-			 room1 = ServerThread.getRoomIndex(input.getMessage());
-			 if(room1 == 0)
-			 {
-				 room1 = ServerThread.createRoom(input.getMessage());
-			 }
-			 Main.rooms.get(room1).addUser(Main.users.get(thisUser));
-			 Main.rooms.get(room1).setUserLevel(Main.users.get(thisUser).getNickname(), 1);
-			 */
+			 // Here the user chooses witch room s/he wanna join
+			 // (Right now the user gets thrown into main-room whatever they say)
 			 Room room = Main.rooms.get(0);
 			 room.addUser(user);
 			 message = ("User nr: " + Main.users.indexOf(user) + " with username: " + user.getNickname() + " created in room " + room.getRoomName());
@@ -110,35 +103,38 @@ public class ChatProtocol {
 			  */
 			 
 		 case 5:
-			 
+			 // Sending the list of users in that room
 			 output = new Message(7,"Server","null",Main.rooms.get(0).getUsersString());
 			 state = states.indexOf("SENTUSERS");
 
 			 break;
 			 // State = Users-list is sent. Time to send list of public chatrooms.
 		 case 6:
-			 //output = new Message(8,"<Ted>","Indeed dear sir!");
+			 // Everything the user sends now get sent to the "send to all users" function in that room.
+			 // The server also sends back a confirmation that the message have been received and sent
 			 output = new Message(0, "Server" , Main.rooms.get(0).getRoomName(), "Message Sent");
-			 //output = new Message(7,"Server",Main.rooms.get(0).roomName, Main.users.get(Main.users.indexOf(user)).cast(new Spell("FireBolt",5,1,10), Main.users.get(0)));
 			 Main.rooms.get(0).say(user,input.getMessage());
 			 
-			 // Send "input" to the room...
 			 break;
 
 		 }
+		 // And in the end, print the state, input and output to the console and log.
+		 // Mostly for bugtesting purposes.
 		 message = "Input: " + input.getId() + " " + input.getUsername() + " " + input.getRoom() + " "  +  input.getMessage();
-		 System.out.println(message);
+		 Lib.print(message);
 		 Lib.log(message);
 
 		 message = "Output: " + output.getId() + " " + output.getUsername() + " " + output.getMessage();
-		 System.out.println(message);
+		 Lib.print(message);
 		 Lib.log(message);
 
 		 message = "State = " + states.get(state);
-		 System.out.println(message);
+		 Lib.print(message);
 		 Lib.log(message);
 
-		 System.out.println("\n");
+		 Lib.print("\n");
+		 
+		 // Send the answer back to the ServerThread that sends it to the user
 		 return output;
 	 }
 	

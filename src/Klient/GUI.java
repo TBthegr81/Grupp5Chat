@@ -5,18 +5,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
-
 import javax.swing.*;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.LayoutStyle.ComponentPlacement;
 
 
 public class GUI extends JFrame implements ActionListener{
+	//This is the main window. Contains 
 	
 	private static final long serialVersionUID = 1L;
 	public static String newline = System.getProperty("line.separator");
-	public static String myUserName = "debug";
-	
 	public static JTextArea conversationWindow;
 	public static JTextField messageInputField;
 	public static JTextArea memberField;
@@ -29,10 +25,8 @@ public class GUI extends JFrame implements ActionListener{
 	 */
 	public GUI(){
 		
-		
-
-		
-		final JFrame clientWindow = new JFrame ("Group 5 chat client");
+		//Main window
+		final JFrame clientWindow = new JFrame();
 		clientWindow.setTitle("iClient");
 		clientWindow.getContentPane().setSize(new Dimension(700, 350));
 		clientWindow.setMinimumSize(new Dimension(400, 350));
@@ -47,12 +41,11 @@ public class GUI extends JFrame implements ActionListener{
 		Container contentClientWindow = clientWindow.getContentPane();
 		contentClientWindow.setBackground(Color.LIGHT_GRAY);
 		
-		
 		//Menu for chat
 		JMenu chatMenu = new JMenu("iClient");
 		chatMenu.setMnemonic(KeyEvent.VK_M);
 		
-		//Menu bar 
+		//Menubar 
 		JMenuBar chatMenuBar = new JMenuBar();
 		chatMenuBar.add(chatMenu);
 
@@ -66,10 +59,9 @@ public class GUI extends JFrame implements ActionListener{
 		JMenuItem exitMenuItem = new JMenuItem("Exit", KeyEvent.VK_S);
 		chatMenu.add(exitMenuItem);
 		
-		//Meny tvÃ¥
+		//Menu two
 		JMenu menuTools = new JMenu("Tools");
 		chatMenuBar.add(menuTools);
-		
 		
 		JMenuItem optionsMenuItem = new JMenuItem("Options");
 		menuTools.add(optionsMenuItem);
@@ -101,15 +93,13 @@ public class GUI extends JFrame implements ActionListener{
 			}
 		});
 		
-		
+		//Main frame layouts
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{155, 398, 101, 0};
 		gridBagLayout.rowHeights = new int[]{40, 399, 83, 0};
 		gridBagLayout.columnWeights = new double[]{1.0, 1.0, 1.0, Double.MIN_VALUE};
 		gridBagLayout.rowWeights = new double[]{1.0, 1.0, 1.0, Double.MIN_VALUE};
 		clientWindow.getContentPane().setLayout(gridBagLayout);
-		
-	
 
 		//Text field for message
 		messageInputField = new JTextField();
@@ -118,8 +108,8 @@ public class GUI extends JFrame implements ActionListener{
 		messageInputField.setPreferredSize(new Dimension(300, 25));
 		messageInputField.setSize(new Dimension(300, 25));
 		messageInputField.setColumns(10);
-		
 		messageInputField.setEditable(false);
+		
 		GridBagConstraints gbc_messageInputField = new GridBagConstraints();
 		gbc_messageInputField.fill = GridBagConstraints.BOTH;
 		gbc_messageInputField.insets = new Insets(0, 0, 0, 5);
@@ -127,6 +117,7 @@ public class GUI extends JFrame implements ActionListener{
 		gbc_messageInputField.gridy = 2;
 		clientWindow.getContentPane().add(messageInputField, gbc_messageInputField);
 		
+		//Sends message when pressing Enter when input field is focused, for checking by Klient.java, then clears input field
 		messageInputField.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Main.klient.checkMessage(messageInputField.getText());
@@ -170,6 +161,7 @@ public class GUI extends JFrame implements ActionListener{
 				gbc_scrollPane.gridy = 0;
 				clientWindow.getContentPane().add(scrollPane, gbc_scrollPane);
 		
+				//Här visas användare
 		memberField = new JTextArea();
 		memberField.setText("Users online:\r\n");
 		memberField.setBackground(Color.LIGHT_GRAY);
@@ -181,21 +173,19 @@ public class GUI extends JFrame implements ActionListener{
 		gbc_memberListTextArea.gridy = 1;
 		clientWindow.getContentPane().add(memberField, gbc_memberListTextArea);
 		
-		
-				
-				//submit button to send text
+				//This button sends a message. Identical to the action at line 125, but on a button.
 				JButton btnSendMessage = new JButton("Send message");
 				btnSendMessage.setSize(new Dimension(80, 20));
 				btnSendMessage.setBackground(Color.CYAN);
 				
 				btnSendMessage.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						
 						Main.klient.checkMessage(messageInputField.getText());
 						//Clears input field.
 						messageInputField.setText("");
 					}
 				});
+				
 				GridBagConstraints gbc_btnSendMessage = new GridBagConstraints();
 				gbc_btnSendMessage.anchor = GridBagConstraints.NORTHWEST;
 				gbc_btnSendMessage.gridx = 2;
@@ -203,10 +193,11 @@ public class GUI extends JFrame implements ActionListener{
 				gbc_btnSendMessage.fill = GridBagConstraints.BOTH;
 				clientWindow.getContentPane().add(btnSendMessage, gbc_btnSendMessage);
 
-		
+		//Rechecks positions.
 		clientWindow.revalidate();
 		
 	}
+	//Shows messages sent by others and you, after server has sent them to every client connected.
 	public void showReceivedMessage(String message, String user){
 		conversationWindow.append(newline + user + ": " + message);
 		//After printing message, checks memberlist so that no user gets left out in the memberlist. 
@@ -217,13 +208,16 @@ public class GUI extends JFrame implements ActionListener{
 			}
 		}
 	}
+	//System messages from server
 	public void serverMessage(String message){
 		conversationWindow.append(newline + message);
 	}
+	//Function for updating the list of connected users.
 	public static void setMemberList(){
-		
+			//Only do if there are any users online. (Needed for debug purposes)
 			if (userList.isEmpty() == false){
 			System.out.println("There are " + userList.size() + " users online.");
+			//For safety, resets the text before listing users each time function is called.
 			memberField.setText("Users online:" + newline);
 			
 			for (int i = 0; i<userList.size();i++){
@@ -232,6 +226,7 @@ public class GUI extends JFrame implements ActionListener{
 			}
 			}
 			else {
+				//Debug message. :)
 				System.out.println("There are no users online. Including you. This shouldn't happen, check server connections.");
 			}
 		}	

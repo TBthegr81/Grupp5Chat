@@ -1758,3 +1758,85 @@
 8SvenneRubinzMainhoho ho
 8 Wikingarna null has disconnected from the server...
 8WikingarnaMainhas disconnected from the server...
+1ServernullWelcome toMyServer
+1 null null lala
+2Servernulllala
+2 lala null OK
+4ServernullWelcome to this awesome server, dont say stupid things!
+4 lala null OK
+5ServernullMain 
+5 lala null OK
+6ServerMainWelcome to Main
+6 lala null OK
+7Servernull0<DefaultCat> 1<ivan2> 2<Ivan> 3<Sergei2k> 4<Gandalf> 5<Cat with hat> 6<smörMannen> 7<GorgothTheDestroyer> 8<lalala> 9<ivan...> 10<ivan22> 11<BillMurray> 12<SvenneRubinz> 13<Wikingarna> 14<lala> 
+7 lala null has joined the conversation.
+8lalaMainhas joined the conversation.
+0ServerMainMessage Sent
+1ServernullWelcome toMyServer
+1 null null IvanX
+2ServernullIvanX
+2 IvanX null OK
+4ServernullWelcome to TB's private server of awesomeness. Join in the fun and chat away.
+4 IvanX null OK
+5ServernullMain 
+5 IvanX null OK
+5 IvanX null hello
+5 IvanX null lalala
+1ServernullWelcome toMyServer
+1 IvanX null IvanX
+2ServernullIvanX
+2 IvanX null OK
+4ServernullWelcome to TB's private server of awesomeness. Join in the fun and chat away.
+4 IvanX null OK
+5ServernullMain 
+5 IvanX null OK
+1ServernullWelcome toMyServer
+1 null null IvanY
+2ServernullIvanY
+2 IvanY null OK
+4ServernullWelcome to TB's private server of awesomeness. Join in the fun and chat away.
+4 IvanY null OK
+5ServernullMain 
+5 IvanY null OK
+5 IvanY null hej
+5 IvanX null hej
+1ServernullWelcome toMyServer
+1 null null Tengil
+2ServernullTengil
+2 Tengil null OK
+4ServernullWelcome to TB's private server of awesomeness. Join in the fun and chat away.
+4 Tengil null OK
+5ServernullMain 
+5 Tengil null OK
+8ServerMainTengil has joined the room.
+6ServerMainWelcome to Main
+6 Tengil null OK
+7Servernull0<Tengil> 
+7 Tengil null has joined the conversation.
+8TengilMainhas joined the conversation.
+0ServerMainMessage Sent
+1ServernullWelcome toMyServer
+1 null null LeifGW
+2ServernullLeifGW
+2 LeifGW null OK
+4ServernullWelcome to TB's private server of awesomeness. Join in the fun and chat away.
+4 LeifGW null OK
+5ServernullMain 
+5 LeifGW null OK
+8ServerMainLeifGW has joined the room.
+8ServerMainLeifGW has joined the room.
+6ServerMainWelcome to Main
+6 LeifGW null OK
+7Servernull0<Tengil> 1<LeifGW> 
+7 LeifGW null has joined the conversation.
+8LeifGWMainhas joined the conversation.
+8LeifGWMainhas joined the conversation.
+0ServerMainMessage Sent
+0 LeifGW null hej
+8LeifGWMainhej
+8LeifGWMainhej
+0ServerMainMessage Sent
+8 Tengil null hej
+8TengilMainhej
+8TengilMainhej
+0ServerMainMessage Sent

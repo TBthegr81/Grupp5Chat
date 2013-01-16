@@ -148,7 +148,7 @@ public class Klient {
 			send(id, userName, null, "OK");
 			break;
 		case 7:			//list of users
-			send(id, userName, null, "has joined the conversation.");
+			send(id, userName, null, "OK");
 			GUI.userList = chopStrings(message);
 			GUI.setMemberList();
 			break;

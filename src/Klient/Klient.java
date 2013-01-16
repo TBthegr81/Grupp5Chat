@@ -97,7 +97,7 @@ public class Klient {
 			log(chunk);
 			System.out.println(chunk);
 		} catch (IOException e) {
-			Main.gui.showReceivedMessage("You are not connected to the a server...", "Hal9000");
+			Main.gui.showReceivedMessage("You are not connected to a server...", "Hal9000");
 			System.err.println("ERROR: " + e.getMessage());
 		}
 	}

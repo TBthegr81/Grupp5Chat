@@ -1840,3 +1840,43 @@
 8TengilMainhej
 8TengilMainhej
 0ServerMainMessage Sent
+1ServernullWelcome toMyServer
+1 null null Ivan
+2ServernullIvan
+2 Ivan null OK
+4ServernullWelcome to TB's private server of awesomeness. Join in the fun and chat away.
+4 Ivan null OK
+5ServernullMain 
+5 Ivan null OK
+8ServerMainIvan has joined the room.
+6ServerMainWelcome to Main
+6 Ivan null OK
+7Servernull0<Tengil> 1<LeifGW> 2<Ivan> 
+7 Ivan null OK
+8IvanMainOK
+0ServerMainMessage Sent
+1ServernullWelcome toMyServer
+1 null null Tengil
+3ServernullTengil
+3 Hans null OK
+2ServernullOK
+2 OK null OK
+4ServernullWelcome to TB's private server of awesomeness. Join in the fun and chat away.
+4 OK null OK
+5ServernullMain 
+5 OK null OK
+8ServerMainOK has joined the room.
+8ServerMainOK has joined the room.
+6ServerMainWelcome to Main
+6 OK null OK
+7Servernull0<Tengil> 1<LeifGW> 2<Ivan> 3<OK> 
+7 OK null OK
+8OKMainOK
+8OKMainOK
+0ServerMainMessage Sent
+8 Ivan null lol
+8IvanMainlol
+8IvanMainlol
+0ServerMainMessage Sent
+0 Ivan null has disconnected from the server...
+8IvanMainhas disconnected from the server...

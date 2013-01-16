@@ -209,6 +209,13 @@ public class GUI extends JFrame implements ActionListener{
 	}
 	public void showReceivedMessage(String message, String user){
 		conversationWindow.append(newline + user + ": " + message);
+		//After printing message, checks memberlist so that no user gets left out in the memberlist. 
+		for (String s : userList){
+			if (s == user){
+				userList.add(user);
+				setMemberList();
+			}
+		}
 	}
 	public void serverMessage(String message){
 		conversationWindow.append(newline + message);

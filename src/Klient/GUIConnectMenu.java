@@ -19,7 +19,8 @@ import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 
 public class GUIConnectMenu extends JFrame {
-
+	//This class is the window that gets input, either from saved bookmarks, or from manual input about connection info
+	//then firstly starts the Klient backend thread, and optionally opens a window for saving a bookmark.
 	/**
 	 * 
 	 */
@@ -28,6 +29,7 @@ public class GUIConnectMenu extends JFrame {
 	private JTextField connectEnterIP;
 	private JTextField connectEnterPort;
 	private JCheckBox bookmarkCheckbox;
+	@SuppressWarnings("rawtypes")
 	private JComboBox comboBoxBookmarkSelect;
 	private JLabel lblBookmark;
 	private String tempIP;
@@ -37,14 +39,12 @@ public class GUIConnectMenu extends JFrame {
 	private JTextField userNameTextField;
 
 
-	/**
-	 * Launch the application.
-	 */
 	public void windowCloser(){
 		this.setVisible(false);
 	}
 
 	public void BookmarkSetter(){
+		//Helper function for easier access from the BookmarkInput class.
 		tempIP = connectEnterIP.getText();
 		tempPort = Integer.parseInt(connectEnterPort.getText());
 	}
@@ -99,12 +99,13 @@ public class GUIConnectMenu extends JFrame {
 		
 		//Denna uppdaterar listan
 		comboBoxBookmarkSelect.addFocusListener(new FocusAdapter() {
+			@SuppressWarnings("unchecked")
 			@Override
 			public void focusGained(FocusEvent arg0) {
 				
 					if (Main.mainData.nickname.isEmpty() != true){
 						
-						//T�mmer f�r att undvika dubletter
+						//Tï¿½mmer fï¿½r att undvika dubletter
 						comboBoxBookmarkSelect.removeAllItems();
 						
 						for (int i = 0; i < Main.mainData.nickname.size(); i++){
@@ -115,7 +116,7 @@ public class GUIConnectMenu extends JFrame {
 					}
 				}
 			});
-		//Denna uppdaterar �vriga f�lt med korrekt data.
+		//Updates fields with data from the bookmark object.
 		comboBoxBookmarkSelect.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if (comboBoxBookmarkSelect.getSelectedIndex() != -1){
@@ -123,14 +124,10 @@ public class GUIConnectMenu extends JFrame {
 					
 					connectEnterIP.setText(Main.mainData.ipAdress.get(sel));
 					connectEnterPort.setText(Main.mainData.port.get(sel).toString());
-					
-					
-					
 				}	
 			}
 		});
 		
-			
 		comboBoxBookmarkSelect.setToolTipText("Select a server:");
 		GridBagConstraints gbc_comboBoxBookmarkSelect = new GridBagConstraints();
 		gbc_comboBoxBookmarkSelect.gridwidth = 3;
@@ -196,7 +193,7 @@ public class GUIConnectMenu extends JFrame {
 		contentPane.add(lblSessionUsername, gbc_lblSessionUsername);
 		
 		userNameTextField = new JTextField();
-		userNameTextField.setText("DefaultCat");
+		userNameTextField.setText("Main.mainData.userName");
 		GridBagConstraints gbc_userNameTextField = new GridBagConstraints();
 		gbc_userNameTextField.gridwidth = 3;
 		gbc_userNameTextField.insets = new Insets(0, 0, 5, 5);
@@ -216,14 +213,21 @@ public class GUIConnectMenu extends JFrame {
 		connectMenuConnectBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
+				//Helper function, made for easier sending of data to the bookmark save window
 				BookmarkSetter();
-				GUI.myUserName = userNameTextField.getText();
+				Main.mainData.userName = userNameTextField.getText();
+				//Currently, whitespace causes a minor display bug. This should replace space and tabs and such with "_".
+				Main.mainData.userName = Main.mainData.userName.replaceAll("\\s","_");
+				
+				//Saves the userName (and as an added effect, all bookmarks are re-saved) to file
+				Main.saveData(Main.mainData);
+				
+				//Starts the Klient backend in a separate thread.
 				KlientThread tre = new KlientThread();
 				Thread t = new Thread(tre);
 				t.start();
 				
 				if (bookmarkCheckbox.isSelected() == true){
-
 					bookmarkMenu.setVisible(true);
 				}
 				windowCloser();

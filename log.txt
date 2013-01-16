@@ -1436,3 +1436,60 @@
 8UltraIvan2kMaina
 0ServerMainMessage Sent
 0 UltraIvan2k null /dc
+1ServernullWelcome toMyServer
+1 null null Ivan
+2ServernullIvan
+2 Ivan null OK
+4ServernullWelcome to this awesome server, dont say stupid things!
+4 Ivan null OK
+5ServernullMain 
+5 Ivan null ok
+6ServerMainWelcome to Main
+6 Ivan null OK
+7Servernull0<Jocke> 1<Ivan> 
+7 Ivan null OK
+8IvanMainOK
+0ServerMainMessage Sent
+8JockeMainSkriv ngt
+8JockeMainahja
+8 Ivan null tjena
+8IvanMaintjena
+0ServerMainMessage Sent
+8JockeMainI SEE YOU
+8 Ivan null läget bruuuuchan
+8IvanMainläget bruuuuchan
+0ServerMainMessage Sent
+0 Ivan null hahahaha
+8IvanMainhahahaha
+0ServerMainMessage Sent
+0 Ivan null tb ser inte 
+8IvanMaintb ser inte 
+0ServerMainMessage Sent
+8JockeMaintb e blind
+8 Ivan null haha stoooopid tb
+8IvanMainhaha stoooopid tb
+0ServerMainMessage Sent
+8JockeMainTb is da shit
+8JockeMainiiwwifwifwpiwqf
+8JockeMainLETS SAY STUPID THINGS
+8 Ivan null piss and poop
+8IvanMainpiss and poop
+0ServerMainMessage Sent
+8JockeMainjbadoiasbaid
+1ServernullWelcome toMyServer
+1 null null DefaultCat
+2ServernullDefaultCat
+2 DefaultCat null OK
+4ServernullWelcome to this awesome server, dont say stupid things!
+4 DefaultCat null OK
+5ServernullMain 
+5 DefaultCat null ok
+6ServerMainWelcome to Main
+6 DefaultCat null OK
+7Servernull0<DefaultCat> 
+7 DefaultCat null OK
+8DefaultCatMainOK
+0ServerMainMessage Sent
+0 DefaultCat null hej
+8DefaultCatMainhej
+0ServerMainMessage Sent

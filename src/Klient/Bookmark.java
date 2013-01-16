@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Bookmark implements Serializable{
+	//This class is used to create objects which contains bookmark data, and a default username.
   
 	private static final long serialVersionUID = 1L;
 	public ArrayList<String> nickname;

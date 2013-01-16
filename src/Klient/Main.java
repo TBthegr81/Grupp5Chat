@@ -27,11 +27,8 @@ public class Main {
 			mainData = new Bookmark();
 		} catch (IOException e) {
 			e.printStackTrace();
-		} 
-		
-		GUI.setMemberList();
+		} 	
 	}
-
 
 	public static void saveData(Bookmark saveBookmark){
 		ObjectOutputStream output = null;

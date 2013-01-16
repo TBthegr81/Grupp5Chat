@@ -11,11 +11,19 @@
 //class Logg  {
 //    
 //        public void logSave(){
+
+//
+
+/* Gammal oanvänd class från saknad gruppmedlem */
+
+//
+
+
 //          
 
 //        String conversationWindow = null;
 //        String conversationWindow;
-//		File log = new File("log.txt");
+//  	File log = new File("log.txt");
 //
 //			try{
 //			    if(!log.exists()){

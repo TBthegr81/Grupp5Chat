@@ -4,7 +4,6 @@ import java.net.InetAddress;
 import java.net.Socket;
 
 import Delat.Message;
-import Delat.Spell;
 
 /*
 * Objektklass får users på servern
@@ -17,16 +16,12 @@ public class User
 	private ServerThread myThread = null;
 	private Socket openForConnections;
 	private String text;
-	private int mana = 0;
-	private int hp = 0;
 	
 	User()
 	{
 		text = "Client Connected!";
 		Lib.print(text);
 		Lib.log(text);
-		mana = 10;
-		hp = 30;
 	}
 	
 	public void setSocket(Socket mySocket)
@@ -55,32 +50,17 @@ public class User
 		return ip;
 	}
 	
+	// Startfunktionen skapar en ny ServerThread och startar den så det kan hända något
 	public void start()
 	{
 		myThread = new ServerThread(this,openForConnections);
 		myThread.start();
 	}
 	
+	// Alternativet mot att ha en funktion som bara kallar på en annan funktion var att ha ServerThread publik
+	// Detta lät bättre
 	public void send(Message message)
 	{
 		myThread.sendMessage(message);
-	}
-	
-	public String cast(Spell mySpell, User target)
-	{
-		mana =- mySpell.getCost();
-		target.looseHP(mySpell.getDamage());
-		String text = this.getNickname() + " attacked " + target.getNickname() +  " who was left with " + target.getHP() + " HP";
-		return text;
-	}
-	
-	public void looseHP(int damage)
-	{
-		hp = hp - damage;
-	}
-	
-	public int getHP()
-	{
-		return hp;
 	}
 }

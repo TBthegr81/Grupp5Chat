@@ -2,43 +2,42 @@ package Server;
 
 import java.io.IOException;
 import java.net.ServerSocket;
-import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Date;
 
 public class Main extends Thread
 {
+	// Börjar med att deklarera ett gäng variabler som ska användas.
 	public static ArrayList<User> users = new ArrayList<User>();
 	public static ArrayList<Room> rooms = new ArrayList<Room>();
-	//public static ArrayList<ServerThread> threads = new ArrayList<ServerThread>();
 	private static String message;
-	private static ArrayList<String> settings;
-	@SuppressWarnings("unused")
-	private static String servername = null;
 	private static int port;
 	private static ServerSocket openForConnections;
 	
 	public static void main(String[] args) throws IOException
 	{
-		//Lib.test();
-		//System.out.println(Main.rooms.get(0).getUsersString());
+		// En variabel sätts, sålänge den är true kommer servern köra.
 		boolean listening = true;
-		 Date date = new Date();
+		
+		// Öppnar loggen och skriver dit datum och tid som servern startade.
+		Date date = new Date();
 		Lib.log("\n\nDate: " + date.toString());
-		Lib.loadSettings();
 		
+		// Här börjar servern faktiskt starta upp
 		message = "Starting up server...";
-		System.out.println(message);
+		Lib.print(message);
 		Lib.log(message);
-		settings = Lib.settings;
-		servername = settings.get(0);
-		port = Integer.parseInt(settings.get(1));
-		try {
-		Room mainroom = new Room();
-		mainroom.setRoomName("Main");
-		rooms.add(mainroom);
 		
-		openForConnections = new ServerSocket(port);
+		// Settings laddas
+		Lib.loadSettings();
+		port = Integer.parseInt( Lib.getSettings().get(1));
+		
+		// Skapa huvudrummet där alla slängs in när de joinar servern
+		Lib.createRoom("Main");
+		
+		// Nu startas några sockets som den ska övervaka för klienter, misslyckas det stängs programmet av
+		try {
+			openForConnections = new ServerSocket(port);
 		} catch (IOException e) {
 		message = "Could not listen on port: " + port;
 		System.err.println(message);
@@ -46,30 +45,20 @@ public class Main extends Thread
 		System.exit(1);
 		}
 		message = "Server started on port " + port;
-		System.out.println(message);
+		Lib.print(message);
 		Lib.log(message);
 		
+		// Om socketen skapades korrekt ska den börja lyssna efter klienter
 		message = "Starts listening to things...";
-		System.out.println(message);
+		Lib.print(message);
 		Lib.log(message);
 		while (listening)
 		{
-			//ServerThread myThread = new ServerThread(openForConnections.accept());
-			User u = createUser(openForConnections.accept());
+			// Om någon connectar ska det skapas en ny user.
+			User u = Lib.createUser(openForConnections.accept());
 			u.start();
-			//threads.get(threads.indexOf(myThread)).start();
-			//System.out.println("Client Connected");
 		}
 		
-	}
-	
-	public static User createUser(Socket socket)
-	{
-		User thisUser = new User();
-		Main.users.add(thisUser);
-		if(socket != null)
-			thisUser.setSocket(socket);
-		return thisUser;
 	}
 
 }

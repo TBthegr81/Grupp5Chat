@@ -9,48 +9,67 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /*
- * Inneh�ller randomfunktioner som kan anv�ndas lite wherever
+ * Innehåller randomfunktioner som kan användas lite wherever
  */
 public class Lib {
 	final static Charset ENCODING = StandardCharsets.UTF_8;
-	public static ArrayList<String> settings;
+	public static ArrayList<String> settings = new ArrayList<String>();
 
 	public static void loadSettings()
 	{
 		/*
-		 * Laddar settings ifr�n userfile
+		 * Laddar settings ifrån configfil på servern
 		 */
-		Path path = Paths.get("./bin/Server/Grupp5Chat.cfg");
-		settings = new ArrayList<String>();
+		Path path = Paths.get("Grupp5Chat.cfg");
 		List<String> list;
+		
+		// Börjar försöka ladda settings
 		String message;
 		message = "Trying to load settings...";
 		Lib.log(message);
-		System.out.println(message);
+		Lib.print(message);
 		try {
+			// Ladda in filen till en list
 			list = Files.readAllLines(path, ENCODING);
 			for(int i = 0; i < list.size(); i++)
 			{
+				/*
+				 * Gå igenom listan och för varje rad, splitta på whitespace
+				 * Den ska dock bara splitta på de första 2 whitespaces för att behålla
+				 * Server-MOT och annat som kan vara flera ord långa.
+				 * De addas sen till ArrayList med settings för att man lätt ska kunna komma åt dem.
+				 */
 				Lib.log(list.get(i));
 				String Stuff[] = list.get(i).split("\\s+",2);
 				settings.add(Stuff[1]);
 			}
+			// Printa ut settings
 			for(String line : settings)
 			{
-				System.out.println(line);
+				Lib.print(line);
+				Lib.log(line);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
 			message = "Cant load settings check file";
 			Lib.log(message);
-			System.out.println(message);
-		}
+			Lib.print(message);
+			System.exit(1);
+		} finally {
 		message = "Settings loaded\n";
 		Lib.log(message);
-		System.out.println(message);
+		Lib.print(message);
+		}
+	}
+	
+	// Funktion för att ge settings till det som vill ha dem
+	public static ArrayList<String> getSettings()
+	{
+		return settings;
 	}
 
 	public static void print(String text)
@@ -58,36 +77,39 @@ public class Lib {
 		/*
 		 * Printar till konsol
 		 */
+		Date date = new Date();
+		text = date.toString() + " " + text;
 		System.out.println(text);
 	}
 
 	public static void log(String text)
 	{
 		/*
-		 * Ska logga allt som händer på servern
+		 * Loggar det man vill logga till en .log fil
+		 * Kallas på lite överallt i programmet för att spara debuginfo som kan va rolig att ha senare.
 		 */
 		FileWriter logging = null;
 		try {
-			logging = new FileWriter("./bin/Server/Grupp5Chat.log", true);
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		}
-
-		try {
+			logging = new FileWriter("Grupp5Chat.log", true);
 			logging.write(text + System.lineSeparator());
 		} catch (IOException e) {
-			System.out.println("Error-logging failed, check error-log for details");
-		}
-
-		// Close FileOutputStream
-		try
-		{
-			logging.close();
-		} catch (IOException e){
-			System.out.println("Error on closing file");
+			Lib.print("Error-logging failed, check error-log for details");
+			Lib.print(e.getMessage());
+		} finally {
+			// Close FileOutputStream
+			try
+			{
+				if(logging != null)
+				{
+					logging.close();
+				}
+			} catch (IOException e){
+				Lib.print("Error on closing file");
+			}
 		}
 	}
-
+	
+	/* En gammal testfunktion för att slänga in lite fake-users på servern
 	public static void test()
 	{
 		int room1 = ServerThread.createRoom("Animetalk!");
@@ -121,5 +143,47 @@ public class Lib {
 		
 		//System.out.println(ServerThread.getUsers());
 		//System.out.println(ServerThread.getRooms());
+	}*/
+	
+	public static Room createRoom(String roomname)
+	{
+		/*
+		 * Funktion för att skapa nytt rum
+		 */
+		Room thisRoom = new Room();
+		Main.rooms.add(thisRoom);
+		// Skapa rummet och adda till ArrayListen med rum i Main
+		thisRoom.setRoomName(roomname);
+		// Sätt ett namn på det rummet
+		String text = "Room Created: " + thisRoom.getRoomName();
+		Lib.print(text);
+		Lib.log(text);
+		return thisRoom;
+	}
+	
+	public static User createUser(Socket socket)
+	{
+		/*
+		 * Funktion för att skapa users
+		 */
+		User thisUser = new User();
+		Main.users.add(thisUser);
+		// Adda user till ArrayListen i Main
+		thisUser.setSocket(socket);
+		// Adda en socket till Usern
+		return thisUser;
+	}
+	
+	public static String getRooms()
+	{
+		/*
+		 * Funktion som returnar en Sträng med alla rum
+		 */
+		String text = "";
+		for(int i = 0; i < Main.rooms.size(); i++)
+		{
+			text = text + Main.rooms.get(i).getRoomName() + " ";
+		}
+		return text;
 	}
 }

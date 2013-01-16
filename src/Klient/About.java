@@ -19,11 +19,11 @@ import java.awt.event.ActionListener;
 import javax.swing.UIManager;
 
 public class About extends JFrame {
+	//Shows information about the program in a new window.
 
   private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	
-	//Till för att stänga fönster
 	private void windowCloser(){
 		this.setVisible(false);
 	}

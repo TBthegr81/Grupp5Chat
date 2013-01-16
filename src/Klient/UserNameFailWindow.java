@@ -15,7 +15,8 @@ import javax.swing.JButton;
 import javax.swing.SwingConstants;
 
 public class UserNameFailWindow extends JFrame {
-  
+	//This class creates a window for input of a new username, if the previous selection was not accepted by server.
+	
 	private static final long serialVersionUID = 1L;
 	private JTextField userNewNameInput;
 

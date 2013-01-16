@@ -1493,3 +1493,268 @@
 0 DefaultCat null hej
 8DefaultCatMainhej
 0ServerMainMessage Sent
+1ServernullWelcome toMyServer
+1 null null DefaultCat
+2ServernullDefaultCat
+2 DefaultCat null OK
+4ServernullWelcome to this awesome server, dont say stupid things!
+4 DefaultCat null OK
+5ServernullMain 
+5 DefaultCat null ok
+6ServerMainWelcome to Main
+6 DefaultCat null OK
+7Servernull0<DefaultCat> 
+7 DefaultCat null OK
+8DefaultCatMainOK
+0ServerMainMessage Sent
+0 DefaultCat null hej
+8DefaultCatMainhej
+0ServerMainMessage Sent
+1ServernullWelcome toMyServer
+1 null null Ivan
+2ServernullIvan
+2 Ivan null OK
+4ServernullWelcome to this awesome server, dont say stupid things!
+4 Ivan null OK
+5ServernullMain 
+1ServernullWelcome toMyServer
+1 null null ivan2
+2Servernullivan2
+2 ivan2 null OK
+4ServernullWelcome to this awesome server, dont say stupid things!
+4 ivan2 null OK
+5ServernullMain 
+5 ivan2 null jakejs
+6ServerMainWelcome to Main
+6 ivan2 null OK
+7Servernull0<DefaultCat> 1<ivan2> 
+7 ivan2 null OK
+8ivan2MainOK
+0ServerMainMessage Sent
+5 Ivan null sakjea
+6ServerMainWelcome to Main
+6 Ivan null OK
+7Servernull0<DefaultCat> 1<ivan2> 2<Ivan> 
+7 Ivan null OK
+8IvanMainOK
+8IvanMainOK
+0ServerMainMessage Sent
+8 ivan2 null hallå
+8ivan2Mainhallå
+8ivan2Mainhallå
+0ServerMainMessage Sent
+1ServernullWelcome toMyServer
+1 null null Sergei2k
+2ServernullSergei2k
+2 Sergei2k null OK
+4ServernullWelcome to this awesome server, dont say stupid things!
+4 Sergei2k null OK
+5ServernullMain 
+5 Sergei2k null ok
+6ServerMainWelcome to Main
+6 Sergei2k null OK
+7Servernull0<DefaultCat> 1<ivan2> 2<Ivan> 3<Sergei2k> 
+7 Sergei2k null OK
+8Sergei2kMainOK
+0ServerMainMessage Sent
+1ServernullWelcome toMyServer
+1 null null Gandalf
+2ServernullGandalf
+2 Gandalf null OK
+4ServernullWelcome to this awesome server, dont say stupid things!
+4 Gandalf null OK
+5ServernullMain 
+5 Gandalf null OK
+6ServerMainWelcome to Main
+6 Gandalf null OK
+7Servernull0<DefaultCat> 1<ivan2> 2<Ivan> 3<Sergei2k> 4<Gandalf> 
+7 Gandalf null OK
+8GandalfMainOK
+0ServerMainMessage Sent
+1ServernullWelcome toMyServer
+1 null null Cat with hat
+2ServernullCat with hat
+2 Cat with hat null OK
+4ServernullWelcome to this awesome server, dont say stupid things!
+4 Cat with hat null OK
+5ServernullMain 
+5 Cat with hat null OK
+6ServerMainWelcome to Main
+6 Cat with hat null OK
+7Servernull0<DefaultCat> 1<ivan2> 2<Ivan> 3<Sergei2k> 4<Gandalf> 5<Cat with hat> 
+7 Cat with hat null OK
+8Cat with hatMainOK
+0ServerMainMessage Sent
+0 Cat with hat null hello
+8Cat with hatMainhello
+0ServerMainMessage Sent
+1ServernullWelcome toMyServer
+1 null null smörMannen
+2ServernullsmörMannen
+2 smörMannen null OK
+4ServernullWelcome to this awesome server, dont say stupid things!
+4 smörMannen null OK
+5ServernullMain 
+5 smörMannen null OK
+6ServerMainWelcome to Main
+6 smörMannen null OK
+7Servernull0<DefaultCat> 1<ivan2> 2<Ivan> 3<Sergei2k> 4<Gandalf> 5<Cat with hat> 6<smörMannen> 
+7 smörMannen null has joined the conversation.
+8smörMannenMainhas joined the conversation.
+0ServerMainMessage Sent
+1ServernullWelcome toMyServer
+1 null null GorgothTheDestroyer
+2ServernullGorgothTheDestroyer
+2 GorgothTheDestroyer null OK
+4ServernullWelcome to this awesome server, dont say stupid things!
+4 GorgothTheDestroyer null OK
+5ServernullMain 
+5 GorgothTheDestroyer null OK
+6ServerMainWelcome to Main
+6 GorgothTheDestroyer null OK
+7Servernull0<DefaultCat> 1<ivan2> 2<Ivan> 3<Sergei2k> 4<Gandalf> 5<Cat with hat> 6<smörMannen> 7<GorgothTheDestroyer> 
+7 GorgothTheDestroyer null has joined the conversation.
+8GorgothTheDestroyerMainhas joined the conversation.
+0ServerMainMessage Sent
+0 GorgothTheDestroyer null hell oall
+8GorgothTheDestroyerMainhell oall
+0ServerMainMessage Sent
+0 GorgothTheDestroyer null lala
+8GorgothTheDestroyerMainlala
+0ServerMainMessage Sent
+0 GorgothTheDestroyer null yupp
+8GorgothTheDestroyerMainyupp
+0ServerMainMessage Sent
+0 GorgothTheDestroyer null swag swag
+8GorgothTheDestroyerMainswag swag
+0ServerMainMessage Sent
+0 GorgothTheDestroyer null /dc
+1ServernullWelcome toMyServer
+1 null null lalala
+2Servernulllalala
+2 lalala null OK
+4ServernullWelcome to this awesome server, dont say stupid things!
+4 lalala null OK
+5ServernullMain 
+5 lalala null OK
+6ServerMainWelcome to Main
+6 lalala null OK
+7Servernull0<DefaultCat> 1<ivan2> 2<Ivan> 3<Sergei2k> 4<Gandalf> 5<Cat with hat> 6<smörMannen> 7<GorgothTheDestroyer> 8<lalala> 
+7 lalala null has joined the conversation.
+8lalalaMainhas joined the conversation.
+0ServerMainMessage Sent
+0 lalala null hej
+8lalalaMainhej
+0ServerMainMessage Sent
+0 lalala null /dc
+1ServernullWelcome toMyServer
+1 null null ivan...
+2Servernullivan...
+2 ivan... null OK
+4ServernullWelcome to this awesome server, dont say stupid things!
+4 ivan... null OK
+5ServernullMain 
+5 ivan... null OK
+6ServerMainWelcome to Main
+6 ivan... null OK
+7Servernull0<DefaultCat> 1<ivan2> 2<Ivan> 3<Sergei2k> 4<Gandalf> 5<Cat with hat> 6<smörMannen> 7<GorgothTheDestroyer> 8<lalala> 9<ivan...> 
+7 ivan... null has joined the conversation.
+8ivan...Mainhas joined the conversation.
+0ServerMainMessage Sent
+0 ivan... null hej
+8ivan...Mainhej
+0ServerMainMessage Sent
+0 ivan... null hej hej
+8ivan...Mainhej hej
+0ServerMainMessage Sent
+0 ivan... null /dc
+1ServernullWelcome toMyServer
+1 null null ivan22
+2Servernullivan22
+2 ivan22 null OK
+4ServernullWelcome to this awesome server, dont say stupid things!
+4 ivan22 null OK
+5ServernullMain 
+5 ivan22 null OK
+6ServerMainWelcome to Main
+6 ivan22 null OK
+7Servernull0<DefaultCat> 1<ivan2> 2<Ivan> 3<Sergei2k> 4<Gandalf> 5<Cat with hat> 6<smörMannen> 7<GorgothTheDestroyer> 8<lalala> 9<ivan...> 10<ivan22> 
+7 ivan22 null has joined the conversation.
+8ivan22Mainhas joined the conversation.
+0ServerMainMessage Sent
+0 ivan22 null hello 
+8ivan22Mainhello 
+0ServerMainMessage Sent
+0 ivan22 null /dc
+1ServernullWelcome toMyServer
+1 null null BillMurray
+2ServernullBillMurray
+2 BillMurray null OK
+4ServernullWelcome to this awesome server, dont say stupid things!
+4 BillMurray null OK
+5ServernullMain 
+5 BillMurray null OK
+6ServerMainWelcome to Main
+6 BillMurray null OK
+7Servernull0<DefaultCat> 1<ivan2> 2<Ivan> 3<Sergei2k> 4<Gandalf> 5<Cat with hat> 6<smörMannen> 7<GorgothTheDestroyer> 8<lalala> 9<ivan...> 10<ivan22> 11<BillMurray> 
+7 BillMurray null has joined the conversation.
+8BillMurrayMainhas joined the conversation.
+0ServerMainMessage Sent
+0 BillMurray null hello
+8BillMurrayMainhello
+0ServerMainMessage Sent
+0 BillMurray null im bill
+8BillMurrayMainim bill
+0ServerMainMessage Sent
+0 BillMurray null murray...
+8BillMurrayMainmurray...
+0ServerMainMessage Sent
+0 BillMurray null i am also god
+8BillMurrayMaini am also god
+0ServerMainMessage Sent
+0 BillMurray null bye bye
+8BillMurrayMainbye bye
+0ServerMainMessage Sent
+0 BillMurray null /dc
+1ServernullWelcome toMyServer
+1 null null SvenneRubinz
+2ServernullSvenneRubinz
+2 SvenneRubinz null OK
+4ServernullWelcome to this awesome server, dont say stupid things!
+4 SvenneRubinz null OK
+5ServernullMain 
+5 SvenneRubinz null OK
+6ServerMainWelcome to Main
+6 SvenneRubinz null OK
+7Servernull0<DefaultCat> 1<ivan2> 2<Ivan> 3<Sergei2k> 4<Gandalf> 5<Cat with hat> 6<smörMannen> 7<GorgothTheDestroyer> 8<lalala> 9<ivan...> 10<ivan22> 11<BillMurray> 12<SvenneRubinz> 
+7 SvenneRubinz null has joined the conversation.
+8SvenneRubinzMainhas joined the conversation.
+0ServerMainMessage Sent
+0 SvenneRubinz null hoj hoj
+8SvenneRubinzMainhoj hoj
+0ServerMainMessage Sent
+1ServernullWelcome toMyServer
+1 null null Wikingarna
+2ServernullWikingarna
+2 Wikingarna null OK
+4ServernullWelcome to this awesome server, dont say stupid things!
+4 Wikingarna null OK
+5ServernullMain 
+5 Wikingarna null OK
+6ServerMainWelcome to Main
+6 Wikingarna null OK
+7Servernull0<DefaultCat> 1<ivan2> 2<Ivan> 3<Sergei2k> 4<Gandalf> 5<Cat with hat> 6<smörMannen> 7<GorgothTheDestroyer> 8<lalala> 9<ivan...> 10<ivan22> 11<BillMurray> 12<SvenneRubinz> 13<Wikingarna> 
+7 Wikingarna null has joined the conversation.
+8WikingarnaMainhas joined the conversation.
+8WikingarnaMainhas joined the conversation.
+0ServerMainMessage Sent
+0 Wikingarna null nä men hejsan
+8WikingarnaMainnä men hejsan
+8WikingarnaMainnä men hejsan
+0ServerMainMessage Sent
+8 SvenneRubinz null hoho ho
+8SvenneRubinzMainhoho ho
+0ServerMainMessage Sent
+8SvenneRubinzMainhoho ho
+8 Wikingarna null has disconnected from the server...
+8WikingarnaMainhas disconnected from the server...

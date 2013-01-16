@@ -72,7 +72,8 @@ public class Klient {
 		
 			switch(firstWord) {				//checks if the first word in the message is a command
 			case "/dc":
-				send(id, userName, null, m);
+				send(id, userName, null, "has disconnected from the server...");
+				Main.gui.showReceivedMessage("Disconnected...", "Hal9000");
 				close();
 				break;
 			case "/nick":
@@ -95,6 +96,7 @@ public class Klient {
 			log(chunk);
 			System.out.println(chunk);
 		} catch (IOException e) {
+			Main.gui.showReceivedMessage("You are not connected to the a server...", "Hal9000");
 			System.err.println("ERROR: " + e.getMessage());
 		}
 	}
@@ -140,14 +142,15 @@ public class Klient {
 		case 5:			//list of rooms
 			listRooms = chopStrings(message);
 			Main.gui.messageInputField.setEditable(true);
+			send(id, userName, null, "OK");
 			break;
 		case 6:			//welcome to room
 			send(id, userName, null, "OK");
 			break;
 		case 7:			//list of users
+			send(id, userName, null, "has joined the conversation.");
 			GUI.userList = chopStrings(message);
 			GUI.setMemberList();
-			send(id, userName, null, "OK");
 			break;
 		case 8:			//send messages
 			System.out.println("ready to type!");
@@ -166,6 +169,8 @@ public class Klient {
 	//chops a string att every blankspace
 	public ArrayList<String> chopStrings(String m)
 	{
+		m = m.replace("<", ".").replace(">", "");
+		
 		ArrayList<String> serverInfo = new ArrayList<String>(Arrays.asList(m.split("\\s+")));
 		for(int i = 0; i < serverInfo.size(); i++) {
 			System.out.println(serverInfo.get(i) + " ");

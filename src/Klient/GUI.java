@@ -66,7 +66,7 @@ public class GUI extends JFrame implements ActionListener{
 		JMenuItem exitMenuItem = new JMenuItem("Exit", KeyEvent.VK_S);
 		chatMenu.add(exitMenuItem);
 		
-		//Meny två
+		//Meny tvÃ¥
 		JMenu menuTools = new JMenu("Tools");
 		chatMenuBar.add(menuTools);
 		
@@ -134,7 +134,7 @@ public class GUI extends JFrame implements ActionListener{
 			}
 		});
 		
-		//H�r visas rummets namn.
+		//Här visas rummets namn.
 		JFormattedTextField roomNameTextArea = new JFormattedTextField();
 		roomNameTextArea.setBackground(Color.LIGHT_GRAY);
 		roomNameTextArea.setHorizontalAlignment(SwingConstants.CENTER);
@@ -209,6 +209,13 @@ public class GUI extends JFrame implements ActionListener{
 	}
 	public void showReceivedMessage(String message, String user){
 		conversationWindow.append(newline + user + ": " + message);
+		//After printing message, checks memberlist so that no user gets left out in the memberlist. 
+		for (String s : userList){
+			if (s == user){
+				userList.add(user);
+				setMemberList();
+			}
+		}
 	}
 	public void serverMessage(String message){
 		conversationWindow.append(newline + message);

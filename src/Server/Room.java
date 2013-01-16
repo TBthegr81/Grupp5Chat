@@ -5,22 +5,19 @@ import java.util.ArrayList;
 import Delat.Message;
 
 /*
-* Objektklass f�r channels/rum p� servern
-* H�ller rummens variabler och de funktioner rummen ska kunna kalla p�
+* Objektklass får channels/rum på servern
+* Håller rummens variabler och de funktioner rummen ska kunna kalla på
 */
 public class Room {
-
 	private String roomName;
 	private String topic;
 	private ArrayList<User> users = new ArrayList<User>();
 	private ArrayList<Integer> userLevels = new ArrayList<Integer>();
-	//ArrayList<String> messages = new ArrayList<String>();
-
-	Room()
-	{
-
-	}
-
+	
+	/*
+	 * Alla dessa funktioner med set/get behöver väll inte förklaras närmare
+	 * De sätter och hämtar värden till rummet
+	 */
 	public void setRoomName(String newName)
 	{
 		roomName = newName;
@@ -51,17 +48,8 @@ public class Room {
 	{
 		userLevels.set(users.indexOf(username), level);
 	}
-
-	public ArrayList<String> getUsers()
-	{
-		ArrayList<String> returnList = new ArrayList<String>();
-		for(int i = 0; i < users.size(); i++)
-		{
-			returnList.add(userLevels.get(i) + " " + users.get(i));
-		}
-		return returnList;
-	}
-
+	
+	// Skickar tillbaka sträng med alla users
 	public String getUsersString()
 	{
 		String users = "";
@@ -73,6 +61,8 @@ public class Room {
 		
 	}
 
+	// Funktion som loopar rummets users och kallar på deras respektive "send" funktion.
+	// Så alla users i rummet får det meddelande som skickas in med denna funktion
 	public void say(User user, String message)
 	{
 		String text = "<" + user.getNickname() + "> " + message;

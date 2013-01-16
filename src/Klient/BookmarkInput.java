@@ -15,6 +15,7 @@ import javax.swing.JButton;
 import javax.swing.SwingConstants;
 
 public class BookmarkInput extends JFrame {
+	//New window that handles the naming and saveíng of bookmarks and the userName.
   
 	private static final long serialVersionUID = 1L;
 	private JTextField bookmarkNameInput;
@@ -82,7 +83,8 @@ public class BookmarkInput extends JFrame {
 				System.out.println("Attempting to save bookmark with name " + bookmarkNameInput.getText() + Main.gui.connectMenu.BookmarkGetIp() + Main.gui.connectMenu.BookmarkGetPort());
 				
 				Main.mainData.addBookmark(bookmarkNameInput.getText(), Main.gui.connectMenu.BookmarkGetIp(), Main.gui.connectMenu.BookmarkGetPort());
-				System.out.println("Saving to file...");
+				
+				System.out.println("Will now attempt save to file...");
 				
 				Main.saveData(Main.mainData);
 				

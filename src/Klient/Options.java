@@ -2,8 +2,6 @@ package Klient;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -12,21 +10,14 @@ import java.awt.GridBagLayout;
 import javax.swing.JButton;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
-import javax.swing.JTextPane;
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.FocusAdapter;
-import java.awt.event.FocusEvent;
-
-import javax.swing.UIManager;
-import javax.swing.JLabel;
 
 public class Options extends JFrame {
+	//This was planned, but is unfinished. An empty but fully functional Options menu.
 
   private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JComboBox comboBoxBookmarkSelect;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {

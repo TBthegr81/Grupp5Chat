@@ -20,7 +20,7 @@ public class GUI extends JFrame implements ActionListener{
 	public static JTextArea conversationWindow;
 	public static JTextField messageInputField;
 	public static JTextArea memberField;
-	static ArrayList<String> userList;
+	static ArrayList<String> userList = new ArrayList<String>();;
 	GUIConnectMenu connectMenu = new GUIConnectMenu();
 	
 
@@ -119,6 +119,14 @@ public class GUI extends JFrame implements ActionListener{
 		messageInputField.setSize(new Dimension(300, 25));
 		messageInputField.setColumns(10);
 		
+		messageInputField.setEditable(false);
+		GridBagConstraints gbc_messageInputField = new GridBagConstraints();
+		gbc_messageInputField.fill = GridBagConstraints.BOTH;
+		gbc_messageInputField.insets = new Insets(0, 0, 0, 5);
+		gbc_messageInputField.gridx = 1;
+		gbc_messageInputField.gridy = 2;
+		clientWindow.getContentPane().add(messageInputField, gbc_messageInputField);
+		
 		messageInputField.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Main.klient.checkMessage(messageInputField.getText());
@@ -126,7 +134,7 @@ public class GUI extends JFrame implements ActionListener{
 			}
 		});
 		
-		//HÃ¤r visas rummets namn.
+		//H�r visas rummets namn.
 		JFormattedTextField roomNameTextArea = new JFormattedTextField();
 		roomNameTextArea.setBackground(Color.LIGHT_GRAY);
 		roomNameTextArea.setHorizontalAlignment(SwingConstants.CENTER);
@@ -162,23 +170,17 @@ public class GUI extends JFrame implements ActionListener{
 				gbc_scrollPane.gridy = 0;
 				clientWindow.getContentPane().add(scrollPane, gbc_scrollPane);
 		
-		JTextArea memberListTextArea = new JTextArea();
-		memberListTextArea.setText("Users online:\r\n");
-		memberListTextArea.setBackground(Color.LIGHT_GRAY);
-		memberListTextArea.setEditable(false);
+		memberField = new JTextArea();
+		memberField.setText("Users online:\r\n");
+		memberField.setBackground(Color.LIGHT_GRAY);
+		memberField.setEditable(false);
 		GridBagConstraints gbc_memberListTextArea = new GridBagConstraints();
 		gbc_memberListTextArea.insets = new Insets(0, 0, 5, 5);
 		gbc_memberListTextArea.fill = GridBagConstraints.BOTH;
 		gbc_memberListTextArea.gridx = 0;
 		gbc_memberListTextArea.gridy = 1;
-		clientWindow.getContentPane().add(memberListTextArea, gbc_memberListTextArea);
-		messageInputField.setEditable(false);
-		GridBagConstraints gbc_messageInputField = new GridBagConstraints();
-		gbc_messageInputField.fill = GridBagConstraints.BOTH;
-		gbc_messageInputField.insets = new Insets(0, 0, 0, 5);
-		gbc_messageInputField.gridx = 1;
-		gbc_messageInputField.gridy = 2;
-		clientWindow.getContentPane().add(messageInputField, gbc_messageInputField);
+		clientWindow.getContentPane().add(memberField, gbc_memberListTextArea);
+		
 		
 				
 				//submit button to send text
@@ -213,18 +215,14 @@ public class GUI extends JFrame implements ActionListener{
 	}
 	public static void setMemberList(){
 		
-		userList = new ArrayList<String>();
-		userList.add("Scheisse");
-		
 			if (userList.isEmpty() == false){
 			System.out.println("There are " + userList.size() + " users online.");
+			memberField.setText("Users online:" + newline);
 			
 			for (int i = 0; i<userList.size();i++){
 				System.out.println(userList.get(i));
-		//		memberListTextArea.setText(userList.get(i) + newline);
+				memberField.append(userList.get(i) + newline);
 			}
-			
-			
 			}
 			else {
 				System.out.println("There are no users online. Including you. This shouldn't happen, check server connections.");

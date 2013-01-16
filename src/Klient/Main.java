@@ -6,18 +6,20 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.ArrayList;
 
 
 public class Main {
+	//Main class. Handles initial loading of saved bookmarks, contains the object where these are stored, the klient backend
+	//object and the main user interface gui object, as well as the save and load functions of bookmarks.
 
 	public static GUI gui = new GUI();
 	public static Klient klient = new Klient();
 	public static Bookmark mainData;
 
-
 	public static void main(String[] args) {
 
+		//Tries to load data. Prints to console the results. If loading failed because a file was not found,
+		//creates an empty bookmark object.
 		try {
 			mainData = loadData();
 			System.out.println("Succeeding in loading bookmarks!");

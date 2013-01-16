@@ -12,6 +12,7 @@ import java.util.Scanner;
 import Delat.Message;
 
 public class Klient {
+	//This is the backend of the chat client.
 
 	private Socket connection;
 	private ObjectOutputStream outStream;
@@ -124,7 +125,7 @@ public class Klient {
 	{
 		switch(id){
 		case 1:			//connected to server, got welcome message
-			send(id, userName, null, GUI.myUserName);
+			send(id, userName, null, Main.mainData.userName);
 			break;
 		case 2:			//username accepted
 			userName = message;
@@ -132,7 +133,7 @@ public class Klient {
 			send(id, userName, null, "OK");
 			break;
 		case 3:			//username not accepted... get new from GUI
-			Main.gui.messageInputField.setEditable(true);
+			GUI.messageInputField.setEditable(true);
 			UserNameFailWindow fail = new UserNameFailWindow();
 			fail.setVisible(true);
 			break;
@@ -141,7 +142,7 @@ public class Klient {
 			break;
 		case 5:			//list of rooms
 			listRooms = chopStrings(message);
-			Main.gui.messageInputField.setEditable(true);
+			GUI.messageInputField.setEditable(true);
 			send(id, userName, null, "OK");
 			break;
 		case 6:			//welcome to room
@@ -163,7 +164,8 @@ public class Klient {
 	{
 		Scanner input = new Scanner(System.in);
 		String message = input.nextLine();
-		return message;
+		input.close();
+		return message;		
 	}
 
 	//chops a string att every blankspace

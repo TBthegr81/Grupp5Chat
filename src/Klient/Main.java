@@ -12,9 +12,9 @@ public class Main {
 	//Main class. Handles initial loading of saved bookmarks, contains the object where these are stored, the klient backend
 	//object and the main user interface gui object, as well as the save and load functions of bookmarks.
 
-	public static GUI gui = new GUI();
 	public static Klient klient = new Klient();
 	public static Bookmark mainData;
+	public static GUI gui;
 
 	public static void main(String[] args) {
 
@@ -30,6 +30,9 @@ public class Main {
 		} catch (IOException e) {
 			e.printStackTrace();
 		} 
+		
+		gui = new GUI();
+		//Creates the Gui.
 	}
 
 

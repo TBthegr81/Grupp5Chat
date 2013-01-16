@@ -193,7 +193,7 @@ public class GUIConnectMenu extends JFrame {
 		contentPane.add(lblSessionUsername, gbc_lblSessionUsername);
 		
 		userNameTextField = new JTextField();
-		userNameTextField.setText("Main.mainData.userName");
+		userNameTextField.setText(Main.mainData.userName);
 		GridBagConstraints gbc_userNameTextField = new GridBagConstraints();
 		gbc_userNameTextField.gridwidth = 3;
 		gbc_userNameTextField.insets = new Insets(0, 0, 5, 5);

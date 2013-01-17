@@ -95,6 +95,7 @@ public class ChatProtocol {
 			 Lib.print(message);
 			 Lib.log(message);
 			 output = new Message(6,"Server", room.getRoomName(), "Welcome to " + room.getRoomName());
+			 Main.rooms.get(0).say(null,user.getNickname() + " has joined the room.");
 			 state = states.indexOf("JOINEDROOM");
 			 break;
 			 /*

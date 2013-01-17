@@ -65,13 +65,28 @@ public class Room {
 	// Så alla users i rummet får det meddelande som skickas in med denna funktion
 	public void say(User user, String message)
 	{
-		String text = "<" + user.getNickname() + "> " + message;
+		String nickname;
+		if(user == null)
+		{
+			nickname = "Server";
+		}
+		else
+		{
+			nickname = user.getNickname();
+		}
+		
+		String text = "<" + nickname + "> " + message;
 		//messages.add(text);
 		Lib.log(text);
 		
 		for(int i = 0; i < users.size(); i++)
 		{
-			users.get(i).send(new Message(8, user.getNickname(), this.getRoomName(), message));
+			users.get(i).send(new Message(8, nickname, this.getRoomName(), message));
 		}
+	}
+	
+	public void removeUser(User user)
+	{
+		users.remove(user);
 	}
 }

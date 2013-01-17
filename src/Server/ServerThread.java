@@ -111,11 +111,12 @@ public class ServerThread extends Thread {
 		try{
 			inStream.close();
 			outStream.close();
-			//connectionToClient.close();
 		} catch(IOException e) {
 			System.err.println("Error on close.");
 		}
+		Main.rooms.get(0).removeUser(user);
 		Main.users.remove(user);
+		Main.rooms.get(0).say(null,user.getNickname() + " has left the room.");
 		message = "Thread shutting down!";
 		Lib.print(message);
 		Lib.log(message);

@@ -1,22 +1,23 @@
 package Server;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.Socket;
 import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 /*
  * Innehåller randomfunktioner som kan användas lite wherever
  */
 public class Lib {
-	final static Charset ENCODING = StandardCharsets.UTF_8;
+	//final static Charset ENCODING = StandardCharsets.UTF_8;
 	public static ArrayList<String> settings = new ArrayList<String>();
 
 	public static void loadSettings()
@@ -25,17 +26,21 @@ public class Lib {
 		 * Laddar settings ifrån configfil på servern
 		 */
 		Path path = Paths.get("Grupp5Chat.cfg");
-		List<String> list;
 		
 		// Börjar försöka ladda settings
 		String message;
+		InputStream    inputstream;
+		BufferedReader buffreader;
+		String line;
 		message = "Trying to load settings...";
 		Lib.log(message);
 		Lib.print(message);
 		try {
-			// Ladda in filen till en list
-			list = Files.readAllLines(path, ENCODING);
-			for(int i = 0; i < list.size(); i++)
+			// Ladda in filen
+			System.out.println(path.toString());
+			inputstream = new FileInputStream(path.toString());
+			buffreader = new BufferedReader(new InputStreamReader(inputstream, Charset.forName("UTF-8")));
+			while((line = buffreader.readLine()) != null)
 			{
 				/*
 				 * Gå igenom listan och för varje rad, splitta på whitespace
@@ -43,15 +48,15 @@ public class Lib {
 				 * Server-MOT och annat som kan vara flera ord långa.
 				 * De addas sen till ArrayList med settings för att man lätt ska kunna komma åt dem.
 				 */
-				Lib.log(list.get(i));
-				String Stuff[] = list.get(i).split("\\s+",2);
+				Lib.log(line);
+				String Stuff[] = line.split("\\s+",2);
 				settings.add(Stuff[1]);
 			}
 			// Printa ut settings
-			for(String line : settings)
+			for(String line2 : settings)
 			{
-				Lib.print(line);
-				Lib.log(line);
+				Lib.print(line2);
+				Lib.log(line2);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -88,6 +93,7 @@ public class Lib {
 		 * Loggar det man vill logga till en .log fil
 		 * Kallas på lite överallt i programmet för att spara debuginfo som kan va rolig att ha senare.
 		 */
+		
 		FileWriter logging = null;
 		try {
 			logging = new FileWriter("Grupp5Chat.log", true);
@@ -107,6 +113,7 @@ public class Lib {
 				Lib.print("Error on closing file");
 			}
 		}
+		
 	}
 	
 	/* En gammal testfunktion för att slänga in lite fake-users på servern

@@ -68,13 +68,13 @@ public class Klient {
 			firstWord = arr[0];
 			rest = arr[1];
 		} catch (ArrayIndexOutOfBoundsException e) {
-			System.out.println("ERROR: Only sent one word in message, resulting in ArrayIndexOutOfBoundsException when trying to acces arr[1]");
+			System.out.println("NVM THIS ERROR: Only sent one word in message, resulting in ArrayIndexOutOfBoundsException when trying to acces arr[1]");
 		}
 		
 			switch(firstWord) {				//checks if the first word in the message is a command
 			case "/dc":
-				send(id, userName, null, "has disconnected from the server...");
-				Main.gui.showReceivedMessage("Disconnected...", "Hal9000");
+				send(id, userName, null, "m");
+				Main.gui.showReceivedMessage("Disconnected...", "Client");
 				close();
 				break;
 			case "/nick":
@@ -97,7 +97,7 @@ public class Klient {
 			log(chunk);
 			System.out.println(chunk);
 		} catch (IOException e) {
-			Main.gui.showReceivedMessage("You are not connected to a server...", "Hal9000");
+			Main.gui.showReceivedMessage("You are not connected to a server...", "Client");
 			System.err.println("ERROR: " + e.getMessage());
 		}
 	}

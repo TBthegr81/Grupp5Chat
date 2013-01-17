@@ -1,4 +1,4 @@
-//package Klient;
+package Klient;
 //import java.awt.event.ActionEvent;
 //import java.io.*;
 //
@@ -8,7 +8,7 @@
 //
 //
 //
-//class Logg  {
+class Logg  {
 //    
 //        public void logSave(){
 
@@ -54,7 +54,7 @@
 //			conversationWindow.append(line + "\n");
 //			rd.close();
 //			
-//		}
+}
 //
 //    
 //}

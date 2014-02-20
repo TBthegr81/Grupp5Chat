@@ -1,6 +1,7 @@
 package Server;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -25,7 +26,9 @@ public class Lib {
 		/*
 		 * Laddar settings ifrån configfil på servern
 		 */
-		Path path = Paths.get("Grupp5Chat.cfg");
+		String initPath = System.getProperty("user.dir");
+		//System.out.println(initPath);
+		Path path = Paths.get(initPath + File.separator + "Grupp5Chat.cfg");
 		
 		// Börjar försöka ladda settings
 		String message;
@@ -37,7 +40,7 @@ public class Lib {
 		Lib.print(message);
 		try {
 			// Ladda in filen
-			System.out.println(path.toString());
+			//System.out.println(path.toString());
 			inputstream = new FileInputStream(path.toString());
 			buffreader = new BufferedReader(new InputStreamReader(inputstream, Charset.forName("UTF-8")));
 			while((line = buffreader.readLine()) != null)
@@ -63,12 +66,64 @@ public class Lib {
 			message = "Cant load settings check file";
 			Lib.log(message);
 			Lib.print(message);
+			Lib.CreateSettingsFile();
+			Lib.loadSettings();
 			System.exit(1);
 		} finally {
 		message = "Settings loaded\n";
 		Lib.log(message);
 		Lib.print(message);
 		}
+	}
+	
+	public static void CreateSettingsFile()
+	{
+		String message = "Creating Settingsfile...";
+		Lib.log(message);
+		Lib.print(message);
+		String initPath = System.getProperty("user.dir");
+		String settings = "Servername: MyServer\nListenPort: 54602\nMOT: Welcome to this awesome server, dont say stupid things!";
+		writeToFile(initPath + File.separator + "Grupp5Chat.cfg", settings);
+		message = "Settingsfile created at " + initPath + File.separator;
+		Lib.log(message);
+		Lib.print(message);
+	}
+	
+	public static void writeToFile(String file, String text)
+	{
+		/*
+		 * Method to write to any file specified. Primarly used by the Log-method.
+		 */
+		String message;
+		FileWriter writer = null;
+		
+			try {
+				writer = new FileWriter(file, true);
+			} catch (IOException e) {
+				message = "Could not create filewriter." + e.toString();
+				Lib.log(message);
+				Lib.print(message);
+			}
+			
+			/*
+			 * Writes whatever was specified when calling the method and also a lineSeperator.
+			 */
+			try {
+				writer.write(text + System.lineSeparator());
+			} catch (IOException e) {
+				message = "Could not write to file"+ e.toString();
+				Lib.log(message);
+				Lib.print(message);
+			}
+			
+			try {
+				writer.close();
+			} catch (IOException e) {
+				message = "Could not close file."+ e.toString();
+				Lib.log(message);
+				Lib.print(message);
+			}
+			
 	}
 	
 	// Funktion för att ge settings till det som vill ha dem
